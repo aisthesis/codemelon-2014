@@ -26,12 +26,12 @@ body {
 .cm-header {
     padding: 30px 15px 40px;
     text-shadow: 0 1px 0 rgba(0,0,0,.15);
-    background-color: dimgray;
-    color: gainsboro;
+    background-color: whitesmoke;
+    color: gray;
 }
 
 .cm-header h1 {
-    color: white;
+    color: black;
 }
 
 .cm-sidebar {
@@ -41,7 +41,7 @@ body {
     padding-bottom: 10px;
     text-shadow: 0 1px 0 #fff;
     border-radius: 5px;
-    background-color: whitesmoke;
+    background-color: gainsboro;
 }
 
 .cm-sidebar-container {
