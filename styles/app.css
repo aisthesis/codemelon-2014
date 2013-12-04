@@ -1,0 +1,49 @@
+body {
+    padding-top: 50px;
+}
+
+.cm-nav {
+    text-shadow: 0 -1px 0 rgba(0,0,0,.15);
+    background-color: dimgray;
+    border-color: #555;
+    box-shadow: 0 1px 0 rgba(255,255,255,.1);
+}
+
+.cm-nav .navbar-brand {
+    color: #fff;
+}
+
+.cm-nav .navbar-nav > li > a {
+    color: darkgray;
+}
+
+.cm-nav .navbar-nav > .active > a,
+.cm-nav .navbar-nav > .active > a:hover {
+    color: #fff;
+    background-color: #555;
+}
+
+.cm-header {
+    padding: 30px 15px 40px;
+    text-shadow: 0 1px 0 rgba(0,0,0,.15);
+    background-color: dimgray;
+    color: gainsboro;
+}
+
+.cm-header h1 {
+    color: white;
+}
+
+.cm-sidebar {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-shadow: 0 1px 0 #fff;
+    border-radius: 5px;
+    background-color: whitesmoke;
+}
+
+.cm-sidebar-container {
+    padding: 5px 20px;
+}
