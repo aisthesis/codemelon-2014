@@ -52,20 +52,25 @@
                             <div class="page-header">
                                 <h1>Blurbs</h1>
                             </div>
-                            
-                            <div class="panel panel-default">
-                                <div class="panel-body">
-                                    <h2>Require.js <small> 2013-12-03</small></h2>
-                                    <p>Experiences with require.js <a href="#">More</a></p>
-                                </div>
-                            </div>
+                           
+                            <?php
+                            $d = dir('content/blurbs');
+                            $path = $d->path;
+                            $suffix = '.php';
+                            $prefix = '_';
+                            $handles = array();
+                            while($entry = $d->read()) {
+                                if (strpos($entry, $prefix) === 0 && substr($entry, -strlen($suffix)) === $suffix) {
+                                    $handles[] = substr($entry, strlen($prefix), -strlen($suffix));
+                                }
+                            }
+                            $d->close();
+                            rsort($handles);
+                            foreach($handles as $handle) {
+                                include('content/templates/blurb.php');
+                            }
+                            ?>
 
-                            <div class="panel panel-default">
-                                <div class="panel-body">
-                                    <h2>Object-oriented JavaScript <small> 2013-12-03</small></h2>
-                                    <p>Three techniques <a href="#">More</a></p>
-                                </div>
-                            </div>
                         </div>
                     </div>
 
