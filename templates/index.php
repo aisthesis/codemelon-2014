@@ -1,24 +1,34 @@
 <!DOCTYPE html>
 <html>
-    <?php
-    $root = './';
-    $templatePath = $root . 'templates/';
-    $sectionTitle = 'Blurbs';
-    include($templatePath . 'head.php');
-    ?>
+    <head>
+        <title>codeMelon|Blurbs</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="styles/app.css" rel="stylesheet" media="screen">
+    </head>
     <body>
-        <?php
-        $navbar = array(
-            array('Blurbs', $root . 'index.php'), 
-            array('Archive', '#')
-        );
-        $navActive = 'Blurbs';
-        $navbarLeft = array(
-            array('About', '#')
-        );
-        $navLeftActive = '';
-        include($templatePath . 'header.php');
-        ?>
+        <header class="navbar navbar-inverse navbar-fixed-top cm-nav">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="http://www.codemelon.com"">codeMelon</a>
+                </div>
+                <nav>
+                    <ul class="nav navbar-nav">
+                        <li class="active">
+                            <a href="#">Blurbs</a>
+                        </li>
+                        <li>
+                            <a href="#">Archive</a>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#">About</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
 
         <div class="cm-header">
             <div class="container">
@@ -46,7 +56,6 @@
                             <?php
                             $d = dir('content/blurbs');
                             $path = $d->path;
-                            $articleMain = $root . 'article.php?id=';
                             $suffix = '.php';
                             $prefix = '_';
                             $handles = array();
