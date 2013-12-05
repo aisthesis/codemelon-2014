@@ -1,26 +1,54 @@
 <div class="page-header">
     <h2>Object-oriented JavaScript <small>2013-12-03</small></h2>
 </div>
-<p>There are 3 viable design patterns for writing object-oriented JavaScript. Two
-of these patterns make use only of features already built into JavaScript, while the
-third provides some useful features by adding additional library code, such as
+<p>There are two viable design patterns for writing object-oriented JavaScript. The first
+of these patterns, prototype chaining, is built into the language but has downsides. 
+The second approach avoids these downsides by adding additional library code and is exemplified by
 <a href="https://code.google.com/p/base2/" target="blank">base2</a>. I've
-been using a very similar, but far more lightweight piece of code 
+been using a similar, but far more lightweight piece of code 
 (only 40 lines of code and 2kb unminified) that improves
 on the snippet that John Resig presents in his recent book <a href="http://www.manning.com/resig/"
 target="blank">Secrets of the JavaScript Ninja</a>. I'll briefly talk about the first
-2 patterns before discussing my version of "roll your own" JavaScript inheritance.</p>
+pattern before discussing my version of "roll your own" JavaScript inheritance.</p>
 
-<h3>The simplest approach: Instance properties</h3>
-<p>
+<h3>Inheritance through prototype chaining</h3>
+<p>Consider the following example:</p>
 <pre class="prettyprint linenums lang-js">
-function Melon() {
-    this.ripen = function() {
-        console.log('Juicy!');
+function Animal() {
+    this.breathe = function() {
+        console.log('Breathing');
     };
 };
-</pre>
-</p>
 
-<h3>The standard approach: Prototype properties</h3>
-<h3>A better approach</h3>
+function Mammal() {
+    this.run = function() {
+        console.log('Running');
+    };
+};
+
+Mammal.prototype = new Animal();
+
+function Bat() {
+    this.fly = function() {
+        console.log('Flying');
+    };
+    this.run = function() {
+        console.log('cannot run');
+    };
+};
+
+Bat.prototype = new Mammal();
+
+var bat = new Bat();
+bat.breathe(); // output: Breathing
+bat.run(); // output: cannot run
+bat.fly(); // output: Flying
+if (bat instanceof Bat) console.log('Bat'); // output: Bat 
+if (bat instanceof Mammal) console.log('Mammal');  // output: Mammal
+if (bat instanceof Animal) console.log('Animal');  // output: Animal
+</pre>
+<p>Comments</p>
+<h4>Limitations</h4>
+<p><strong>Doesn't allow reference to superclass method.</strong></p>
+<p><strong>Can lead to errors</strong></p>
+<h3>Customized inheritance</h3>
