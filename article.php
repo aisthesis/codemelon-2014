@@ -3,8 +3,9 @@
     <?php
     $root = './';
     $templatePath = $root . 'templates/';
-    // include a category in get request
-    $sectionTitle = 'JavaScript';
+    // map of articles to category to use in page title
+    include($root . 'content/details/categories.php');
+    $sectionTitle = $categories[$_GET['id']];
     include($templatePath . 'head.php');
     ?>
     <body>
@@ -46,8 +47,8 @@
                              include($articleUrl);
                          }
                          else {
-                             echo '<div class="page-header">';
-                             echo '<div class="alert alert-info"><strong>Article not found.</strong> ';
+                             echo '<div id="cm-article-not-found">';
+                             echo '<div class="alert alert-warning"><strong>Article unavailable.</strong> ';
                              echo 'Please return to the <a href="' . $root . 'index.php">home page</a> ';
                              echo 'for links to available content.</div>';
                              echo '</div>';

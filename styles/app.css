@@ -47,3 +47,7 @@ body {
 .cm-sidebar-container {
     padding: 5px 20px;
 }
+
+#cm-article-not-found {
+    margin: 40px 0 20px;
+}

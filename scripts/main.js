@@ -6,6 +6,7 @@ require.config({
         'bootstrap': 'lib/bootstrap/js/bootstrap.min',
         'underscore': 'lib/underscore.min',
         'Backbone': 'lib/backbone.min',
+        'prettify': 'lib/google-code-prettify/prettify'
     },
 
     shim: {
@@ -18,13 +19,16 @@ require([
         'jquery', 
         'bootstrap', 
         'underscore', 
-        'Backbone'
+        'Backbone',
+        'prettify'
     ], 
     function(
         $, 
         bootstrap,
         _, 
-        Backbone) {
+        Backbone,
+        prettify) {
         'use strict';
+        prettyPrint();
     }
 ); 
