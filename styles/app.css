@@ -51,3 +51,8 @@ body {
 #cm-article-not-found {
     margin: 40px 0 20px;
 }
+
+code {
+    background-color: honeydew;
+    color: tomato;
+}
