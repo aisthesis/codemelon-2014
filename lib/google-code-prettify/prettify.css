@@ -40,17 +40,19 @@ li.L0,
 li.L1,
 li.L2,
 li.L3,
+li.L4,
 li.L5,
 li.L6,
 li.L7,
-/* changed by Marshall 2013-12-04 */
-li.L8
-/* original:
-li.L8 { list-style-type: none }
-*/
+li.L8,
+li.L9 { background: #eee }
+/* original:*/
+/*li.L8 { list-style-type: none } */
 /* Alternate shading for lines */
+/*
 li.L1,
 li.L3,
 li.L5,
 li.L7,
 li.L9 { background: #eee }
+*/
