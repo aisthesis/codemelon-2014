@@ -16,7 +16,7 @@
  *    the reference should link elsewhere
  */
 ?>
-<h2>Java MinHeap implementation <small>2013-11-01</small></h2>
+<h2>Java MinHeap implementation <small><?php echo $date; ?></small></h2>
 <p>Working recently on a problem requiring Dijsktra's algorithm, I noticed
 that Java's native PriorityQueue is missing a necessary <code>decreaseKey()</code>
 method. I feel sure that the reason for this omission is that this method inevitably exposes
