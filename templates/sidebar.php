@@ -6,6 +6,10 @@
             <p class="cm-margin-top-md">Contact:<br/>
             <a href="mailto:info@codemelon.com">info@codemelon.com</a></p>
             <h4>Projects</h4>
+            <ul>
+                <li><a href="https://github.com/aisthesis/codemelon-2014/tree/master/usr"
+                target="blank">JavaScript game engine</a></li>
+            </ul>
             
             <h4>Utilities</h4>
             <ul>
