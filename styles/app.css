@@ -48,11 +48,16 @@ body {
     padding: 5px 20px;
 }
 
-#cm-article-not-found {
+#cm-article-not-found, 
+#cm-utility-not-found {
     margin: 40px 0 20px;
 }
 
 code {
     background-color: honeydew;
     color: tomato;
+}
+
+.cm-margin-top-md {
+    margin-top: 16px;
 }

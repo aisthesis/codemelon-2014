@@ -65,18 +65,9 @@
                         </div>
                     </div>
 
-                    <div class="col-md-3">
-                        <div class="cm-sidebar">
-                            <div class="cm-sidebar-container">
-                                <img src="images/Marshall2012.jpg" alt="Marshall" class="img-rounded" width="128"
-                                    height="128">
-                                <h4>Projects</h4>
-                                <h4>Utilities</h4>
-                                <h4>Downloads</h4>
-                                <h4>Documentation</h4>
-                            </div>
-                        </div>
-                    </div>
+                    <?php
+                    include('templates/sidebar.php');
+                    ?>
                 </div>
             </div>
         </div>
