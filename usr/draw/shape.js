@@ -2,6 +2,9 @@
  * Superclass for closed geometric shapes,
  * such as Polygon or Circle.
  * This class is "abstract" in the sense that it
+ * Copyright (c) 2013 Marshall Farrier
+ * http://www.opensource.org/licenses/mit-license.php
+ *
  * does nothing except provide functionality for 
  * subclasses and has no constructor.
  * The buildPath() method must be overriden to define

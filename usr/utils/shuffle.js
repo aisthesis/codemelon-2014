@@ -1,3 +1,8 @@
+/**
+ * Copyright (c) 2013 Marshall Farrier
+ * http://www.opensource.org/licenses/mit-license.php
+ */
+ 
 var _c = _c || {};
 
 (function(_c) {

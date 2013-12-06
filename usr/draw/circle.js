@@ -1,4 +1,7 @@
 /**
+ * Copyright (c) 2013 Marshall Farrier
+ * http://www.opensource.org/licenses/mit-license.php
+ *
  * Dependencies:
  * extend.js
  * shape.js
