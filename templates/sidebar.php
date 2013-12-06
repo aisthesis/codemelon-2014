@@ -3,6 +3,8 @@
         <div class="cm-sidebar-container">
             <img src="images/Marshall2012.jpg" alt="Marshall" class="img-rounded" width="128"
                 height="128">
+            <p class="cm-margin-top-md">Contact:<br/>
+            <a href="mailto:info@codemelon.com">info@codemelon.com</a></p>
             <h4>Projects</h4>
             
             <h4>Utilities</h4>
