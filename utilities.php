@@ -4,9 +4,9 @@
     $root = './';
     $templatePath = $root . 'templates/';
     // map of articles to category to use in page title
-    include($root . 'content/utilities/titles.php');
+    include($root . 'content/utilities/mappings.php');
     $sectionTitle = $titles[$_GET['id']];
-    include($templatePath . 'head.php');
+    include($templatePath . '_head.php');
     ?>
     <body>
         <?php
@@ -19,7 +19,7 @@
             array('About', '#')
         );
         $navLeftActive = '';
-        include($templatePath . 'header.php');
+        include($templatePath . '_header.php');
         ?>
 
         <div class="container">

@@ -19,7 +19,14 @@
             </ul>
 
             <h4>Downloads</h4>
+
             <h4>Documentation</h4>
+            <ul>
+            <?php
+            echo "<li><a href='{$root}documentation.php?id=javagraph%2Findex.html'>Java graph library</a></li>";
+            ?>
+            </ul>
+
         </div>
     </div>
 </div>

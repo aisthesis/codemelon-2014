@@ -4,8 +4,8 @@
     $root = './';
     $templatePath = $root . 'templates/';
     // map of articles to category to use in page title
-    include($root . 'content/details/mappings.php');
-    $sectionTitle = $titles[$_GET['id']];
+    include($root . 'content/documentation/mappings.php');
+    $sectionTitle = $mappings[$_GET['id']]['title'];
     include($templatePath . '_head.php');
     ?>
     <body>
@@ -29,37 +29,22 @@
                         <img src="images/melon.png" alt="Melon" width="64" height="64">
                     </div>
                     <div class="col-md-11">
-                        <h1>Marshall Farrier's tech blog</h1>
+                        <h1><?php echo $mappings[$_GET['id']]['heading']; ?></h1>
                     </div>
                 </div>
-                <p class="lead">Commentary, coding tips, libraries and utilities</p>
             </div>
         </div>
 
         <div class="container">
             <div class="page-content">
                 <div class="row">
-                    <div class="col-md-9" role="main">
-                        <div class="cm-article">
-                         <?php
-                         $articleUrl = 'content/details/_' . $_GET['id'] . '.php';
-                         if (is_readable($articleUrl)) {
-                             include($articleUrl);
-                         }
-                         else {
-                             echo '<div id="cm-article-not-found">';
-                             echo '<div class="alert alert-warning"><strong>Article unavailable.</strong> ';
-                             echo 'Please return to the <a href="' . $root . 'index.php">home page</a> ';
-                             echo 'for links to available content.</div>';
-                             echo '</div>';
-                         }
-                         ?>
-                        </div>
-                    </div>
-
+                    <div class="col-md-12" role="main">
                     <?php
-                    include('templates/_sidebar.php');
+                    echo "<iframe src='{$root}content/documentation/{$_GET['id']}' ";
+                    echo "width='{$mappings[$_GET['id']]['width']}' ";
+                    echo "height='{$mappings[$_GET['id']]['height']}'></iframe>";
                     ?>
+                    </div>
                 </div>
             </div>
         </div>

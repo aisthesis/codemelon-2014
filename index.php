@@ -4,7 +4,7 @@
     $root = './';
     $templatePath = $root . 'templates/';
     $sectionTitle = 'Blurbs';
-    include($templatePath . 'head.php');
+    include($templatePath . '_head.php');
     ?>
     <body>
         <?php
@@ -17,7 +17,7 @@
             array('About', '#')
         );
         $navLeftActive = '';
-        include($templatePath . 'header.php');
+        include($templatePath . '_header.php');
         ?>
 
         <div class="cm-header">
@@ -58,7 +58,7 @@
                             $d->close();
                             rsort($handles);
                             foreach($handles as $handle) {
-                                include('templates/blurb.php');
+                                include('templates/_blurb.php');
                             }
                             ?>
 
@@ -66,7 +66,7 @@
                     </div>
 
                     <?php
-                    include('templates/sidebar.php');
+                    include('templates/_sidebar.php');
                     ?>
                 </div>
             </div>

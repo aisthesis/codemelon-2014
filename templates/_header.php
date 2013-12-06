@@ -8,7 +8,7 @@
             <?php
             $active = $navActive;
             foreach($navbar as $item) {
-                include($templatePath . 'navbar-item.php');
+                include($templatePath . '_navbar-item.php');
             }
             ?>
             </ul>
@@ -16,7 +16,7 @@
             <?php
             $active = $navLeftActive;
             foreach($navbarLeft as $item) {
-                include($templatePath . 'navbar-item.php');
+                include($templatePath . '_navbar-item.php');
             }
             ?>
             </ul>
