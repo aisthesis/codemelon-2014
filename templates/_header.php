@@ -1,3 +1,12 @@
+<?php
+$navbar = array(
+    array('Blurbs', $root . 'index.php'), 
+    array('Archive', $root . 'archive.php')
+);
+$navbarLeft = array(
+    array('About', '#')
+);
+?>
 <header class="navbar navbar-inverse navbar-fixed-top cm-nav">
     <div class="container">
         <div class="navbar-header">

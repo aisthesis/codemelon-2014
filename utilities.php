@@ -10,14 +10,7 @@
     ?>
     <body>
         <?php
-        $navbar = array(
-            array('Blurbs', $root . 'index.php'), 
-            array('Archive', '#')
-        );
         $navActive = '';
-        $navbarLeft = array(
-            array('About', '#')
-        );
         $navLeftActive = '';
         include($templatePath . '_header.php');
         ?>

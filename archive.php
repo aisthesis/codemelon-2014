@@ -3,14 +3,12 @@
     <?php
     $root = './';
     $templatePath = $root . 'templates/';
-    // map of articles to category to use in page title
-    include($root . 'content/details/mappings.php');
-    $sectionTitle = $titles[$_GET['id']];
+    $sectionTitle = 'Archive';
     include($templatePath . '_head.php');
     ?>
     <body>
         <?php
-        $navActive = '';
+        $navActive = 'Archive';
         $navLeftActive = '';
         include($templatePath . '_header.php');
         ?>
@@ -33,20 +31,30 @@
             <div class="page-content">
                 <div class="row">
                     <div class="col-md-9" role="main">
-                        <div class="cm-article">
-                         <?php
-                         $articleUrl = 'content/details/_' . $_GET['id'] . '.php';
-                         if (is_readable($articleUrl)) {
-                             include($articleUrl);
-                         }
-                         else {
-                             echo '<div id="cm-article-not-found">';
-                             echo '<div class="alert alert-warning"><strong>Article unavailable.</strong> ';
-                             echo 'Please return to the <a href="' . $root . 'index.php">home page</a> ';
-                             echo 'for links to available content.</div>';
-                             echo '</div>';
-                         }
-                         ?>
+                        <div class="cm-feed">
+                            <div class="page-header">
+                                <h1>Archive</h1>
+                            </div>
+                           
+                            <?php
+                            $d = dir('content/archive');
+                            $path = $d->path;
+                            $articleMain = $root . 'article.php?id=';
+                            $suffix = '.php';
+                            $prefix = '_';
+                            $handles = array();
+                            while($entry = $d->read()) {
+                                if (strpos($entry, $prefix) === 0 && substr($entry, -strlen($suffix)) === $suffix) {
+                                    $handles[] = substr($entry, strlen($prefix), -strlen($suffix));
+                                }
+                            }
+                            $d->close();
+                            rsort($handles);
+                            foreach($handles as $handle) {
+                                include('templates/_blurb.php');
+                            }
+                            ?>
+
                         </div>
                     </div>
 
