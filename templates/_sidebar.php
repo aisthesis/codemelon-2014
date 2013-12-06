@@ -16,6 +16,8 @@
             <?php
             echo "<li><a href='{$root}utilities.php?id=2013120501'>Password Generator</a></li>";
             ?>
+                <li><a href="https://chrome.google.com/webstore/detail/multi-tab/jifdlmkhpkkaeemdipgekomlmbkbmjjl"
+                target="blank">Multi-tab Chrome extension</a></li>
             </ul>
 
             <h4>Downloads</h4>
