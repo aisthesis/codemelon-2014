@@ -19,6 +19,10 @@
             </ul>
 
             <h4>Downloads</h4>
+            <ul>
+                <li><a href="https://github.com/aisthesis/java-graph2013"
+                target="blank">Java graph library</a></li>
+            </ul>
 
             <h4>Documentation</h4>
             <ul>
