@@ -62,6 +62,7 @@
                     include('templates/_sidebar.php');
                     ?>
                 </div>
+                <div class="row cm-spacer-large">&nbsp;</div>
             </div>
         </div>
 

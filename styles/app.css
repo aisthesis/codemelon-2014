@@ -2,6 +2,10 @@ body {
     padding-top: 50px;
 }
 
+.cm-spacer-large {
+    height: 128px;
+}
+
 .cm-nav {
     text-shadow: 0 -1px 0 rgba(0,0,0,.15);
     background-color: dimgray;

@@ -50,17 +50,19 @@ var _c = _c || {};
             }
         },
 
-        generatePassword: function() {
+        generatePassword: function(event) {
             var len = this.getLength(),
                 pwdArr = [],
                 i;
 
+            event.preventDefault();
             for (i = 0; i < len; i++) {
                 pwdArr.push('');
             }
             this.setRequired(pwdArr);
             this.setAllowed(pwdArr);
             $(this.PASSWORD_SELECTOR).text(pwdArr.join(''));
+            event.target.blur();
         },
 
         setAllowed: function(pwdArr) {

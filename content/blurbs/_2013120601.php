@@ -10,9 +10,10 @@
 ?>
 <h2>Multi-threading in JavaScript <small><?php echo $date; ?></small></h2>
 <p>JavaScript runs in a single thread. Don't let yourself be told otherwise!
-Ajax calls, <code>setTimeout()</code>, and <code>setInterval()</code> all run
-in one thread and just cause an action to be pushed onto the stack to be run when its
-turn comes around. With one exception: <em>Workers</em>, which are supported in all
+Ajax calls, <code>setTimeout()</code>, and <code>setInterval()</code> all actually run
+in one thread and just cause calls to be pushed onto the stack with some delay.
+But ... there is one exception where you actually <em>can</em> spawn a true, OS-level thread in JavaScript:
+<em>Workers</em>, which are supported in all major
 browsers. You can create a worker using the syntax <code>var worker = new Worker('worker.js');</code>
 and communicate with it using an <code>onmessage</code> callback. Workers don't
 have access to the DOM but are useful for offloading computationally intensive
