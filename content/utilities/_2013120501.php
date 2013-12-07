@@ -15,11 +15,12 @@
         <div class="col-md-12">
             <p>There are several excellent password utilities in circulation (<a href="https://lastpass.com/" 
             target="blank">LastPass</a>, <a href="https://www.dashlane.com/en/" target="blank">DashLane</a>, etc.) that
-            normally fully automate password creation as well as password use. But I occasionally run
+            normally fully automate password creation and use. But I occasionally run
             into situations where the automation doesn't work properly or a password with special characteristics
             is required. This utility is designed for such situations. It doesn't save anything, so you
-            need to save the generated password using your method of choice. This utility just generates
-            a random password meeting any set of requirements I've seen or any reasonable specification I could think of.
+            need to save the generated password somewhere. It simply creates
+            random passwords meeting any reasonable set of requirements I've seen or could think of and provides
+            a user-friendly interface for entering password specifications.
             </p>
             <table class="table table-striped">
                 <thead>
