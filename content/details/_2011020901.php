@@ -16,8 +16,6 @@
     <a href="http://pragprog.com/titles/eband3/hello-android">Hello, Android, 2010,</a> pp. 47f. Here is my
     sample InvitePlayer class (not including imports), which is used to select the player whom you want to challenge in a chess
     app I'm working on:</p>
-</div>
-<section>	
 <pre class="prettyprint linenums lang-java">
 public class InvitePlayer extends Activity implements OnClickListener {
     private static final String TAG = "InvitePlayer";
@@ -70,6 +68,7 @@ public class InvitePlayer extends Activity implements OnClickListener {
     }	
 }
 </pre>
+</div>
     
     <p>Two things are worth noting here. One is taken from Ed Burnette's 
     <a href="http://pragprog.com/titles/eband3/hello-android">book</a>: Set your Activity up to implement
