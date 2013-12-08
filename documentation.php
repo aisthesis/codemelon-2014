@@ -3,6 +3,7 @@
     <?php
     $root = './';
     $templatePath = $root . 'templates/';
+    include($root . 'common.php');
     // map of articles to category to use in page title
     include($root . 'content/documentation/mappings.php');
     $sectionTitle = $mappings[$_GET['id']]['title'];

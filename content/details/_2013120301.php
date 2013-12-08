@@ -1,5 +1,5 @@
 <div class="page-header">
-    <h2>Object-oriented JavaScript <small>2013-12-03</small></h2>
+    <h2>Object-oriented JavaScript <small><?php echo handle_to_date($_GET['id']); ?></small></h2>
 </div>
 <p>There are two viable design patterns for writing object-oriented JavaScript. The first
 of these patterns, prototype chaining, is built into the language but has downsides. 

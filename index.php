@@ -3,6 +3,7 @@
     <?php
     $root = './';
     $templatePath = $root . 'templates/';
+    include($root . 'common.php');
     $sectionTitle = 'Blurbs';
     include($templatePath . '_head.php');
     ?>
