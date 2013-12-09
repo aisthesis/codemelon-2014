@@ -50,8 +50,8 @@ var _c = _c || {};
         i = 0;
     });
 
-    test('seqExec() continuing on error, no failureCallback', function() {
-        var promise = _c.utils.seqExec(actions, true);
+    test('seqExec() continuing on error, empty failureCallback', function() {
+        var promise = _c.utils.seqExec(actions, function() {});
 
         stop();
         promise.done(function() {
@@ -64,7 +64,7 @@ var _c = _c || {};
 
     test('seqExec() continuing on error with failureCallback', function() {
         var hasFailure = false,
-            promise = _c.utils.seqExec(actions, true, function() { hasFailure = true; });
+            promise = _c.utils.seqExec(actions, function() { hasFailure = true; });
 
         stop();
         promise.done(function() {
@@ -77,7 +77,7 @@ var _c = _c || {};
     });
 
     test('seqExec() aborting on error, no failureCallback', function() {
-        var promise = _c.utils.seqExec(actions, false);
+        var promise = _c.utils.seqExec(actions);
 
         stop();
         promise.fail(function() {
@@ -85,21 +85,6 @@ var _c = _c || {};
                 strictEqual(val, expected[i], 'correct result for index ' + i);
             });
             strictEqual(results.length, 3, 'correct number of results');
-            start();
-        });
-    });
-
-    test('seqExec() aborting on error with failureCallback', function() {
-        var hasFailure = false,
-            promise = _c.utils.seqExec(actions, false, function() { hasFailure = true; });
-
-        stop();
-        promise.fail(function() {
-            results.forEach(function(val, i) {
-                strictEqual(val, expected[i], 'correct result for index ' + i);
-            });
-            strictEqual(results.length, 3, 'correct number of results');
-            ok(hasFailure, 'failure callback was triggered');
             start();
         });
     });
