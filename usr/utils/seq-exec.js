@@ -7,19 +7,18 @@ var _c = _c || {};
      * Contract for actions is to return a jQuery deferred object
      */
     _c.utils.seqExec = function(actions, continueOnError, failureCallback) {
-        var deferred = $.Deferred(),
-            promise;
+        var deferred = $.Deferred();
 
         if (typeof continueOnError === 'undefined') continueOnError = false; 
         if (typeof failureCallback !== 'function') failureCallback = function() {};
-        promise = doAll(actions, deferred, continueOnError, failureCallback, 0);
-        
+        doAll(actions, deferred, continueOnError, failureCallback, 0);
+        return deferred.promise();
     };
 
     function doAll(actions, deferred, continueOnError, failureCallback, i) {
         if (i >= actions.length) {
             deferred.resolve();
-            return deferred.promise();
+            return; 
         }
         var promise = actions[i]();
 
@@ -35,7 +34,7 @@ var _c = _c || {};
             });
             promise.fail(function() {
                 deferred.reject();
-                return deferred.promise(); 
+                return; 
             });
         }
     }
