@@ -5,6 +5,8 @@
  */
 $titles = array(
     '2013120301' => 'JavaScript',
-    '2011020901' => 'Android'
+    '2011020901' => 'Android',
+    '2011020601' => 'Graph',
+    '2011020501' => 'Android'
 );
 ?>
