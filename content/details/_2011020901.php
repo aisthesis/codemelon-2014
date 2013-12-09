@@ -2,8 +2,8 @@
     <h2>Android: OnClickListener for RadioGroup <small><?php echo handle_to_date($_GET['id']); ?></small></h2>
 </div>
 <div class="media">
-<div class="pull-right"><img src="images/chess_with_friends2.png" width="300" height="428" /></div>
-<p>This tutorial will show first how to create a RadioGroup listener and, second, 
+    <div class="pull-right"><img src="images/chess_with_friends2.png" width="300" height="428" /></div>
+    <p>This tutorial will show first how to create a RadioGroup listener and, second, 
     how to identify specific buttons when you can't access them through a resource id. 
     Anonymous radio buttons (and other views)
     will normally occur when you create them dynamically from a database or some other resource.
@@ -68,7 +68,6 @@ public class InvitePlayer extends Activity implements OnClickListener {
     }	
 }
 </pre>
-</div>
     
     <p>Two things are worth noting here. One is taken from Ed Burnette's 
     <a href="http://pragprog.com/titles/eband3/hello-android">book</a>: Set your Activity up to implement
@@ -119,3 +118,4 @@ private void init(Context context) {
     
     <p>Note also that, while I can't access a resource id for the buttons, I do have a resource id available for the RadioGroup because that
     is created in XML where I can create an accessible id variable for it.</p>
+</div>

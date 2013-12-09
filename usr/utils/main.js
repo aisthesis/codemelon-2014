@@ -10,13 +10,16 @@
  */
 (function(path) {
     var files = [
+        '../lib/jquery.min.js',
+        '../lib/underscore.min.js',
         'extend',
         'utils/shuffle',
-        'utils/linked-list'
+        'utils/linked-list',
+        'utils/seq-exec'
     ];
 
     files.forEach(function(file, i) {
         files[i] = path + file;
     });
-    define(files, function(extend, shuffle, linkedList) {});
+    define(files, function($, _, extend, shuffle, linkedList, seqExec) {});
 })(_c.path.usr);
