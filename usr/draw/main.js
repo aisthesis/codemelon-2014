@@ -23,10 +23,15 @@
     files.forEach(function(file, i) {
         files[i] = path + file;
     });
-    define(['require'].concat(files),
-        function(require) {
-            files.forEach(function(file) {
-                require(file);
-            });
-        });
+
+    define(files, function(
+        extend, 
+        utils, 
+        highlights, 
+        point, 
+        shape, 
+        circle, 
+        rectangle, 
+        regularPolygon
+    ) {});
 })(_c.path.usr);

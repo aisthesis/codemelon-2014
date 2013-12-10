@@ -21,5 +21,14 @@
     files.forEach(function(file, i) {
         files[i] = path + file;
     });
-    define(files, function($, _, extend, shuffle, linkedList, seqExec) {});
+
+    define(files, function(
+        $, 
+        _, 
+        extend, 
+        shuffle, 
+        linkedList, 
+        seqExec
+    ) {});
+
 })(_c.path.usr);
