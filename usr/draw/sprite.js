@@ -17,6 +17,9 @@ var _c = _c || {};
     /** @constructor */
     _c.draw.Sprite = _c.Base.extend({
         init: function(params) {
+            /**
+             * For shapes Shape#draw() or Shape#drawClipped()
+             */
             // There is no need to wrap this, just make it a function
             this.paint = params.paint || function(context) {};
             // shape, image, etc.
