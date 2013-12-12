@@ -19,12 +19,14 @@ var _c = _c || {};
         init: function(params) {
             // There is no need to wrap this, just make it a function
             this.paint = params.paint || function(context) {};
-            // TODO make _c.draw.Box similar or identical to Rectangle
-            this.box = params.box;
+            // shape, image, etc.
+            this.drawable = params.drawable;
+            // leaving out the book's box since the drawable should handle location
             this.velocity = params.velocity;
             this.visible = params.visible || true;
+            // defaults to false
             this.animating = !!params.animating;
-            // behaviors are functions, not objects (no need for separate execute())
+            // behaviors are functions, not objects, so no need for separate behavior.execute()
             this.behaviors = params.behaviors || [];
         },
 

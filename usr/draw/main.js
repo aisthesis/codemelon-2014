@@ -17,7 +17,8 @@
         'draw/shape',
         'draw/circle',
         'draw/rectangle',
-        'draw/regular-polygon'
+        'draw/regular-polygon',
+        'draw/sprite'
     ];
 
     files.forEach(function(file, i) {
@@ -32,6 +33,7 @@
         shape, 
         circle, 
         rectangle, 
-        regularPolygon
+        regularPolygon,
+        sprite
     ) {});
 })(_c.path.usr);

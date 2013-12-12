@@ -64,12 +64,21 @@ var _c = _c || {};
             var _this = this;
 
             this.render(context, function() {
-                context.strokeStyle = _this.strokeStyle || 'black';
-                context.lineWidth = _this.lineWidth || 1;
-                context.fillStyle = _this.fillStyle || 'white';
+                _this.prep(context);
                 context.fill();
                 context.stroke();
             });
+        },
+
+        /**
+         * prep the context by setting strokeStyle, lineWidth and
+         * fillStyle.
+         * Note that this method is NOT wrapped in a save() - restore()
+         */
+        prep: function(context) {
+            context.strokeStyle = this.strokeStyle || 'black';
+            context.lineWidth = this.lineWidth || 1;
+            context.fillStyle = this.fillStyle || 'white';
         },
 
         /**
