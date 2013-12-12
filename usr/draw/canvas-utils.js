@@ -66,5 +66,29 @@ var _c = _c || {};
             return offset;
         }
         return new _c.draw.Vector(loc.x - orig.x, loc.y - orig.y);
+    },
+
+    /**
+     * Paints the context using the given callback
+     * @example
+     * // draws the specified shape
+     * // this is the syntax used in Shape#draw() and Shape#drawClipped()
+     * var circle = new _c.draw.Circle({...});
+     * _c.draw.paint(circle, circle.render, context);
+     * @param {Shape} shape - shape to be painted
+     * @param {function} callback - paint function to be used (e.g. Shape#render())
+     * @param {object} context - context to be painted
+     */
+    /**
+     * @callback callback
+     * @param {object} context
+     * @param {function} callback
+     */
+    _c.draw.paint = function(shape, callback, context) {
+        callback.call(shape, context, function() {
+            shape.prep(context);
+            context.fill();
+            context.stroke();
+        });
     }
 })(_c);
