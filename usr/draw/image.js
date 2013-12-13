@@ -21,6 +21,7 @@ var _c = _c || {};
             // required
             this.image.src = _c.path.images + params.src;
             this.image.onload = params.onload || function(event) {};
+            // a rectangle would work but is too heavyweight 
             this.corner = params.corner;
             this.width = params.width;
             this.height = params.height;
@@ -34,9 +35,9 @@ var _c = _c || {};
 
         contains: function(point) {
             if (point.x < this.corner.x || 
-                this.corner.x + this.absWidth() < point.x) { return false; }
+                this.corner.x + this.width < point.x) { return false; }
             if (point.y < this.corner.y || 
-                this.corner.y + this.absHeight() < point.y) { return false; }
+                this.corner.y + this.height < point.y) { return false; }
             return true;
         }
     });
