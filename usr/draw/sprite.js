@@ -16,19 +16,20 @@ var _c = _c || {};
     _c.draw = _c.draw || {};
     /** @constructor */
     _c.draw.Sprite = _c.Base.extend({
+        /**
+         * Leaving out several parameters included in the book:
+         * box, velocity, visible, animating
+         * These properties can be attached in specific cases
+         * but just create extra baggage that is often unneeded.
+         */
         init: function(params) {
             /**
              * For shapes Shape#draw() or Shape#drawClipped()
+             * There is no need to create an object for this, as in the book.
              */
-            // There is no need to wrap this, just make it a function
             this.paint = params.paint || function(context) {};
             // shape, image, etc.
             this.drawable = params.drawable;
-            // leaving out the book's box since the drawable should handle location
-            this.velocity = params.velocity;
-            this.visible = params.visible || true;
-            // defaults to false
-            this.animating = !!params.animating;
             // behaviors are functions, not objects, so no need for separate behavior.execute()
             this.behaviors = params.behaviors || [];
         },
