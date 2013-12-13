@@ -57,8 +57,13 @@ var _c = _c || {};
             _c.draw.paint(this, this.render, context);
         },
 
+        /**
+         * Wrapped in a save() - restore() block to avoid clipping next drawing
+         */
         drawClipped: function(context) {
+            context.save();
             _c.draw.paint(this, this.clip, context);
+            context.restore();
         },
 
         /**
