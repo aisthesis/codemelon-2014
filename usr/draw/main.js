@@ -18,11 +18,12 @@
         'draw/circle',
         'draw/rectangle',
         'draw/regular-polygon',
+        'draw/image',
         'draw/sprite'
     ];
 
     files.forEach(function(file, i) {
-        files[i] = path + file;
+        files[i] = path.usr + file;
     });
 
     define(files, function(
@@ -34,6 +35,9 @@
         circle, 
         rectangle, 
         regularPolygon,
+        image,
         sprite
-    ) {});
-})(_c.path.usr);
+    ) {
+        if (!path.images) path.images = './images/'; 
+    });
+})(_c.path);
