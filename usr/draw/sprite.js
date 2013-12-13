@@ -41,6 +41,7 @@ var _c = _c || {};
                 // a behavior thus only takes context and time as arguments
                 behavior.call(_this, context, time);
             });
+            return this;
         }
     });
 })(_c);
