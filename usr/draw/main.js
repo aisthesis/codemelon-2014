@@ -19,6 +19,7 @@
         'draw/rectangle',
         'draw/regular-polygon',
         'draw/image',
+        'draw/tile-set',
         'draw/sprite'
     ];
 
@@ -30,13 +31,14 @@
         extend, 
         utils, 
         highlights, 
-        point, 
-        shape, 
-        circle, 
-        rectangle, 
-        regularPolygon,
-        image,
-        sprite
+        Point, 
+        Shape, 
+        Circle, 
+        Rectangle, 
+        RegularPolygon,
+        Image,
+        TileSet,
+        Sprite
     ) {
         if (!path.images) path.images = './images/'; 
     });
