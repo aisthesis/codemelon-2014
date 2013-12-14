@@ -11,6 +11,7 @@
 (function(path) {
     var files = [
         'extend',
+        'utils/arrays',
         'draw/canvas-utils',
         'draw/highlights',
         'draw/point',
@@ -20,6 +21,7 @@
         'draw/regular-polygon',
         'draw/image',
         'draw/tile-set',
+        'draw/frame-set',
         'draw/sprite'
     ];
 
@@ -29,7 +31,8 @@
 
     define(files, function(
         extend, 
-        utils, 
+        arrayUtils,
+        canvasUtils, 
         highlights, 
         Point, 
         Shape, 
@@ -38,6 +41,7 @@
         RegularPolygon,
         Image,
         TileSet,
+        FrameSet,
         Sprite
     ) {
         if (!path.images) path.images = './images/'; 

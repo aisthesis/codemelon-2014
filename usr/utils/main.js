@@ -16,7 +16,8 @@
         'utils/shuffle',
         'utils/linked-list',
         'utils/seq-exec',
-        'utils/memoize'
+        'utils/memoize',
+        'utils/arrays'
     ];
 
     files.forEach(function(file, i) {
@@ -30,7 +31,8 @@
         shuffle, 
         linkedList, 
         seqExec,
-        memoize
+        memoize,
+        arrays
     ) {});
 
 })(_c.path.usr);
