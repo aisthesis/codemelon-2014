@@ -19,7 +19,8 @@ var _c = _c || {};
     _c.draw = _c.draw || {};
     _c.draw.FrameSet = _c.Base.extend({
         init: function(params) {
-            var _this = this;
+            var _this = this,
+                fn;
 
             // each frame is an object of type _c.draw.Image
             this.frames = params.frames;
@@ -32,12 +33,14 @@ var _c = _c || {};
             // the onload callback for each image should normally call 
             // FrameSet#draw()
             // The following ensures that all frames have been loaded
+            
             this.frames.forEach(function(frame, i) {
+                fn = frame.image.onload;
                 frame.image.onload = function(event) {
                     _this.loaded[i] = true;
                     if (_.reduce(_this.loaded, 
                             function(memo, value) { return memo && value; }, true)) {
-                        frame.image.onload(event);
+                        return fn(event);
                     }
                 };
             });
