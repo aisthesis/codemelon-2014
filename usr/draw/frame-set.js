@@ -33,7 +33,6 @@ var _c = _c || {};
             // the onload callback for each image should normally call 
             // FrameSet#draw()
             // The following ensures that all frames have been loaded
-            
             this.frames.forEach(function(frame, i) {
                 fn = frame.image.onload;
                 frame.image.onload = function(event) {
