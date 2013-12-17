@@ -36,10 +36,12 @@ var _c = _c || {};
      * @member {function} clip
      * @member {function} fill
      * @member {function} stroke
-     * @member {function} draw
      * @member {function} drawClipped
      * @member {function} prep
      * @member {function} buildPath
+     *
+     * Inherited from _c.draw.Drawable:
+     * @member {function} draw
      * @member {function} contains
      */
     _c.draw.Shape = _c.draw.Drawable.extend({
@@ -86,10 +88,6 @@ var _c = _c || {};
             });
         },
 
-        draw: function(context) {
-            _c.draw.paint(this, this.render, context);
-        },
-
         /**
          * Wrapped in a save() - restore() block to avoid clipping next drawing
          */
@@ -115,16 +113,6 @@ var _c = _c || {};
          * @param {object} context
          */
         buildPath: function(context) {
-            throw new Error('must be implemented by subclass!'); 
-        },
-
-        /**
-         * Determine whether the shape contains a given point
-         * @abstract
-         * @param {_c.draw.Point} point
-         * @return {boolean}
-         */
-        contains: function(point) {
             throw new Error('must be implemented by subclass!'); 
         }
     });

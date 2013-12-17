@@ -49,10 +49,12 @@ var _c = _c || {};
      * @member {function} clip
      * @member {function} fill
      * @member {function} stroke
-     * @member {function} draw
      * @member {function} drawClipped
      * @member {function} prep
      * @member {function} buildPath
+     *
+     * Inherited from _c.draw.Drawable:
+     * @member {function} draw
      * @member {function} contains
      */
     _c.draw.RegularPolygon = _c.draw.Shape.extend({
