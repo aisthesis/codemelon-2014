@@ -11,13 +11,46 @@
  * extend.js
  */
 
+/** @namespace */
 var _c = _c || {};
 
 (function(_c) {
     "use strict";
 
+    /** @namespace */
     _c.draw = _c.draw || {};
+
+    /**
+     * Creates a new _c.draw.Shape
+     * @constructor 
+     * @member {object} styles - styles to be applied to context
+     * before shape is drawn
+     * @member {number} [styles.lineWidth]
+     * @member {string} [styles.fillStyle]
+     * @member {string} [styles.strokeStyle]
+     * @member {string} [styles.shadowColor]
+     * @member {number} [styles.shadowOffsetX]
+     * @member {number} [styles.shadowOffsetY]
+     * @member {number} [styles.shadowBlur]
+     * @member {function} render
+     * @member {function} clip
+     * @member {function} fill
+     * @member {function} stroke
+     * @member {function} draw
+     * @member {function} drawClipped
+     * @member {function} prep
+     * @member {function} buildPath
+     * @member {function} contains
+     */
     _c.draw.Shape = _c.Base.extend({
+
+        /**
+         * @constructs _c.draw.Shape
+         * @param {object} [styles] - any styles to be applied
+         * when the shape is drawn. If styles are not provided,
+         * the shape will be drawn using the context's current
+         * styles.
+         */
         init: function(params) {
             this.styles = params.styles || {};
         },
@@ -77,10 +110,22 @@ var _c = _c || {};
         },
 
         /**
-         * abstract method
+         * Clear all subpaths and create a new path corresponding to the given shape
+         * @abstract
+         * @param {object} context
          */
         buildPath: function(context) {
-            alert('Subclasses must override buildPath()!');
+            throw new Error('must be implemented by subclass!'); 
+        },
+
+        /**
+         * Determine whether the shape contains a given point
+         * @abstract
+         * @param {_c.draw.Point} point
+         * @return {boolean}
+         */
+        contains: function(point) {
+            throw new Error('must be implemented by subclass!'); 
         }
     });
 })(_c);

@@ -7,13 +7,53 @@
  * shape.js
  * point.js
  */
+
+/** @namespace */
 var _c = _c || {};
 
 (function(_c) {
     "use strict";
 
+    /** @namespace */
     _c.draw = _c.draw || {};
+
+    /**
+     * Creates a new _c.draw.Circle
+     * @constructor 
+     * @member {_c.draw.Point} center
+     * @member {number} radius
+     *
+     * Inherited from _c.draw.Shape:
+     * @member {object} styles - styles to be applied to context
+     * before shape is drawn
+     * @member {number} [styles.lineWidth]
+     * @member {string} [styles.fillStyle]
+     * @member {string} [styles.strokeStyle]
+     * @member {string} [styles.shadowColor]
+     * @member {number} [styles.shadowOffsetX]
+     * @member {number} [styles.shadowOffsetY]
+     * @member {number} [styles.shadowBlur]
+     * @member {function} render
+     * @member {function} clip
+     * @member {function} fill
+     * @member {function} stroke
+     * @member {function} draw
+     * @member {function} drawClipped
+     * @member {function} prep
+     * @member {function} buildPath
+     * @member {function} contains
+     */
     _c.draw.Circle = _c.draw.Shape.extend({
+
+        /**
+         * @constructs _c.draw.Circle
+         * @param {_c.draw.Point} center - center of the circle
+         * @param {number} radius - radius of the circle
+         * @param {object} [styles] - any styles to be applied
+         * when the shape is drawn. If styles are not provided,
+         * the shape will be drawn using the context's current
+         * styles.
+         */
         init: function(params) {
             this._super(params);
             // required

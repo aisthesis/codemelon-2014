@@ -11,13 +11,72 @@
  * point.js
  */
 
+/** @namespace */
 var _c = _c || {};
 
 (function(_c) {
     "use strict";
 
+    /** @namespace */
     _c.draw = _c.draw || {};
+
+    /**
+     * Creates a new _c.draw.RegularPolygon
+     * @constructor 
+     * @member {_c.draw.Point} center - center of the polygon
+     * @member {number} sides - number of sides
+     * @member {number} radius - outer radius of the polygon
+     * @member {number} angle - angle in radians at which first
+     * vertex will be drawn. Note that the angle 0 corresponds
+     * to 3 o'clock.
+     * @member {function} innerRadius - polygon's inner radius
+     * @member {function} resetVertices - sets vertex positions
+     * based on center, sides, radius and angle. Note that
+     * for the polygon to render correctly, this method must be called
+     * before drawing if any of the above parameters have been modified.
+     *
+     * Inherited from _c.draw.Shape:
+     * @member {object} styles - styles to be applied to context
+     * before shape is drawn
+     * @member {number} [styles.lineWidth]
+     * @member {string} [styles.fillStyle]
+     * @member {string} [styles.strokeStyle]
+     * @member {string} [styles.shadowColor]
+     * @member {number} [styles.shadowOffsetX]
+     * @member {number} [styles.shadowOffsetY]
+     * @member {number} [styles.shadowBlur]
+     * @member {function} render
+     * @member {function} clip
+     * @member {function} fill
+     * @member {function} stroke
+     * @member {function} draw
+     * @member {function} drawClipped
+     * @member {function} prep
+     * @member {function} buildPath
+     * @member {function} contains
+     */
     _c.draw.RegularPolygon = _c.draw.Shape.extend({
+
+        /**
+         * @constructs _c.draw.RegularPolygon
+         * @param {_c.draw.Point} center - center of the polygon
+         * @param {number} sides - number of sides
+         * @param {number} radius - outer radius of the polygon
+         * @param {number} [angle] - angle in radians at which first
+         * vertex will be drawn. Note that the angle 0 corresponds
+         * to 3 o'clock. Defaults to 0.
+         * @param {_c.draw.Point} corner - corner from which length
+         * and width are measured. Normally, this should be the top
+         * left corner, but it may be different if a negative value
+         * is used for width or height (as may be needed if the rectangle
+         * is used as a surrounding rubber band manipulated by the user).
+         * @param {number} width
+         * @param {number} height
+         * @param {object} [styles] - any styles to be applied
+         * when the shape is drawn. If styles are not provided,
+         * the shape will be drawn using the context's current
+         * styles.
+         */
         init: function(params) {
             this._super(params);
             // required

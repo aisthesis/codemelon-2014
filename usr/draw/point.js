@@ -13,8 +13,20 @@ var _c = _c || {};
 
     /** @namespace */
     _c.draw = _c.draw || {};
-    /** @constructor */
+
+    /**
+     * Creates a new _c.draw.Point
+     * @constructor 
+     * @member {number} x - x coordinate
+     * @member {number} y - y coordinate
+     */
     _c.draw.Point = _c.Base.extend({
+
+        /**
+         * @constructs _c.draw.Point
+         * @param {number} x - x coordinate 
+         * @param {number} y - y coordinate
+         */
         init: function(x, y) {
             this.x = x;
             this.y = y;
@@ -57,8 +69,18 @@ var _c = _c || {};
         }
     });
 
-    /** @constructor */
+    /**
+     * Creates a new _c.draw.Vector
+     * @constructor 
+     * @member {number} x - x coordinate
+     * @member {number} y - y coordinate
+     */
     _c.draw.Vector = _c.Base.extend({
+        /**
+         * @constructs _c.draw.Vector
+         * @param {number} x - x coordinate 
+         * @param {number} y - y coordinate
+         */
         init: function(x, y) {
             this.x = x;
             this.y = y;
