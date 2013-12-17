@@ -34,7 +34,7 @@ var _c = _c || {};
      * @member {function} contains - specifies whether a given point
      * is contained in the rectangle where the image is placed.
      */
-    _c.draw.Image = _c.Base.extend({
+    _c.draw.Image = _c.draw.Drawable.extend({
 
         /**
          * @constructs _c.draw.Image

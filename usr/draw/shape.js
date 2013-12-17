@@ -42,7 +42,7 @@ var _c = _c || {};
      * @member {function} buildPath
      * @member {function} contains
      */
-    _c.draw.Shape = _c.Base.extend({
+    _c.draw.Shape = _c.draw.Drawable.extend({
 
         /**
          * @constructs _c.draw.Shape

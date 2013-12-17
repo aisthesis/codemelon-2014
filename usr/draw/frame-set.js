@@ -38,7 +38,7 @@ var _c = _c || {};
      * @member {function} contains - specifies whether the current image
      * (including the currently specified offset) contains a particular point.
      */
-    _c.draw.FrameSet = _c.Base.extend({
+    _c.draw.FrameSet = _c.draw.Drawable.extend({
 
         /**
          * @constructs _c.draw.FrameSet

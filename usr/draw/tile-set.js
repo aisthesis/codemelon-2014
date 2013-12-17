@@ -35,7 +35,7 @@ var _c = _c || {};
      * @member {function} contains - specifies whether the rectangle into which
      * the current image is drawn contains a particular point.
      */
-    _c.draw.TileSet = _c.Base.extend({
+    _c.draw.TileSet = _c.draw.Drawable.extend({
 
         /**
          * @constructs _c.draw.TileSet

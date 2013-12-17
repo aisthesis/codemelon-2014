@@ -26,25 +26,35 @@ var _c = _c || {};
      * These properties can be attached to specific sprites as needed
      * but just create extra baggage that is usually empty.
      * @constructor 
-     * @member {(_c.draw.Shape|_c.draw.Image|_c.draw.TileSet|_c.draw.FrameSet)} drawable
+     * @member {_c.draw.Drawable} drawable
      * @member {function} paint - paints the drawable into a context
      * @member {function[]} behaviors - methods that will be invoked when
-     * the this.update() is called
+     * this.update() is called
      * @member {function} update - invoke all behaviors, using the calling sprite as
      * this argument
      * */
     _c.draw.Sprite = _c.Base.extend({
 
         /**
+         * @constructs _c.draw.Sprite
+         * @param {object} params
+         * @param {_c.draw.Drawable} params.drawable
+         * @param {function} [params.paint] - paint method if different from Drawable#draw(context)
+         * @default this.drawable.draw
+         * @param {function[]} [params.behaviors] - methods that will be invoked when 
+         * this.update() is called.
          */
         init: function(params) {
+            var _this = this;
+
+            this.drawable = params.drawable;
             /**
              * For shapes Shape#draw() or Shape#drawClipped()
              * There is no need to create an object for this, as in the book.
              */
-            this.paint = params.paint || function(context) {};
-            // shape, image, etc.
-            this.drawable = params.drawable;
+            this.paint = params.paint || function(context) {
+                _this.drawable.draw(context);
+            };
             // behaviors are functions, not objects, so no need for separate behavior.execute()
             this.behaviors = params.behaviors || [];
         },
