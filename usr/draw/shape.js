@@ -88,6 +88,10 @@ var _c = _c || {};
             });
         },
 
+        draw: function(context) {
+            _c.draw.paint(this, this.render, context);
+        },
+
         /**
          * Wrapped in a save() - restore() block to avoid clipping next drawing
          */

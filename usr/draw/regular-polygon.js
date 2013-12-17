@@ -7,7 +7,7 @@
  *
  * Dependencies:
  * extend.js
- * shape.js
+ * polygon.js
  * point.js
  */
 
@@ -35,6 +35,9 @@ var _c = _c || {};
      * for the polygon to render correctly, this method must be called
      * before drawing if any of the above parameters have been modified.
      *
+     * Inherited from _c.draw.Polygon
+     * @member {function} buildPath
+     *
      * Inherited from _c.draw.Shape:
      * @member {object} styles - styles to be applied to context
      * before shape is drawn
@@ -57,7 +60,7 @@ var _c = _c || {};
      * @member {function} draw
      * @member {function} contains
      */
-    _c.draw.RegularPolygon = _c.draw.Shape.extend({
+    _c.draw.RegularPolygon = _c.draw.Polygon.extend({
 
         /**
          * @constructs _c.draw.RegularPolygon
@@ -100,17 +103,6 @@ var _c = _c || {};
             }
         },
 
-        buildPath: function(context) {
-            var i;
-
-            context.beginPath();
-            context.moveTo(this.vertices[0].x, this.vertices[0].y);
-            for (i = 1; i < this.sides; i++) {
-                context.lineTo(this.vertices[i].x, this.vertices[i].y);
-            }
-            context.closePath();
-        },
-        
         innerRadius: function() {
             return this.radius * Math.cos(Math.PI / this.sides);
         },

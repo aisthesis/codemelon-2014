@@ -30,7 +30,7 @@ var _c = _c || {};
          * @abstract
          */
         init: function(params) {
-            throw new Error('must be implemented by subclass!'); 
+            throw new Error('ctor must be implemented by subclass!'); 
         },
 
         /**
@@ -39,7 +39,7 @@ var _c = _c || {};
          * @param {object} context
          */
         draw: function(context) {
-            throw new Error('must be implemented by subclass!'); 
+            throw new Error('Drawable#draw(context) must be implemented by subclass!'); 
         },
 
         /**
@@ -49,7 +49,7 @@ var _c = _c || {};
          * @return {boolean}
          */
         contains: function(point) {
-            throw new Error('must be implemented by subclass!'); 
+            throw new Error('Drawable#contains(point) must be implemented by subclass!'); 
         }
     });
 })(_c);
