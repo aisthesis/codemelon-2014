@@ -47,9 +47,10 @@ var _c = _c || {};
 
         /**
          * @constructs _c.draw.Circle
-         * @param {_c.draw.Point} center - center of the circle
-         * @param {number} radius - radius of the circle
-         * @param {object} [styles] - any styles to be applied
+         * @param {object} params
+         * @param {_c.draw.Point} params.center - center of the circle
+         * @param {number} params.radius - radius of the circle
+         * @param {object} [params.styles] - any styles to be applied
          * when the shape is drawn. If styles are not provided,
          * the shape will be drawn using the context's current
          * styles.

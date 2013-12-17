@@ -17,6 +17,23 @@ var _c = _c || {};
     'use strict';
 
     _c.draw = _c.draw || {};
+
+    /**
+     * Creates a new _c.draw.FrameSet
+     * @constructor
+     * @member {Image} image - native JavaScript Image object wrapped
+     * by this class
+     * @member {string} image.src - path to image
+     * @member {function} image.onload - callback called when the
+     * image has finished loading
+     * @member {_c.draw.Point} corner - point on the canvas at which
+     * the top left corner of the image will be drawn
+     * @member {number} height - height to which the image will be scaled
+     * @member {number} width - width to which the image will be scaled
+     * @member {function} draw - draws the image into the given context
+     * @member {function} contains - specifies whether a given point
+     * is contained in the rectangle where the image is placed.
+     */
     _c.draw.FrameSet = _c.Base.extend({
         init: function(params) {
             var _this = this,

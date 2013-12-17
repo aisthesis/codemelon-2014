@@ -63,14 +63,15 @@ var _c = _c || {};
 
         /**
          * @constructs _c.draw.Rectangle
-         * @param {_c.draw.Point} corner - corner from which length
+         * @param {object} params
+         * @param {_c.draw.Point} params.corner - corner from which length
          * and width are measured. Normally, this should be the top
          * left corner, but it may be different if a negative value
          * is used for width or height (as may be needed if the rectangle
          * is used as a surrounding rubber band manipulated by the user).
-         * @param {number} width
-         * @param {number} height
-         * @param {object} [styles] - any styles to be applied
+         * @param {number} params.width
+         * @param {number} params.height
+         * @param {object} [params.styles] - any styles to be applied
          * when the shape is drawn. If styles are not provided,
          * the shape will be drawn using the context's current
          * styles.
