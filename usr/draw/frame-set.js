@@ -11,30 +11,42 @@
  * utils/arrays.js
  */
 
+/** @namespace */
 var _c = _c || {};
 
 (function(_c) {
     'use strict';
 
+    /** @namespace */
     _c.draw = _c.draw || {};
 
     /**
      * Creates a new _c.draw.FrameSet
      * @constructor
-     * @member {Image} image - native JavaScript Image object wrapped
-     * by this class
-     * @member {string} image.src - path to image
-     * @member {function} image.onload - callback called when the
-     * image has finished loading
-     * @member {_c.draw.Point} corner - point on the canvas at which
-     * the top left corner of the image will be drawn
-     * @member {number} height - height to which the image will be scaled
-     * @member {number} width - width to which the image will be scaled
-     * @member {function} draw - draws the image into the given context
-     * @member {function} contains - specifies whether a given point
-     * is contained in the rectangle where the image is placed.
+     * @member {_c.draw.Image[]} frames - sequence of images to draw
+     * @member {number} index - index of current frame
+     * @member {_c.draw.Point} corner - point on the canvas where the image
+     * will be drawn
+     * @member {_c.draw.Vector} offset - offset to be applied to the frame's
+     * corner (this.frames[this.index].corner as opposed to this.corner).
+     * @member {boolean[]} loaded - set to false until the corresponding
+     * frame has loaded, at which point the corresponding index is set to true.
+     * @member {function} advance - advances the current frame, reverting
+     * back to 0 when all frames have been traversed.
+     * @member {function} draw - draws the current frame onto the canvas,
+     * offsetting the corner maintained by the image by this.offset
+     * @member {function} contains - specifies whether the current image
+     * (including the currently specified offset) contains a particular point.
      */
     _c.draw.FrameSet = _c.Base.extend({
+
+        /**
+         * @constructs _c.draw.FrameSet
+         * @param {object} params
+         * @param {_c.draw.Image[]} params.frames
+         * @param {_c.draw.Vector} [params.offset] 
+         * @default new _c.draw.Vector(0, 0)
+         */
         init: function(params) {
             var _this = this,
                 fn;

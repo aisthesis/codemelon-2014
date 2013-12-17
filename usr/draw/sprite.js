@@ -14,13 +14,28 @@ var _c = _c || {};
 
     /** @namespace */
     _c.draw = _c.draw || {};
-    /** @constructor */
+    /**
+     * Creates a new _c.draw.Sprite
+     * A sprite is a thin wrapper around a drawable to facilitate control of the
+     * manner in which updates occur, namely by invoking various behavior functions
+     * in sequence. This allows combining behaviors such as vertical and 
+     * horizontal motion or advancing the frame with appropriate drawables.
+     * This implementation leaves out several parameters included in 
+     * David Geary's Core HTML5 Canvas:
+     * box, velocity, visible, animating
+     * These properties can be attached to specific sprites as needed
+     * but just create extra baggage that is usually empty.
+     * @constructor 
+     * @member {(_c.draw.Shape|_c.draw.Image|_c.draw.TileSet|_c.draw.FrameSet)} drawable
+     * @member {function} paint - paints the drawable into a context
+     * @member {function[]} behaviors - methods that will be invoked when
+     * the this.update() is called
+     * @member {function} update - invoke all behaviors, using the calling sprite as
+     * this argument
+     * */
     _c.draw.Sprite = _c.Base.extend({
+
         /**
-         * Leaving out several parameters included in the book:
-         * box, velocity, visible, animating
-         * These properties can be attached in specific cases
-         * but just create extra baggage that is often unneeded.
          */
         init: function(params) {
             /**
