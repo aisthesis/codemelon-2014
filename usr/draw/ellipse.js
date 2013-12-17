@@ -59,8 +59,9 @@ var _c = _c || {};
          * @param {number} params.radius - radius before being stretched
          * @param {number} params.stretch - how much the original circle will be 
          * stretched horizontally before being rotated. A value of 1 makes a circle.
-         * @param {number} params.angle - angle in radians that the ellipse
+         * @param {number} [params.angle] - angle in radians that the ellipse
          * will be rotated after it has been stretched
+         * @default 0
          * @param {object} [params.styles] - any styles to be applied
          * when the shape is drawn. If styles are not provided,
          * the shape will be drawn using the context's current
@@ -72,7 +73,7 @@ var _c = _c || {};
             this.center = params.center;
             this.radius = params.radius;
             this.stretch = params.stretch;
-            this.angle = params.angle;
+            this.angle = params.angle || 0;
             this.center.x = this.center.x / this.stretch;
         },
 
@@ -94,7 +95,28 @@ var _c = _c || {};
         },
 
         contains: function(point) {
-            throw new Error('not yet implemented');
+            var _pt = { x: point.x, y: point.y }, 
+                sin = Math.sin(this.angle),
+                cos = Math.cos(this.angle),
+                tmp;
+
+            // translate
+            _pt.x -= this.center.x * this.stretch;
+            _pt.y -= this.center.y;
+
+            // rotate
+            tmp = _pt.x;
+            _pt.x = _pt.x * cos + _pt.y * sin;
+            _pt.y = -tmp * sin + _pt.y * cos;
+
+            // translate
+            _pt.x += this.center.x * this.stretch;
+            _pt.y += this.center.y;
+
+            // scale
+            _pt.x /= this.stretch;
+
+            return this.center.distanceTo(_pt) <= this.radius;
         }
     });
 })(_c);
