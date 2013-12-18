@@ -32,7 +32,13 @@ var _c = _c || {};
      * this.update() is called
      * @member {function} update - invoke all behaviors, using the calling sprite as
      * this argument
-     * */
+     */
+    /**
+     * @method paint
+     * @param context - context into which to paint the drawable
+     * @example
+     * sprite.paint(context);
+     */
     _c.draw.Sprite = _c.Base.extend({
 
         /**
@@ -43,6 +49,14 @@ var _c = _c || {};
          * @default this.drawable.draw
          * @param {function[]} [params.behaviors] - methods that will be invoked when 
          * this.update() is called.
+         */
+        /**
+         * @function params.paint
+         * @param context
+         * @example
+         * paint: function(context) {
+         *     _this.drawable.stroke(context);
+         * }
          */
         init: function(params) {
             var _this = this;
