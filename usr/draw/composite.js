@@ -61,9 +61,9 @@ var _c = _c || {};
          * method is called
          * @param {function} [params.draw.after] - action to be taken after the default draw method
          * is called
-         * @param {function} [params.draw.main] - overrides the default draw method and obviates
-         * params.draw.before and params.draw.after. That is, if params.draw.main is provided, it
-         * must include the entire draw method.
+         * @param {function} [params.draw.all] - overrides the default draw method and obviates
+         * params.draw.before and params.draw.after. That is, if params.draw.allis provided, it
+         * will be used as the entire draw method.
          * @param {function} [params.finish] - called (using <code>this</code> as 'this argument') after 
          * all components have been initially constructed. Used to set up pointers between
          * components, which presupposes that the components have been initialized.
@@ -86,9 +86,9 @@ var _c = _c || {};
             this.points = params.points || {};
             this.vectors = params.vectors || {};
             this.config = params.config || {};
-            if (_draw.main) {
+            if (_draw.all) {
                 this.draw = function(context) {
-                    return _draw.main.call(this, context);
+                    return _draw.all.call(this, context);
                 }
             }
             else {
