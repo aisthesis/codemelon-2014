@@ -71,8 +71,8 @@ var _c = _c || {};
          * same point can also be used as endpoint of a line.
          */
         /**
-         * @method params.beforeDraw
-         * // similarly for params.afterDraw and params.draw
+         * @method params.draw.before
+         * // similarly for params.draw.after and params.draw.main
          * @param {object} context - context into which the drawable will be drawn
          */
         init: function(params) {
