@@ -1,0 +1,7837 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Namespace: draw</title>
+    
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+    
+    <h1 class="page-title">Namespace: draw</h1>
+    
+    
+
+
+
+<section>
+    
+<header>
+    <h2>
+        <span class="ancestors"><a href="global.html#_c">_c</a>.</span>
+    
+    draw
+    </h2>
+    
+</header>  
+
+<article>
+    <div class="container-overview">
+    
+    
+    
+        
+        
+        
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="point.js.html">point.js</a>, <a href="point.js.html#line15">line 15</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+        
+        
+    
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+        <h3 class="subsection-title">Classes</h3>
+        
+        <dl>
+            <dt><a href="_c.draw.Circle.html">Circle</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.Drawable.html">Drawable</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.Ellipse.html">Ellipse</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.FrameSet.html">FrameSet</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.Image.html">Image</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.Point.html">Point</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.Polygon.html">Polygon</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.Rectangle.html">Rectangle</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.RegularPolygon.html">RegularPolygon</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.Shape.html">Shape</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.TileSet.html">TileSet</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.Vector.html">Vector</a></dt>
+            <dd></dd>
+        </dl>
+    
+    
+    
+    
+    
+    
+    
+        <h3 class="subsection-title">Methods</h3>
+        
+        <dl>
+            
+<dt>
+    <h4 class="name" id="getOffset"><span class="type-signature">&lt;static> </span>getOffset<span class="signature">(canvas, orig, event, <span class="optional">loc</span>, <span class="optional">offset</span>)</span><span class="type-signature"> &rarr; {Vector}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Returns a vector specifying the offset of the given
+event from the given point on the given canvas.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Argument</th>
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>canvas</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">canvas on which offset is to be determined</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>orig</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Point</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">point relative to which the offset is to be
+measured</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>event</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">event whose position relative to the original
+point is to be determined</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>loc</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Point</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">point that will be modified to show
+the location of the event relative to the canvas. Re-using this point 
+will improve performance if the function is called repeatedly, such as
+on any mousemove event.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>offset</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Vector</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">optional vector in which to store the result</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="canvas-utils.js.html">canvas-utils.js</a>, <a href="canvas-utils.js.html#line54">line 54</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">Vector</span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="windowToCanvas"><span class="type-signature">&lt;static> </span>windowToCanvas<span class="signature">(canvas, x, y, <span class="optional">point</span>)</span><span class="type-signature"> &rarr; {Point}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Convert window coordinates to canvas coordinates. Providing
+the optional point parameter improves performance if the
+desired point already exists.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Argument</th>
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>canvas</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">canvas relative to which coordinates
+are to be determined</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>x</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">window x coordinate</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>y</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">window y coordinate</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>point</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Point</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">point in which to store result</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="canvas-utils.js.html">canvas-utils.js</a>, <a href="canvas-utils.js.html#line28">line 28</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">Point</span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        </dl>
+    
+    
+    
+    
+    
+</article>
+
+</section>  
+
+
+
+
+
+
+<section>
+    
+<header>
+    <h2>
+        <span class="ancestors"><a href="global.html#_c">_c</a>.</span>
+    
+    draw
+    </h2>
+    
+</header>  
+
+<article>
+    <div class="container-overview">
+    
+    
+    
+        
+        
+        
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="sprite.js.html">sprite.js</a>, <a href="sprite.js.html#line16">line 16</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+        
+        
+    
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+        <h3 class="subsection-title">Classes</h3>
+        
+        <dl>
+            <dt><a href="_c.draw.Circle.html">Circle</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.Drawable.html">Drawable</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.Ellipse.html">Ellipse</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.FrameSet.html">FrameSet</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.Image.html">Image</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.Point.html">Point</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.Polygon.html">Polygon</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.Rectangle.html">Rectangle</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.RegularPolygon.html">RegularPolygon</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.Shape.html">Shape</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.TileSet.html">TileSet</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.Vector.html">Vector</a></dt>
+            <dd></dd>
+        </dl>
+    
+    
+    
+    
+    
+    
+    
+        <h3 class="subsection-title">Methods</h3>
+        
+        <dl>
+            
+<dt>
+    <h4 class="name" id="getOffset"><span class="type-signature">&lt;static> </span>getOffset<span class="signature">(canvas, orig, event, <span class="optional">loc</span>, <span class="optional">offset</span>)</span><span class="type-signature"> &rarr; {Vector}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Returns a vector specifying the offset of the given
+event from the given point on the given canvas.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Argument</th>
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>canvas</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">canvas on which offset is to be determined</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>orig</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Point</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">point relative to which the offset is to be
+measured</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>event</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">event whose position relative to the original
+point is to be determined</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>loc</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Point</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">point that will be modified to show
+the location of the event relative to the canvas. Re-using this point 
+will improve performance if the function is called repeatedly, such as
+on any mousemove event.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>offset</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Vector</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">optional vector in which to store the result</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="canvas-utils.js.html">canvas-utils.js</a>, <a href="canvas-utils.js.html#line54">line 54</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">Vector</span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="windowToCanvas"><span class="type-signature">&lt;static> </span>windowToCanvas<span class="signature">(canvas, x, y, <span class="optional">point</span>)</span><span class="type-signature"> &rarr; {Point}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Convert window coordinates to canvas coordinates. Providing
+the optional point parameter improves performance if the
+desired point already exists.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Argument</th>
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>canvas</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">canvas relative to which coordinates
+are to be determined</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>x</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">window x coordinate</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>y</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">window y coordinate</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>point</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Point</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">point in which to store result</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="canvas-utils.js.html">canvas-utils.js</a>, <a href="canvas-utils.js.html#line28">line 28</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">Point</span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        </dl>
+    
+    
+    
+    
+    
+</article>
+
+</section>  
+
+
+
+
+
+
+<section>
+    
+<header>
+    <h2>
+        <span class="ancestors"><a href="global.html#_c">_c</a>.</span>
+    
+    draw
+    </h2>
+    
+</header>  
+
+<article>
+    <div class="container-overview">
+    
+    
+    
+        
+        
+        
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="polygon.js.html">polygon.js</a>, <a href="polygon.js.html#line21">line 21</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+        
+        
+    
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+        <h3 class="subsection-title">Classes</h3>
+        
+        <dl>
+            <dt><a href="_c.draw.Circle.html">Circle</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.Drawable.html">Drawable</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.Ellipse.html">Ellipse</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.FrameSet.html">FrameSet</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.Image.html">Image</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.Point.html">Point</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.Polygon.html">Polygon</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.Rectangle.html">Rectangle</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.RegularPolygon.html">RegularPolygon</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.Shape.html">Shape</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.TileSet.html">TileSet</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.Vector.html">Vector</a></dt>
+            <dd></dd>
+        </dl>
+    
+    
+    
+    
+    
+    
+    
+        <h3 class="subsection-title">Methods</h3>
+        
+        <dl>
+            
+<dt>
+    <h4 class="name" id="getOffset"><span class="type-signature">&lt;static> </span>getOffset<span class="signature">(canvas, orig, event, <span class="optional">loc</span>, <span class="optional">offset</span>)</span><span class="type-signature"> &rarr; {Vector}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Returns a vector specifying the offset of the given
+event from the given point on the given canvas.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Argument</th>
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>canvas</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">canvas on which offset is to be determined</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>orig</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Point</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">point relative to which the offset is to be
+measured</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>event</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">event whose position relative to the original
+point is to be determined</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>loc</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Point</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">point that will be modified to show
+the location of the event relative to the canvas. Re-using this point 
+will improve performance if the function is called repeatedly, such as
+on any mousemove event.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>offset</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Vector</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">optional vector in which to store the result</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="canvas-utils.js.html">canvas-utils.js</a>, <a href="canvas-utils.js.html#line54">line 54</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">Vector</span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="windowToCanvas"><span class="type-signature">&lt;static> </span>windowToCanvas<span class="signature">(canvas, x, y, <span class="optional">point</span>)</span><span class="type-signature"> &rarr; {Point}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Convert window coordinates to canvas coordinates. Providing
+the optional point parameter improves performance if the
+desired point already exists.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Argument</th>
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>canvas</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">canvas relative to which coordinates
+are to be determined</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>x</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">window x coordinate</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>y</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">window y coordinate</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>point</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Point</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">point in which to store result</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="canvas-utils.js.html">canvas-utils.js</a>, <a href="canvas-utils.js.html#line28">line 28</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">Point</span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        </dl>
+    
+    
+    
+    
+    
+</article>
+
+</section>  
+
+
+
+
+
+
+<section>
+    
+<header>
+    <h2>
+        <span class="ancestors"><a href="global.html#_c">_c</a>.</span>
+    
+    draw
+    </h2>
+    
+</header>  
+
+<article>
+    <div class="container-overview">
+    
+    
+    
+        
+        
+        
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="rectangle.js.html">rectangle.js</a>, <a href="rectangle.js.html#line20">line 20</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+        
+        
+    
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+        <h3 class="subsection-title">Classes</h3>
+        
+        <dl>
+            <dt><a href="_c.draw.Circle.html">Circle</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.Drawable.html">Drawable</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.Ellipse.html">Ellipse</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.FrameSet.html">FrameSet</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.Image.html">Image</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.Point.html">Point</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.Polygon.html">Polygon</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.Rectangle.html">Rectangle</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.RegularPolygon.html">RegularPolygon</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.Shape.html">Shape</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.TileSet.html">TileSet</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.Vector.html">Vector</a></dt>
+            <dd></dd>
+        </dl>
+    
+    
+    
+    
+    
+    
+    
+        <h3 class="subsection-title">Methods</h3>
+        
+        <dl>
+            
+<dt>
+    <h4 class="name" id="getOffset"><span class="type-signature">&lt;static> </span>getOffset<span class="signature">(canvas, orig, event, <span class="optional">loc</span>, <span class="optional">offset</span>)</span><span class="type-signature"> &rarr; {Vector}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Returns a vector specifying the offset of the given
+event from the given point on the given canvas.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Argument</th>
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>canvas</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">canvas on which offset is to be determined</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>orig</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Point</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">point relative to which the offset is to be
+measured</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>event</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">event whose position relative to the original
+point is to be determined</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>loc</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Point</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">point that will be modified to show
+the location of the event relative to the canvas. Re-using this point 
+will improve performance if the function is called repeatedly, such as
+on any mousemove event.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>offset</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Vector</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">optional vector in which to store the result</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="canvas-utils.js.html">canvas-utils.js</a>, <a href="canvas-utils.js.html#line54">line 54</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">Vector</span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="windowToCanvas"><span class="type-signature">&lt;static> </span>windowToCanvas<span class="signature">(canvas, x, y, <span class="optional">point</span>)</span><span class="type-signature"> &rarr; {Point}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Convert window coordinates to canvas coordinates. Providing
+the optional point parameter improves performance if the
+desired point already exists.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Argument</th>
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>canvas</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">canvas relative to which coordinates
+are to be determined</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>x</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">window x coordinate</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>y</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">window y coordinate</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>point</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Point</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">point in which to store result</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="canvas-utils.js.html">canvas-utils.js</a>, <a href="canvas-utils.js.html#line28">line 28</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">Point</span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        </dl>
+    
+    
+    
+    
+    
+</article>
+
+</section>  
+
+
+
+
+
+
+<section>
+    
+<header>
+    <h2>
+        <span class="ancestors"><a href="global.html#_c">_c</a>.</span>
+    
+    draw
+    </h2>
+    
+</header>  
+
+<article>
+    <div class="container-overview">
+    
+    
+    
+        
+        
+        
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="frame-set.js.html">frame-set.js</a>, <a href="frame-set.js.html#line21">line 21</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+        
+        
+    
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+        <h3 class="subsection-title">Classes</h3>
+        
+        <dl>
+            <dt><a href="_c.draw.Circle.html">Circle</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.Drawable.html">Drawable</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.Ellipse.html">Ellipse</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.FrameSet.html">FrameSet</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.Image.html">Image</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.Point.html">Point</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.Polygon.html">Polygon</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.Rectangle.html">Rectangle</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.RegularPolygon.html">RegularPolygon</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.Shape.html">Shape</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.TileSet.html">TileSet</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.Vector.html">Vector</a></dt>
+            <dd></dd>
+        </dl>
+    
+    
+    
+    
+    
+    
+    
+        <h3 class="subsection-title">Methods</h3>
+        
+        <dl>
+            
+<dt>
+    <h4 class="name" id="getOffset"><span class="type-signature">&lt;static> </span>getOffset<span class="signature">(canvas, orig, event, <span class="optional">loc</span>, <span class="optional">offset</span>)</span><span class="type-signature"> &rarr; {Vector}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Returns a vector specifying the offset of the given
+event from the given point on the given canvas.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Argument</th>
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>canvas</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">canvas on which offset is to be determined</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>orig</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Point</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">point relative to which the offset is to be
+measured</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>event</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">event whose position relative to the original
+point is to be determined</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>loc</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Point</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">point that will be modified to show
+the location of the event relative to the canvas. Re-using this point 
+will improve performance if the function is called repeatedly, such as
+on any mousemove event.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>offset</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Vector</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">optional vector in which to store the result</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="canvas-utils.js.html">canvas-utils.js</a>, <a href="canvas-utils.js.html#line54">line 54</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">Vector</span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="windowToCanvas"><span class="type-signature">&lt;static> </span>windowToCanvas<span class="signature">(canvas, x, y, <span class="optional">point</span>)</span><span class="type-signature"> &rarr; {Point}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Convert window coordinates to canvas coordinates. Providing
+the optional point parameter improves performance if the
+desired point already exists.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Argument</th>
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>canvas</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">canvas relative to which coordinates
+are to be determined</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>x</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">window x coordinate</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>y</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">window y coordinate</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>point</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Point</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">point in which to store result</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="canvas-utils.js.html">canvas-utils.js</a>, <a href="canvas-utils.js.html#line28">line 28</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">Point</span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        </dl>
+    
+    
+    
+    
+    
+</article>
+
+</section>  
+
+
+
+
+
+
+<section>
+    
+<header>
+    <h2>
+        <span class="ancestors"><a href="global.html#_c">_c</a>.</span>
+    
+    draw
+    </h2>
+    
+</header>  
+
+<article>
+    <div class="container-overview">
+    
+    
+    
+        
+        
+        
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="ellipse.js.html">ellipse.js</a>, <a href="ellipse.js.html#line18">line 18</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+        
+        
+    
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+        <h3 class="subsection-title">Classes</h3>
+        
+        <dl>
+            <dt><a href="_c.draw.Circle.html">Circle</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.Drawable.html">Drawable</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.Ellipse.html">Ellipse</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.FrameSet.html">FrameSet</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.Image.html">Image</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.Point.html">Point</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.Polygon.html">Polygon</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.Rectangle.html">Rectangle</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.RegularPolygon.html">RegularPolygon</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.Shape.html">Shape</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.TileSet.html">TileSet</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.Vector.html">Vector</a></dt>
+            <dd></dd>
+        </dl>
+    
+    
+    
+    
+    
+    
+    
+        <h3 class="subsection-title">Methods</h3>
+        
+        <dl>
+            
+<dt>
+    <h4 class="name" id="getOffset"><span class="type-signature">&lt;static> </span>getOffset<span class="signature">(canvas, orig, event, <span class="optional">loc</span>, <span class="optional">offset</span>)</span><span class="type-signature"> &rarr; {Vector}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Returns a vector specifying the offset of the given
+event from the given point on the given canvas.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Argument</th>
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>canvas</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">canvas on which offset is to be determined</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>orig</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Point</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">point relative to which the offset is to be
+measured</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>event</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">event whose position relative to the original
+point is to be determined</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>loc</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Point</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">point that will be modified to show
+the location of the event relative to the canvas. Re-using this point 
+will improve performance if the function is called repeatedly, such as
+on any mousemove event.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>offset</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Vector</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">optional vector in which to store the result</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="canvas-utils.js.html">canvas-utils.js</a>, <a href="canvas-utils.js.html#line54">line 54</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">Vector</span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="windowToCanvas"><span class="type-signature">&lt;static> </span>windowToCanvas<span class="signature">(canvas, x, y, <span class="optional">point</span>)</span><span class="type-signature"> &rarr; {Point}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Convert window coordinates to canvas coordinates. Providing
+the optional point parameter improves performance if the
+desired point already exists.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Argument</th>
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>canvas</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">canvas relative to which coordinates
+are to be determined</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>x</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">window x coordinate</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>y</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">window y coordinate</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>point</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Point</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">point in which to store result</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="canvas-utils.js.html">canvas-utils.js</a>, <a href="canvas-utils.js.html#line28">line 28</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">Point</span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        </dl>
+    
+    
+    
+    
+    
+</article>
+
+</section>  
+
+
+
+
+
+
+<section>
+    
+<header>
+    <h2>
+        <span class="ancestors"><a href="global.html#_c">_c</a>.</span>
+    
+    draw
+    </h2>
+    
+</header>  
+
+<article>
+    <div class="container-overview">
+    
+    
+    
+        
+        
+        
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="composite.js.html">composite.js</a>, <a href="composite.js.html#line23">line 23</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+        
+        
+    
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+        <h3 class="subsection-title">Classes</h3>
+        
+        <dl>
+            <dt><a href="_c.draw.Circle.html">Circle</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.Drawable.html">Drawable</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.Ellipse.html">Ellipse</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.FrameSet.html">FrameSet</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.Image.html">Image</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.Point.html">Point</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.Polygon.html">Polygon</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.Rectangle.html">Rectangle</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.RegularPolygon.html">RegularPolygon</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.Shape.html">Shape</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.TileSet.html">TileSet</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.Vector.html">Vector</a></dt>
+            <dd></dd>
+        </dl>
+    
+    
+    
+    
+    
+    
+    
+        <h3 class="subsection-title">Methods</h3>
+        
+        <dl>
+            
+<dt>
+    <h4 class="name" id="getOffset"><span class="type-signature">&lt;static> </span>getOffset<span class="signature">(canvas, orig, event, <span class="optional">loc</span>, <span class="optional">offset</span>)</span><span class="type-signature"> &rarr; {Vector}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Returns a vector specifying the offset of the given
+event from the given point on the given canvas.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Argument</th>
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>canvas</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">canvas on which offset is to be determined</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>orig</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Point</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">point relative to which the offset is to be
+measured</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>event</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">event whose position relative to the original
+point is to be determined</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>loc</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Point</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">point that will be modified to show
+the location of the event relative to the canvas. Re-using this point 
+will improve performance if the function is called repeatedly, such as
+on any mousemove event.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>offset</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Vector</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">optional vector in which to store the result</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="canvas-utils.js.html">canvas-utils.js</a>, <a href="canvas-utils.js.html#line54">line 54</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">Vector</span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="windowToCanvas"><span class="type-signature">&lt;static> </span>windowToCanvas<span class="signature">(canvas, x, y, <span class="optional">point</span>)</span><span class="type-signature"> &rarr; {Point}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Convert window coordinates to canvas coordinates. Providing
+the optional point parameter improves performance if the
+desired point already exists.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Argument</th>
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>canvas</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">canvas relative to which coordinates
+are to be determined</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>x</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">window x coordinate</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>y</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">window y coordinate</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>point</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Point</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">point in which to store result</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="canvas-utils.js.html">canvas-utils.js</a>, <a href="canvas-utils.js.html#line28">line 28</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">Point</span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        </dl>
+    
+    
+    
+    
+    
+</article>
+
+</section>  
+
+
+
+
+
+
+<section>
+    
+<header>
+    <h2>
+        <span class="ancestors"><a href="global.html#_c">_c</a>.</span>
+    
+    draw
+    </h2>
+    
+</header>  
+
+<article>
+    <div class="container-overview">
+    
+    
+    
+        
+        
+        
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="drawable.js.html">drawable.js</a>, <a href="drawable.js.html#line18">line 18</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+        
+        
+    
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+        <h3 class="subsection-title">Classes</h3>
+        
+        <dl>
+            <dt><a href="_c.draw.Circle.html">Circle</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.Drawable.html">Drawable</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.Ellipse.html">Ellipse</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.FrameSet.html">FrameSet</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.Image.html">Image</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.Point.html">Point</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.Polygon.html">Polygon</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.Rectangle.html">Rectangle</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.RegularPolygon.html">RegularPolygon</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.Shape.html">Shape</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.TileSet.html">TileSet</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.Vector.html">Vector</a></dt>
+            <dd></dd>
+        </dl>
+    
+    
+    
+    
+    
+    
+    
+        <h3 class="subsection-title">Methods</h3>
+        
+        <dl>
+            
+<dt>
+    <h4 class="name" id="getOffset"><span class="type-signature">&lt;static> </span>getOffset<span class="signature">(canvas, orig, event, <span class="optional">loc</span>, <span class="optional">offset</span>)</span><span class="type-signature"> &rarr; {Vector}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Returns a vector specifying the offset of the given
+event from the given point on the given canvas.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Argument</th>
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>canvas</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">canvas on which offset is to be determined</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>orig</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Point</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">point relative to which the offset is to be
+measured</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>event</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">event whose position relative to the original
+point is to be determined</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>loc</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Point</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">point that will be modified to show
+the location of the event relative to the canvas. Re-using this point 
+will improve performance if the function is called repeatedly, such as
+on any mousemove event.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>offset</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Vector</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">optional vector in which to store the result</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="canvas-utils.js.html">canvas-utils.js</a>, <a href="canvas-utils.js.html#line54">line 54</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">Vector</span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="windowToCanvas"><span class="type-signature">&lt;static> </span>windowToCanvas<span class="signature">(canvas, x, y, <span class="optional">point</span>)</span><span class="type-signature"> &rarr; {Point}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Convert window coordinates to canvas coordinates. Providing
+the optional point parameter improves performance if the
+desired point already exists.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Argument</th>
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>canvas</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">canvas relative to which coordinates
+are to be determined</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>x</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">window x coordinate</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>y</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">window y coordinate</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>point</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Point</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">point in which to store result</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="canvas-utils.js.html">canvas-utils.js</a>, <a href="canvas-utils.js.html#line28">line 28</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">Point</span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        </dl>
+    
+    
+    
+    
+    
+</article>
+
+</section>  
+
+
+
+
+
+
+<section>
+    
+<header>
+    <h2>
+        <span class="ancestors"><a href="global.html#_c">_c</a>.</span>
+    
+    draw
+    </h2>
+    
+</header>  
+
+<article>
+    <div class="container-overview">
+    
+    
+    
+        
+        
+        
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="circle.js.html">circle.js</a>, <a href="circle.js.html#line18">line 18</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+        
+        
+    
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+        <h3 class="subsection-title">Classes</h3>
+        
+        <dl>
+            <dt><a href="_c.draw.Circle.html">Circle</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.Drawable.html">Drawable</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.Ellipse.html">Ellipse</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.FrameSet.html">FrameSet</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.Image.html">Image</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.Point.html">Point</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.Polygon.html">Polygon</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.Rectangle.html">Rectangle</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.RegularPolygon.html">RegularPolygon</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.Shape.html">Shape</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.TileSet.html">TileSet</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.Vector.html">Vector</a></dt>
+            <dd></dd>
+        </dl>
+    
+    
+    
+    
+    
+    
+    
+        <h3 class="subsection-title">Methods</h3>
+        
+        <dl>
+            
+<dt>
+    <h4 class="name" id="getOffset"><span class="type-signature">&lt;static> </span>getOffset<span class="signature">(canvas, orig, event, <span class="optional">loc</span>, <span class="optional">offset</span>)</span><span class="type-signature"> &rarr; {Vector}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Returns a vector specifying the offset of the given
+event from the given point on the given canvas.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Argument</th>
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>canvas</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">canvas on which offset is to be determined</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>orig</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Point</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">point relative to which the offset is to be
+measured</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>event</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">event whose position relative to the original
+point is to be determined</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>loc</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Point</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">point that will be modified to show
+the location of the event relative to the canvas. Re-using this point 
+will improve performance if the function is called repeatedly, such as
+on any mousemove event.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>offset</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Vector</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">optional vector in which to store the result</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="canvas-utils.js.html">canvas-utils.js</a>, <a href="canvas-utils.js.html#line54">line 54</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">Vector</span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="windowToCanvas"><span class="type-signature">&lt;static> </span>windowToCanvas<span class="signature">(canvas, x, y, <span class="optional">point</span>)</span><span class="type-signature"> &rarr; {Point}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Convert window coordinates to canvas coordinates. Providing
+the optional point parameter improves performance if the
+desired point already exists.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Argument</th>
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>canvas</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">canvas relative to which coordinates
+are to be determined</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>x</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">window x coordinate</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>y</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">window y coordinate</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>point</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Point</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">point in which to store result</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="canvas-utils.js.html">canvas-utils.js</a>, <a href="canvas-utils.js.html#line28">line 28</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">Point</span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        </dl>
+    
+    
+    
+    
+    
+</article>
+
+</section>  
+
+
+
+
+
+
+<section>
+    
+<header>
+    <h2>
+        <span class="ancestors"><a href="global.html#_c">_c</a>.</span>
+    
+    draw
+    </h2>
+    
+</header>  
+
+<article>
+    <div class="container-overview">
+    
+    
+    
+        
+        
+        
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="image.js.html">image.js</a>, <a href="image.js.html#line19">line 19</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+        
+        
+    
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+        <h3 class="subsection-title">Classes</h3>
+        
+        <dl>
+            <dt><a href="_c.draw.Circle.html">Circle</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.Drawable.html">Drawable</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.Ellipse.html">Ellipse</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.FrameSet.html">FrameSet</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.Image.html">Image</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.Point.html">Point</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.Polygon.html">Polygon</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.Rectangle.html">Rectangle</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.RegularPolygon.html">RegularPolygon</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.Shape.html">Shape</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.TileSet.html">TileSet</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.Vector.html">Vector</a></dt>
+            <dd></dd>
+        </dl>
+    
+    
+    
+    
+    
+    
+    
+        <h3 class="subsection-title">Methods</h3>
+        
+        <dl>
+            
+<dt>
+    <h4 class="name" id="getOffset"><span class="type-signature">&lt;static> </span>getOffset<span class="signature">(canvas, orig, event, <span class="optional">loc</span>, <span class="optional">offset</span>)</span><span class="type-signature"> &rarr; {Vector}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Returns a vector specifying the offset of the given
+event from the given point on the given canvas.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Argument</th>
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>canvas</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">canvas on which offset is to be determined</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>orig</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Point</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">point relative to which the offset is to be
+measured</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>event</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">event whose position relative to the original
+point is to be determined</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>loc</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Point</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">point that will be modified to show
+the location of the event relative to the canvas. Re-using this point 
+will improve performance if the function is called repeatedly, such as
+on any mousemove event.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>offset</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Vector</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">optional vector in which to store the result</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="canvas-utils.js.html">canvas-utils.js</a>, <a href="canvas-utils.js.html#line54">line 54</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">Vector</span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="windowToCanvas"><span class="type-signature">&lt;static> </span>windowToCanvas<span class="signature">(canvas, x, y, <span class="optional">point</span>)</span><span class="type-signature"> &rarr; {Point}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Convert window coordinates to canvas coordinates. Providing
+the optional point parameter improves performance if the
+desired point already exists.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Argument</th>
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>canvas</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">canvas relative to which coordinates
+are to be determined</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>x</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">window x coordinate</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>y</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">window y coordinate</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>point</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Point</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">point in which to store result</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="canvas-utils.js.html">canvas-utils.js</a>, <a href="canvas-utils.js.html#line28">line 28</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">Point</span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        </dl>
+    
+    
+    
+    
+    
+</article>
+
+</section>  
+
+
+
+
+
+
+<section>
+    
+<header>
+    <h2>
+        <span class="ancestors"><a href="global.html#_c">_c</a>.</span>
+    
+    draw
+    </h2>
+    
+</header>  
+
+<article>
+    <div class="container-overview">
+    
+    
+    
+        
+        
+        
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="regular-polygon.js.html">regular-polygon.js</a>, <a href="regular-polygon.js.html#line21">line 21</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+        
+        
+    
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+        <h3 class="subsection-title">Classes</h3>
+        
+        <dl>
+            <dt><a href="_c.draw.Circle.html">Circle</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.Drawable.html">Drawable</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.Ellipse.html">Ellipse</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.FrameSet.html">FrameSet</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.Image.html">Image</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.Point.html">Point</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.Polygon.html">Polygon</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.Rectangle.html">Rectangle</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.RegularPolygon.html">RegularPolygon</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.Shape.html">Shape</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.TileSet.html">TileSet</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.Vector.html">Vector</a></dt>
+            <dd></dd>
+        </dl>
+    
+    
+    
+    
+    
+    
+    
+        <h3 class="subsection-title">Methods</h3>
+        
+        <dl>
+            
+<dt>
+    <h4 class="name" id="getOffset"><span class="type-signature">&lt;static> </span>getOffset<span class="signature">(canvas, orig, event, <span class="optional">loc</span>, <span class="optional">offset</span>)</span><span class="type-signature"> &rarr; {Vector}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Returns a vector specifying the offset of the given
+event from the given point on the given canvas.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Argument</th>
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>canvas</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">canvas on which offset is to be determined</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>orig</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Point</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">point relative to which the offset is to be
+measured</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>event</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">event whose position relative to the original
+point is to be determined</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>loc</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Point</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">point that will be modified to show
+the location of the event relative to the canvas. Re-using this point 
+will improve performance if the function is called repeatedly, such as
+on any mousemove event.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>offset</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Vector</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">optional vector in which to store the result</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="canvas-utils.js.html">canvas-utils.js</a>, <a href="canvas-utils.js.html#line54">line 54</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">Vector</span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="windowToCanvas"><span class="type-signature">&lt;static> </span>windowToCanvas<span class="signature">(canvas, x, y, <span class="optional">point</span>)</span><span class="type-signature"> &rarr; {Point}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Convert window coordinates to canvas coordinates. Providing
+the optional point parameter improves performance if the
+desired point already exists.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Argument</th>
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>canvas</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">canvas relative to which coordinates
+are to be determined</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>x</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">window x coordinate</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>y</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">window y coordinate</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>point</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Point</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">point in which to store result</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="canvas-utils.js.html">canvas-utils.js</a>, <a href="canvas-utils.js.html#line28">line 28</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">Point</span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        </dl>
+    
+    
+    
+    
+    
+</article>
+
+</section>  
+
+
+
+
+
+
+<section>
+    
+<header>
+    <h2>
+        <span class="ancestors"><a href="global.html#_c">_c</a>.</span>
+    
+    draw
+    </h2>
+    
+</header>  
+
+<article>
+    <div class="container-overview">
+    
+    
+    
+        
+        
+        
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="shape.js.html">shape.js</a>, <a href="shape.js.html#line21">line 21</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+        
+        
+    
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+        <h3 class="subsection-title">Classes</h3>
+        
+        <dl>
+            <dt><a href="_c.draw.Circle.html">Circle</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.Drawable.html">Drawable</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.Ellipse.html">Ellipse</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.FrameSet.html">FrameSet</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.Image.html">Image</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.Point.html">Point</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.Polygon.html">Polygon</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.Rectangle.html">Rectangle</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.RegularPolygon.html">RegularPolygon</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.Shape.html">Shape</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.TileSet.html">TileSet</a></dt>
+            <dd></dd>
+        
+            <dt><a href="_c.draw.Vector.html">Vector</a></dt>
+            <dd></dd>
+        </dl>
+    
+    
+    
+    
+    
+    
+    
+        <h3 class="subsection-title">Methods</h3>
+        
+        <dl>
+            
+<dt>
+    <h4 class="name" id="getOffset"><span class="type-signature">&lt;static> </span>getOffset<span class="signature">(canvas, orig, event, <span class="optional">loc</span>, <span class="optional">offset</span>)</span><span class="type-signature"> &rarr; {Vector}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Returns a vector specifying the offset of the given
+event from the given point on the given canvas.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Argument</th>
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>canvas</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">canvas on which offset is to be determined</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>orig</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Point</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">point relative to which the offset is to be
+measured</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>event</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">event whose position relative to the original
+point is to be determined</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>loc</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Point</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">point that will be modified to show
+the location of the event relative to the canvas. Re-using this point 
+will improve performance if the function is called repeatedly, such as
+on any mousemove event.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>offset</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Vector</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">optional vector in which to store the result</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="canvas-utils.js.html">canvas-utils.js</a>, <a href="canvas-utils.js.html#line54">line 54</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">Vector</span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="windowToCanvas"><span class="type-signature">&lt;static> </span>windowToCanvas<span class="signature">(canvas, x, y, <span class="optional">point</span>)</span><span class="type-signature"> &rarr; {Point}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Convert window coordinates to canvas coordinates. Providing
+the optional point parameter improves performance if the
+desired point already exists.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Argument</th>
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>canvas</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">canvas relative to which coordinates
+are to be determined</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>x</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">window x coordinate</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>y</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">window y coordinate</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>point</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Point</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">point in which to store result</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="canvas-utils.js.html">canvas-utils.js</a>, <a href="canvas-utils.js.html#line28">line 28</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">Point</span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        </dl>
+    
+    
+    
+    
+    
+</article>
+
+</section>  
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Index</a></h2><h3>Classes</h3><ul><li><a href="_c.draw.Circle.html">Circle</a></li><li><a href="_c.draw.Drawable.html">Drawable</a></li><li><a href="_c.draw.Ellipse.html">Ellipse</a></li><li><a href="_c.draw.FrameSet.html">FrameSet</a></li><li><a href="_c.draw.Image.html">Image</a></li><li><a href="_c.draw.Point.html">Point</a></li><li><a href="_c.draw.Polygon.html">Polygon</a></li><li><a href="_c.draw.Rectangle.html">Rectangle</a></li><li><a href="_c.draw.RegularPolygon.html">RegularPolygon</a></li><li><a href="_c.draw.Shape.html">Shape</a></li><li><a href="_c.draw.TileSet.html">TileSet</a></li><li><a href="_c.draw.Vector.html">Vector</a></li></ul><h3>Namespaces</h3><ul><li><a href="global.html#_c">_c</a></li><li><a href="_c.draw.html">draw</a></li></ul><h3>Global</h3><ul><li><a href="global.html#[contains]">[contains]</a></li><li><a href="global.html#buildPath">buildPath</a></li><li><a href="global.html#contains">contains</a></li><li><a href="global.html#contains - not yet implemented">contains - not yet implemented</a></li><li><a href="global.html#contains - specifies whether a given point
+is contained in the rectangle where the image is placed.">contains - specifies whether a given point
+is contained in the rectangle where the image is placed.</a></li><li><a href="global.html#contains - specifies whether the current image,
+including the currently specified offset, contains a particular point.">contains - specifies whether the current image,
+including the currently specified offset, contains a particular point.</a></li><li><a href="global.html#contains - specifies whether the rectangle into which
+the current image is drawn contains a particular point.">contains - specifies whether the rectangle into which
+the current image is drawn contains a particular point.</a></li><li><a href="global.html#draw">draw</a></li><li><a href="global.html#drawClipped">drawClipped</a></li><li><a href="global.html#minus">minus</a></li><li><a href="global.html#move">move</a></li><li><a href="global.html#offset">offset</a></li><li><a href="global.html#paint">paint</a></li><li><a href="global.html#params.beforeDraw
+// similarly for params.afterDraw and params.draw">params.beforeDraw
+// similarly for params.afterDraw and params.draw</a></li><li><a href="global.html#plus">plus</a></li><li><a href="global.html#prep">prep</a></li><li><a href="global.html#update - invoke all behaviors, using the calling sprite as
+this argument">update - invoke all behaviors, using the calling sprite as
+this argument</a></li><li><a href="global.html#y - y coordinate">y - y coordinate</a></li></ul>
+</nav>
+
+<br clear="both">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-alpha2</a> on Thu Dec 19 2013 03:59:57 GMT-0800 (PST)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

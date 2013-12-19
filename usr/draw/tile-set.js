@@ -17,6 +17,13 @@ var _c = _c || {};
     _c.draw = _c.draw || {};
 
     /**
+     * Cell definition object
+     * @typedef {Object} Cell
+     * @property {_c.draw.Point} corner
+     * @property {number} width
+     * @property {number} height
+     */
+    /**
      * Creates a new _c.draw.TileSet
      * @constructor
      * @member {_c.draw.Image} image - native JavaScript Image object 
@@ -26,8 +33,8 @@ var _c = _c || {};
      * has finished loading.
      * @member {_c.draw.Point} corner - corner to which the current cell
      * will be drawn.
-     * @member {{corner: _c.draw.Point, width: number, height: number}[]} cells -
-     * describes individual cells within this.image
+     * @member {Cell[]} cells - describes the individual cells contained
+     * in the image
      * @member {number} index - index of current cell
      * @member {function} advance - advances the current cell, reverting
      * back to 0 when all cells have been traversed.
@@ -48,9 +55,9 @@ var _c = _c || {};
          * path to an images folder has been set. The path to the images
          * folder should not be included in this parameter but should
          * be the value of _c.path.images
-         * @param {_c.draw.Point} corner
-         * @param {{corner: _c.draw.Point, width: number, height: number}[]} cells -
-         * describes individual cells within this.image
+         * @param {_c.draw.Point} params.corner
+         * @param {Cell[]} cells - describes the individual cells contained
+         * in the image
          * @param {function} [params.onload] - callback to be invoked
          * when the image loads
          */

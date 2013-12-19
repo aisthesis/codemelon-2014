@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: regular-polygon.js</title>
+    
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+    
+    <h1 class="page-title">Source: regular-polygon.js</h1>
+    
+    
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source"><code>/**
+ * Regular convex polygon defined by
+ * radius, center and number of sides.
+ *
+ * Copyright (c) 2013 Marshall Farrier
+ * http://www.opensource.org/licenses/mit-license.php
+ *
+ * Dependencies:
+ * extend.js
+ * polygon.js
+ * point.js
+ */
+
+/** @namespace */
+var _c = _c || {};
+
+(function(_c) {
+    "use strict";
+
+    /** @namespace */
+    _c.draw = _c.draw || {};
+
+    /**
+     * Creates a new _c.draw.RegularPolygon
+     * @constructor 
+     * @member {_c.draw.Point} center - center of the polygon
+     * @member {number} sides - number of sides
+     * @member {number} radius - outer radius of the polygon
+     * @member {number} angle - angle in radians at which first
+     * vertex will be drawn. Note that the angle 0 corresponds
+     * to 3 o'clock.
+     * @member {function} innerRadius - polygon's inner radius
+     * @member {function} resetVertices - sets vertex positions
+     * based on center, sides, radius and angle. Note that
+     * for the polygon to render correctly, this method must be called
+     * before drawing if any of the above parameters have been modified.
+     *
+     * Inherited from _c.draw.Polygon
+     * @member {function} buildPath
+     *
+     * Inherited from _c.draw.Shape:
+     * @member {object} styles - styles to be applied to context
+     * before shape is drawn
+     * @member {number} [styles.lineWidth]
+     * @member {string} [styles.fillStyle]
+     * @member {string} [styles.strokeStyle]
+     * @member {string} [styles.shadowColor]
+     * @member {number} [styles.shadowOffsetX]
+     * @member {number} [styles.shadowOffsetY]
+     * @member {number} [styles.shadowBlur]
+     * @member {function} render
+     * @member {function} clip
+     * @member {function} fill
+     * @member {function} stroke
+     * @member {function} drawClipped
+     * @member {function} prep
+     * @member {function} buildPath
+     *
+     * Inherited from _c.draw.Drawable:
+     * @member {function} draw
+     * @member {function} contains
+     */
+    _c.draw.RegularPolygon = _c.draw.Polygon.extend({
+
+        /**
+         * @constructs _c.draw.RegularPolygon
+         * @param {object} params
+         * @param {_c.draw.Point} params.center - center of the polygon
+         * @param {number} params.sides - number of sides
+         * @param {number} params.radius - outer radius of the polygon
+         * @param {number} [params.angle] - angle in radians at which first
+         * vertex will be drawn. Note that the angle 0 corresponds
+         * to 3 o'clock.
+         * @default 0
+         * @param {object} [params.styles] - any styles to be applied
+         * when the shape is drawn. If styles are not provided,
+         * the shape will be drawn using the context's current
+         * styles.
+         */
+        init: function(params) {
+            this._super(params);
+            // required
+            this.center = params.center;
+            this.sides = params.sides;
+            this.radius = params.radius;
+            // optional
+            // angle in radians at which first vertex will be drawn
+            this.angle = params.angle || 0;
+            // calculate vertices array (this.vertices)
+            this.resetVertices();
+        },
+
+        resetVertices: function() {
+            var angle = this.angle,
+                increment = 2 * Math.PI / this.sides,
+                i;
+
+            this.vertices = [];
+            for (i = 0; i &lt; this.sides; i++) {
+                this.vertices.push(new _c.draw.Point(this.center.x + this.radius * Math.cos(angle),
+                        this.center.y - this.radius * Math.sin(angle)));
+                angle += increment;
+            }
+        },
+
+        innerRadius: function() {
+            return this.radius * Math.cos(Math.PI / this.sides);
+        },
+
+        contains: function(point) {
+            var diffX = point.x - this.center.x,
+                diffY = this.center.y - point.y,
+                distance = Math.sqrt(diffX * diffX + diffY * diffY),
+                innerRadius = this.innerRadius(),
+                referenceAngle = Math.PI / this.sides,
+                angle,
+                steps;
+
+            if (distance > this.radius) { return false; }
+            if (distance &lt;= innerRadius) { return true; }
+
+            angle = Math.atan2(diffY, diffX);
+            // adjust according to polygon angle
+            angle -= this.angle;
+            // adjust as needed so that angle is positive
+            while (angle &lt; 0) { angle += Math.PI * 2; }
+            steps = Math.floor(angle * this.sides / (Math.PI * 2));
+            angle -= steps * 2 * referenceAngle;
+            angle = Math.abs(angle - referenceAngle);
+            return distance &lt;= innerRadius / Math.cos(angle);
+        }
+    });
+})(_c);
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Index</a></h2><h3>Classes</h3><ul><li><a href="_c.draw.Circle.html">Circle</a></li><li><a href="_c.draw.Drawable.html">Drawable</a></li><li><a href="_c.draw.Ellipse.html">Ellipse</a></li><li><a href="_c.draw.FrameSet.html">FrameSet</a></li><li><a href="_c.draw.Image.html">Image</a></li><li><a href="_c.draw.Point.html">Point</a></li><li><a href="_c.draw.Polygon.html">Polygon</a></li><li><a href="_c.draw.Rectangle.html">Rectangle</a></li><li><a href="_c.draw.RegularPolygon.html">RegularPolygon</a></li><li><a href="_c.draw.Shape.html">Shape</a></li><li><a href="_c.draw.TileSet.html">TileSet</a></li><li><a href="_c.draw.Vector.html">Vector</a></li></ul><h3>Namespaces</h3><ul><li><a href="global.html#_c">_c</a></li><li><a href="_c.draw.html">draw</a></li></ul><h3>Global</h3><ul><li><a href="global.html#[contains]">[contains]</a></li><li><a href="global.html#buildPath">buildPath</a></li><li><a href="global.html#contains">contains</a></li><li><a href="global.html#contains - not yet implemented">contains - not yet implemented</a></li><li><a href="global.html#contains - specifies whether a given point
+is contained in the rectangle where the image is placed.">contains - specifies whether a given point
+is contained in the rectangle where the image is placed.</a></li><li><a href="global.html#contains - specifies whether the current image,
+including the currently specified offset, contains a particular point.">contains - specifies whether the current image,
+including the currently specified offset, contains a particular point.</a></li><li><a href="global.html#contains - specifies whether the rectangle into which
+the current image is drawn contains a particular point.">contains - specifies whether the rectangle into which
+the current image is drawn contains a particular point.</a></li><li><a href="global.html#draw">draw</a></li><li><a href="global.html#drawClipped">drawClipped</a></li><li><a href="global.html#minus">minus</a></li><li><a href="global.html#move">move</a></li><li><a href="global.html#offset">offset</a></li><li><a href="global.html#paint">paint</a></li><li><a href="global.html#params.beforeDraw
+// similarly for params.afterDraw and params.draw">params.beforeDraw
+// similarly for params.afterDraw and params.draw</a></li><li><a href="global.html#plus">plus</a></li><li><a href="global.html#prep">prep</a></li><li><a href="global.html#update - invoke all behaviors, using the calling sprite as
+this argument">update - invoke all behaviors, using the calling sprite as
+this argument</a></li><li><a href="global.html#y - y coordinate">y - y coordinate</a></li></ul>
+</nav>
+
+<br clear="both">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-alpha2</a> on Thu Dec 19 2013 03:59:57 GMT-0800 (PST)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

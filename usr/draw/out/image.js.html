@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: image.js</title>
+    
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+    
+    <h1 class="page-title">Source: image.js</h1>
+    
+    
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source"><code>/**
+ * Copyright (c) 2013 Marshall Farrier
+ * http://www.opensource.org/licenses/mit-license.php
+ *
+ * Handles image drawing for use in sprites
+ *
+ * Dependencies:
+ * extend.js
+ * point.js
+ */
+
+/** @namespace */
+var _c = _c || {};
+
+(function(_c) {
+    'use strict';
+
+    /** @namespace */
+    _c.draw = _c.draw || {};
+
+    /**
+     * Creates a new _c.draw.Image
+     * @constructor
+     * @member {Image} image - native JavaScript Image object wrapped
+     * by this class
+     * @member {string} image.src - path to image
+     * @member {function} image.onload - callback called when the
+     * image has finished loading
+     * @member {_c.draw.Point} corner - point on the canvas at which
+     * the top left corner of the image will be drawn
+     * @member {number} height - height to which the image will be scaled
+     * @member {number} width - width to which the image will be scaled
+     * @member {boolean} loaded - whether the image has
+     * finished loading.
+     *
+     * Inherited from _c.draw.Drawable:
+     * @member {function} draw - draws the image into the given context
+     * @member {function} contains - specifies whether a given point
+     * is contained in the rectangle where the image is placed.
+     */
+    _c.draw.Image = _c.draw.Drawable.extend({
+
+        /**
+         * @constructs _c.draw.Image
+         * @param {object} params
+         * @param {string} params.src - path to image assuming that a canonical
+         * path to an images folder has been set. The path to the images
+         * folder should not be included in this parameter but should
+         * be the value of _c.path.images
+         * @param {function} [params.onload] - action to take when the image
+         * has finished loading.
+         * @param {_c.draw.Point} params.corner - point on the canvas at which
+         * the top left corner of the image will be drawn
+         * @param {number} params.height - height to which the image will be scaled
+         * @param {number} params.width - width to which the image will be scaled
+         */
+        init: function(params) {
+            var _this = this,
+                _onload = function(event) { _this.loaded = true; };
+
+            if (params.onload) {
+                _onload = function(event) {
+                    _this.loaded = true;
+                    params.onload.call(_this.image, event);
+                };
+            }
+            this.image = new Image();
+            // required
+            this.image.src = _c.path.images + params.src;
+            this.image.onload = _onload;
+            // a rectangle is too heavyweight 
+            this.corner = params.corner;
+            this.width = params.width;
+            this.height = params.height;
+            this.loaded = false;
+        },
+
+        draw: function(context) {
+            context.drawImage(this.image, 
+                this.corner.x, this.corner.y, 
+                this.width, this.height);
+        },
+
+        contains: function(point) {
+            if (point.x &lt; this.corner.x || 
+                this.corner.x + this.width &lt; point.x) { return false; }
+            if (point.y &lt; this.corner.y || 
+                this.corner.y + this.height &lt; point.y) { return false; }
+            return true;
+        }
+    });
+})(_c);
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Index</a></h2><h3>Classes</h3><ul><li><a href="_c.draw.Circle.html">Circle</a></li><li><a href="_c.draw.Drawable.html">Drawable</a></li><li><a href="_c.draw.Ellipse.html">Ellipse</a></li><li><a href="_c.draw.FrameSet.html">FrameSet</a></li><li><a href="_c.draw.Image.html">Image</a></li><li><a href="_c.draw.Point.html">Point</a></li><li><a href="_c.draw.Polygon.html">Polygon</a></li><li><a href="_c.draw.Rectangle.html">Rectangle</a></li><li><a href="_c.draw.RegularPolygon.html">RegularPolygon</a></li><li><a href="_c.draw.Shape.html">Shape</a></li><li><a href="_c.draw.TileSet.html">TileSet</a></li><li><a href="_c.draw.Vector.html">Vector</a></li></ul><h3>Namespaces</h3><ul><li><a href="global.html#_c">_c</a></li><li><a href="_c.draw.html">draw</a></li></ul><h3>Global</h3><ul><li><a href="global.html#[contains]">[contains]</a></li><li><a href="global.html#buildPath">buildPath</a></li><li><a href="global.html#contains">contains</a></li><li><a href="global.html#contains - not yet implemented">contains - not yet implemented</a></li><li><a href="global.html#contains - specifies whether a given point
+is contained in the rectangle where the image is placed.">contains - specifies whether a given point
+is contained in the rectangle where the image is placed.</a></li><li><a href="global.html#contains - specifies whether the current image,
+including the currently specified offset, contains a particular point.">contains - specifies whether the current image,
+including the currently specified offset, contains a particular point.</a></li><li><a href="global.html#contains - specifies whether the rectangle into which
+the current image is drawn contains a particular point.">contains - specifies whether the rectangle into which
+the current image is drawn contains a particular point.</a></li><li><a href="global.html#draw">draw</a></li><li><a href="global.html#drawClipped">drawClipped</a></li><li><a href="global.html#minus">minus</a></li><li><a href="global.html#move">move</a></li><li><a href="global.html#offset">offset</a></li><li><a href="global.html#paint">paint</a></li><li><a href="global.html#params.beforeDraw
+// similarly for params.afterDraw and params.draw">params.beforeDraw
+// similarly for params.afterDraw and params.draw</a></li><li><a href="global.html#plus">plus</a></li><li><a href="global.html#prep">prep</a></li><li><a href="global.html#update - invoke all behaviors, using the calling sprite as
+this argument">update - invoke all behaviors, using the calling sprite as
+this argument</a></li><li><a href="global.html#y - y coordinate">y - y coordinate</a></li></ul>
+</nav>
+
+<br clear="both">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-alpha2</a> on Thu Dec 19 2013 03:59:57 GMT-0800 (PST)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

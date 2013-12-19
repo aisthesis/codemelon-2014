@@ -35,8 +35,8 @@ var _c = _c || {};
      * back to 0 when all frames have been traversed.
      * @member {function} draw - draws the current frame onto the canvas,
      * offsetting the corner maintained by the image by this.offset
-     * @member {function} contains - specifies whether the current image
-     * (including the currently specified offset) contains a particular point.
+     * @member {function} contains - specifies whether the current image,
+     * including the currently specified offset, contains a particular point.
      */
     _c.draw.FrameSet = _c.draw.Drawable.extend({
 

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: composite.js</title>
+    
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+    
+    <h1 class="page-title">Source: composite.js</h1>
+    
+    
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source"><code>/**
+ * Composite of multiple related drawables.
+ * A drawable should extend this class if its
+ * individual components need to re-use the same
+ * points or vectors
+ *
+ * Copyright (c) 2013 Marshall Farrier
+ * http://www.opensource.org/licenses/mit-license.php
+ *
+ * Dependencies:
+ * extend.js
+ * drawable.js
+ * point.js
+ */
+
+/** @namespace */
+var _c = _c || {};
+
+(function(_c) {
+    "use strict";
+
+    /** @namespace */
+    _c.draw = _c.draw || {};
+
+    /**
+     * Creates a new _c.draw.Composite
+     * @constructor 
+     * @member {Object.&lt;string, _c.draw.Drawable>} drawables - collection of named drawables
+     * @member {string[]} keys - array containing the name of each drawable.
+     * This array determines the order in which draw operations will be
+     * performed. Only drawables whose names appear in this array
+     * will be drawn by the default Composite#draw() method.
+     * @member {Object.&lt;string, _c.draw.Point>} [points] - collection of points
+     * that may be re-used in several distinct drawables. The center of a circle might,
+     * for example, also represent the corner of a rectangle.
+     * @member {Object.&lt;string, _c.draw.Vector>} [vectors] - collection of vectors
+     *
+     * Inherited from _c.draw.Drawable:
+     * @member {function} draw
+     * @member {function} [contains]
+     */
+    _c.draw.Composite = _c.draw.Drawable.extend({
+
+        /**
+         * @constructs _c.draw.Composite
+         * @param {object} params
+         * @param {Object.&lt;string, _c.draw.Drawable>} params.drawables - collection of named drawables
+         * @param {string[]} params.keys - array containing the name of each drawable.
+         * This array determines the order in which draw operations will be
+         * performed. Only drawables whose names appear in this array
+         * will be drawn by the default Composite#draw() method.
+         * @param {Object.&lt;string, _c.draw.Point>} [params.points] - collection of points
+         * that may be re-used in several distinct drawables. The center of a circle might,
+         * for example, also represent the corner of a rectangle.
+         * @param {Object.&lt;string, _c.draw.Vector>} [params.vectors] - collection of vectors
+         * @param {Object.&lt;string, *>} [params.config] - allows the drawable to include miscellaneous
+         * configuration parameters.
+         * @param {Object.&lt;string, function>} [params.draw] - modifies the default draw behavior
+         * of calling the draw() method of each drawable in the order specified by the keys array.
+         * @param {function} [params.draw.before] - action to be taken before the default draw
+         * method is called
+         * @param {function} [params.draw.after] - action to be taken after the default draw method
+         * is called
+         * @param {function} [params.draw.main] - overrides the default draw method and obviates
+         * params.draw.before and params.draw.after. That is, if params.draw.main is provided, it
+         * must include the entire draw method.
+         * @param {function} [params.finish] - called (using &lt;code>this&lt;/code> as 'this argument') after 
+         * all components have been initially constructed. Used to set up pointers between
+         * components, which presupposes that the components have been initialized.
+         * For example, a drawable circle might want to use a named point as its center so that the
+         * same point can also be used as endpoint of a line.
+         */
+        /**
+         * @method params.beforeDraw
+         * // similarly for params.afterDraw and params.draw
+         * @param {object} context - context into which the drawable will be drawn
+         */
+        init: function(params) {
+            var _this = this,
+                _draw = params.draw || {},
+                _beforeDraw = _draw.before || function(context) {},
+                _afterDraw = _draw.after || function(context) {};
+
+            this.drawables = params.drawables;
+            this.keys = params.keys;
+            this.points = params.points || {};
+            this.vectors = params.vectors || {};
+            this.config = params.config || {};
+            if (_draw.main) {
+                this.draw = function(context) {
+                    return _draw.main.call(this, context);
+                }
+            }
+            else {
+                this.draw = function(context) {
+                    _beforeDraw.call(this, context);
+                    this.keys.forEach(function(key) {
+                        _this.drawables[key].draw(context);
+                    });
+                    _afterDraw.call(this, context);
+                }
+            }
+            if (params.finish) {
+                params.finish.call(this);
+            }
+        }
+    });
+})(_c);
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Index</a></h2><h3>Classes</h3><ul><li><a href="_c.draw.Circle.html">Circle</a></li><li><a href="_c.draw.Drawable.html">Drawable</a></li><li><a href="_c.draw.Ellipse.html">Ellipse</a></li><li><a href="_c.draw.FrameSet.html">FrameSet</a></li><li><a href="_c.draw.Image.html">Image</a></li><li><a href="_c.draw.Point.html">Point</a></li><li><a href="_c.draw.Polygon.html">Polygon</a></li><li><a href="_c.draw.Rectangle.html">Rectangle</a></li><li><a href="_c.draw.RegularPolygon.html">RegularPolygon</a></li><li><a href="_c.draw.Shape.html">Shape</a></li><li><a href="_c.draw.TileSet.html">TileSet</a></li><li><a href="_c.draw.Vector.html">Vector</a></li></ul><h3>Namespaces</h3><ul><li><a href="global.html#_c">_c</a></li><li><a href="_c.draw.html">draw</a></li></ul><h3>Global</h3><ul><li><a href="global.html#[contains]">[contains]</a></li><li><a href="global.html#buildPath">buildPath</a></li><li><a href="global.html#contains">contains</a></li><li><a href="global.html#contains - not yet implemented">contains - not yet implemented</a></li><li><a href="global.html#contains - specifies whether a given point
+is contained in the rectangle where the image is placed.">contains - specifies whether a given point
+is contained in the rectangle where the image is placed.</a></li><li><a href="global.html#contains - specifies whether the current image,
+including the currently specified offset, contains a particular point.">contains - specifies whether the current image,
+including the currently specified offset, contains a particular point.</a></li><li><a href="global.html#contains - specifies whether the rectangle into which
+the current image is drawn contains a particular point.">contains - specifies whether the rectangle into which
+the current image is drawn contains a particular point.</a></li><li><a href="global.html#draw">draw</a></li><li><a href="global.html#drawClipped">drawClipped</a></li><li><a href="global.html#minus">minus</a></li><li><a href="global.html#move">move</a></li><li><a href="global.html#offset">offset</a></li><li><a href="global.html#paint">paint</a></li><li><a href="global.html#params.beforeDraw
+// similarly for params.afterDraw and params.draw">params.beforeDraw
+// similarly for params.afterDraw and params.draw</a></li><li><a href="global.html#plus">plus</a></li><li><a href="global.html#prep">prep</a></li><li><a href="global.html#update - invoke all behaviors, using the calling sprite as
+this argument">update - invoke all behaviors, using the calling sprite as
+this argument</a></li><li><a href="global.html#y - y coordinate">y - y coordinate</a></li></ul>
+</nav>
+
+<br clear="both">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-alpha2</a> on Thu Dec 19 2013 03:59:57 GMT-0800 (PST)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
