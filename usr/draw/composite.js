@@ -55,12 +55,15 @@ var _c = _c || {};
          * @param {Object.<string, _c.draw.Vector>} [params.vectors] - collection of vectors
          * @param {Object.<string, *>} [params.config] - allows the drawable to include miscellaneous
          * configuration parameters.
-         * @param {function} [params.beforeDraw] - action to be taken before successively calling
-         * the draw method of each drawable.
-         * @param {function} [params.afterDraw] - action to be taken after successively calling the
-         * draw method of each drawable.
-         * @param {function} [params.draw] - overrides successively calling the draw method
-         * of each drawable and ignores any beforeDraw or afterDraw method passed to the constructor.
+         * @param {Object.<string, function>} [params.draw] - modifies the default draw behavior
+         * of calling the draw() method of each drawable in the order specified by the keys array.
+         * @param {function} [params.draw.before] - action to be taken before the default draw
+         * method is called
+         * @param {function} [params.draw.after] - action to be taken after the default draw method
+         * is called
+         * @param {function} [params.draw.main] - overrides the default draw method and obviates
+         * params.draw.before and params.draw.after. That is, if params.draw.main is provided, it
+         * must include the entire draw method.
          * @param {function} [params.finish] - called (using <code>this</code> as 'this argument') after 
          * all components have been initially constructed. Used to set up pointers between
          * components, which presupposes that the components have been initialized.
@@ -74,17 +77,18 @@ var _c = _c || {};
          */
         init: function(params) {
             var _this = this,
-                _beforeDraw = params.beforeDraw || function(context) {},
-                _afterDraw = params.afterDraw || function(context) {};
+                _draw = params.draw || {},
+                _beforeDraw = _draw.before || function(context) {},
+                _afterDraw = _draw.after || function(context) {};
 
             this.drawables = params.drawables;
             this.keys = params.keys;
             this.points = params.points || {};
             this.vectors = params.vectors || {};
             this.config = params.config || {};
-            if (params.draw) {
+            if (_draw.main) {
                 this.draw = function(context) {
-                    return params.draw.call(this, context);
+                    return _draw.main.call(this, context);
                 }
             }
             else {
