@@ -31,6 +31,10 @@ var _c = _c || {};
      * @member {number} index - index of current cell
      * @member {function} advance - advances the current cell, reverting
      * back to 0 when all cells have been traversed.
+     * @member {boolean} loaded - whether the image has
+     * finished loading.
+     *
+     * Inherited from _c.draw.Drawable:
      * @member {function} draw - draws the current frame onto the canvas
      * @member {function} contains - specifies whether the rectangle into which
      * the current image is drawn contains a particular point.
@@ -51,15 +55,23 @@ var _c = _c || {};
          * when the image loads
          */
         init: function(params) {
+            var _this = this,
+                _onload = function(event) { _this.loaded = true; };
+
+            if (params.onload) {
+                _onload = function(event) {
+                    _this.loaded = true;
+                    params.onload.call(_this.image, event);
+                };
+            }
             this.image = new Image();
             // required
             this.image.src = _c.path.images + params.src;
-            this.image.onload = params.onload || 
-                this.image.onload ||
-                function(event) {};
+            this.image.onload = _onload;
             this.corner = params.corner;
             this.cells = params.cells;
             this.index = 0;
+            this.loaded = false;
         },
         
         advance: function() {

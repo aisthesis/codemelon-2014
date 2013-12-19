@@ -30,6 +30,10 @@ var _c = _c || {};
      * the top left corner of the image will be drawn
      * @member {number} height - height to which the image will be scaled
      * @member {number} width - width to which the image will be scaled
+     * @member {boolean} loaded - whether the image has
+     * finished loading.
+     *
+     * Inherited from _c.draw.Drawable:
      * @member {function} draw - draws the image into the given context
      * @member {function} contains - specifies whether a given point
      * is contained in the rectangle where the image is placed.
@@ -51,16 +55,24 @@ var _c = _c || {};
          * @param {number} params.width - width to which the image will be scaled
          */
         init: function(params) {
+            var _this = this,
+                _onload = function(event) { _this.loaded = true; };
+
+            if (params.onload) {
+                _onload = function(event) {
+                    _this.loaded = true;
+                    params.onload.call(_this.image, event);
+                };
+            }
             this.image = new Image();
             // required
             this.image.src = _c.path.images + params.src;
-            this.image.onload = params.onload || 
-                this.image.onload ||
-                function(event) {};
-            // a rectangle would work but is too heavyweight 
+            this.image.onload = _onload;
+            // a rectangle is too heavyweight 
             this.corner = params.corner;
             this.width = params.width;
             this.height = params.height;
+            this.loaded = false;
         },
 
         draw: function(context) {
