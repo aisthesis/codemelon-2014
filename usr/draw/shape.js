@@ -48,7 +48,8 @@ var _c = _c || {};
 
         /**
          * @constructs _c.draw.Shape
-         * @param {object} [styles] - any styles to be applied
+         * @param {object} [params]
+         * @param {object} [params.styles] - any styles to be applied
          * when the shape is drawn. If styles are not provided,
          * the shape will be drawn using the context's current
          * styles.

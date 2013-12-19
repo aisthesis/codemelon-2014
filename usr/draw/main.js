@@ -25,6 +25,7 @@
         'draw/image',
         'draw/tile-set',
         'draw/frame-set',
+        'draw/composite',
         'draw/sprite'
     ];
 
@@ -48,6 +49,7 @@
         Image,
         TileSet,
         FrameSet,
+        Composite,
         Sprite
     ) {
         if (!path.images) path.images = './images/'; 
