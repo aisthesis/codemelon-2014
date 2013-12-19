@@ -59,15 +59,14 @@ var _c = _c || {};
          * }
          */
         init: function(params) {
-            var _this = this;
-
             this.drawable = params.drawable;
             /**
              * For shapes Shape#draw() or Shape#drawClipped()
              * There is no need to create an object for this, as in the book.
              */
             this.paint = params.paint || function(context) {
-                _this.drawable.draw(context);
+                this.drawable.draw(context);
+                return this;
             };
             // behaviors are functions, not objects, so no need for separate behavior.execute()
             this.behaviors = params.behaviors || [];
