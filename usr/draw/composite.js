@@ -45,10 +45,11 @@ var _c = _c || {};
          * @constructs _c.draw.Composite
          * @param {object} params
          * @param {Object.<string, _c.draw.Drawable>} params.drawables - collection of named drawables
-         * @param {string[]} params.keys - array containing the name of each drawable.
+         * @param {string[]} [params.keys] - array containing the name of each drawable.
          * This array determines the order in which draw operations will be
          * performed. Only drawables whose names appear in this array
-         * will be drawn by the default Composite#draw() method.
+         * will be drawn by the default Composite#draw() method. If this parameter is not provided,
+         * the default draw method must be overridden.
          * @param {Object.<string, _c.draw.Point>} [params.points] - collection of points
          * that may be re-used in several distinct drawables. The center of a circle might,
          * for example, also represent the corner of a rectangle.
@@ -61,6 +62,10 @@ var _c = _c || {};
          * method is called
          * @param {function} [params.draw.after] - action to be taken after the default draw method
          * is called
+         * @param {function} [params.draw.each.before] - action to be taken before each draw action. The
+         * caller in this case will be a specific drawable, not the composite object.
+         * @param {function} [params.draw.each.after] - action to be taken after each draw action. The
+         * caller in this case will be a specific drawable, not the composite object.
          * @param {function} [params.draw.all] - overrides the default draw method and obviates
          * params.draw.before and params.draw.after. That is, if params.draw.allis provided, it
          * will be used as the entire draw method.
@@ -78,11 +83,14 @@ var _c = _c || {};
         init: function(params) {
             var _this = this,
                 _draw = params.draw || {},
-                _beforeDraw = _draw.before || function(context) {},
-                _afterDraw = _draw.after || function(context) {};
+                _beforeDraw = _draw.before || function() {},
+                _afterDraw = _draw.after || function() {},
+                _drawEach = _draw.each || {},
+                _beforeEach = _drawEach.before || function() {},
+                _afterEach = _drawEach.after || function() {};
 
             this.drawables = params.drawables;
-            this.keys = params.keys;
+            this.keys = params.keys || [];
             this.points = params.points || {};
             this.vectors = params.vectors || {};
             this.config = params.config || {};
@@ -95,7 +103,9 @@ var _c = _c || {};
                 this.draw = function(context) {
                     _beforeDraw.call(this, context);
                     this.keys.forEach(function(key) {
+                        _beforeEach.call(_this.drawables[key], context);
                         _this.drawables[key].draw(context);
+                        _afterEach.call(_this.drawables[key], context);
                     });
                     _afterDraw.call(this, context);
                 }
