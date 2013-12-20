@@ -26,7 +26,8 @@
         'draw/tile-set',
         'draw/frame-set',
         'draw/composite',
-        'draw/sprite'
+        'draw/sprite',
+        'draw/time-warp'
     ];
 
     files.forEach(function(file, i) {
@@ -50,7 +51,8 @@
         TileSet,
         FrameSet,
         Composite,
-        Sprite
+        Sprite,
+        TimeWarp
     ) {
         if (!path.images) path.images = './images/'; 
     });
