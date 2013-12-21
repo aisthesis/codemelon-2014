@@ -24,58 +24,59 @@ var _c = _c || {};
     _c.draw = _c.draw || {};
 
     /**
-     * Creates a new _c.draw.TimeWarp
+     * Creates a new _c.draw.Timer
      * @constructor 
-     * @member {function} time - the timer function
-     */
-    /**
-     * @method time
-     * @param {number} progress - number between 0 and 1 specifying progress toward the timer's completion
-     * @returns number - distorted measure of progress
+     * @member {number} duration - duration of the timer
+     * @member {number} startTime - time when the start() method was last called
+     * @member {boolean} running - whether the timer is currently running
+     * @member {function} getTime - returns the elapsed time using any TimeWarp function
+     * passed to the constructor. If no TimeWarp was passed, returns the time since
+     * the timer was started until the timer has been stopped. When the timer has stopped,
+     * returns the elapsed time when it was stopped.
+     * @member {number} elapsed - shouldn't be accessed directly. Use Timer#getTime() instead.
      */
     _c.draw.Timer = _c.Base.extend({
 
         /**
-         * @constructs _c.draw.TimeWarp
+         * @constructs _c.draw.Timer
+         * @param {number} [duration] - duration of the timer. If not passed, the timer uses
+         * linear time with unlimited duration.
+         * @param {_c.draw.TimeWarp} [timeWarp] - object whose time() method returns a
+         * value between 0 and 1 describing a distorted description of the timer's progress.
          * @param {string} easing='linear' - easing to be used for the TimeWarp.
-         * Possible values:
-         * 'linear',
-         * 'easeIn',
-         * 'easeOut',
-         * 'easeInOut',
-         * 'elastic',
-         * 'bounce'
-         * @param {number} n=1 - additional argument with meaning depending on type of easing.
          */
         init: function(duration, timeWarp) {
             this.duration = duration;
             this.startTime = 0;
             this.running = false;
-            this.elapsed = undefined;
             this.getTime = getTimeFunction(duration, timeWarp);
         },
 
         start: function() {
             this.startTime = new Date();
-            this.elapsed = undefined;
             this.running = true;
             return 0;
         },
 
         stop: function() {
-            this.elapsed = new Date() - this.startTime();
+            this.elapsed = new Date() - this.startTime;
             this.running = false;
             return this.elapsed;
         }
     });
 
     function getTimeFunction(duration, timeWarp) {
-        if (timeWarp) {
+        if (duration && timeWarp) {
             return function() {
                 var _elapsed = getElapsed(this.running, this.startTime, this.elapsed),
-                    _progress = _elapsed / duration;
+                    _progress;
 
-                
+                // timer not yet started
+                if (!_elapsed || !this.running) {
+                    return _elapsed;
+                }
+                _progress = _elapsed / duration;
+                return duration * timeWarp.time(_progress);
             }
         }
         return function() {

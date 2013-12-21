@@ -27,7 +27,8 @@
         'draw/frame-set',
         'draw/composite',
         'draw/sprite',
-        'draw/time-warp'
+        'draw/time-warp',
+        'draw/timer'
     ];
 
     files.forEach(function(file, i) {
@@ -52,7 +53,8 @@
         FrameSet,
         Composite,
         Sprite,
-        TimeWarp
+        TimeWarp,
+        Timer
     ) {
         if (!path.images) path.images = './images/'; 
     });
