@@ -1,6 +1,8 @@
 /**
- * Constructs a timer warped
- * in a manner defined by the parameters passed.
+ * Used to modify linear timeflow for various
+ * animation easings. Once <code>var timeWarp = new _c.draw.TimeWarp(params);</code>
+ * has been created, timeWarp.time can be passed to the constructor
+ * of an animation timer to create the desired effect.
  * Cf. David Geary, Core HTML5 Canvas, p. 457
  *
  * Copyright (c) 2013 Marshall Farrier

@@ -74,20 +74,19 @@ var _c = _c || {};
             this.radius = params.radius;
             this.stretch = params.stretch;
             this.angle = params.angle || 0;
-            this.center.x = this.center.x / this.stretch;
         },
 
         buildPath: function(context) {
             context.beginPath();
-            context.arc(this.center.x, this.center.y, this.radius, 
+            context.arc(this.center.x / this.stretch, this.center.y, this.radius, 
                 0, Math.PI * 2, false);
         },
 
         render: function(context, callback) {
             context.save();
-            context.translate(this.center.x * this.stretch, this.center.y);
+            context.translate(this.center.x, this.center.y);
             context.rotate(this.angle);
-            context.translate(-this.center.x * this.stretch, -this.center.y);
+            context.translate(-this.center.x, -this.center.y);
             context.scale(this.stretch, 1);
             this.buildPath(context);
             context.restore();
@@ -98,10 +97,12 @@ var _c = _c || {};
             var _pt = { x: point.x, y: point.y }, 
                 sin = Math.sin(this.angle),
                 cos = Math.cos(this.angle),
-                tmp;
+                _centerX = this.center.x,
+                tmp,
+                ret;
 
             // translate
-            _pt.x -= this.center.x * this.stretch;
+            _pt.x -= this.center.x;
             _pt.y -= this.center.y;
 
             // rotate
@@ -110,13 +111,16 @@ var _c = _c || {};
             _pt.y = -tmp * sin + _pt.y * cos;
 
             // translate
-            _pt.x += this.center.x * this.stretch;
+            _pt.x += this.center.x;
             _pt.y += this.center.y;
 
             // scale
             _pt.x /= this.stretch;
 
-            return this.center.distanceTo(_pt) <= this.radius;
+            this.center.x /= this.stretch;
+            ret = this.center.distanceTo(_pt) <= this.radius;
+            this.center.x = _centerX;
+            return ret;
         }
     });
 })(_c);
