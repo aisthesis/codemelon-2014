@@ -94,7 +94,7 @@
         promise = _c.utils.seqExec(actions);
         promise.done(function() {
             ok(times[0] >= delay / 2, 'time value exceeds expected min'); 
-            ok(times[0] < 0.1 + delay / 2, 'time value smaller than expected max');
+            ok(times[0] < 0.1 * delay + delay / 2, 'time value smaller than expected max');
             ok(times[1] >= 2 * delay, 'after stop and delay time value exceeds expected min'); 
             ok(times[1] < 2.1 * delay, 'after stop and delay time value smaller than expected max');
             start();    
