@@ -123,7 +123,7 @@
                     Password length:
                 </div>
                 <div class="col-md-1">
-                    <input id="length" type="text" class="form-control" value="8">
+                    <input id="length" type="text" class="form-control" value="12">
                 </div>
             </div>
         </div>
