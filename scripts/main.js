@@ -5,30 +5,19 @@ require.config({
         'jquery': 'lib/jquery.min',
         'bootstrap': 'lib/bootstrap/js/bootstrap.min',
         'underscore': 'lib/underscore.min',
-        'Backbone': 'lib/backbone.min',
+        'backbone': 'lib/backbone.min',
         'prettify': 'lib/google-code-prettify/prettify'
     },
 
     shim: {
-        'Backbone': ['underscore', 'jquery'],
-        'bootstrap': ['jquery']
+        'backbone': ['underscore', 'jquery']
     }
 });
 
 require([
-        'jquery', 
-        'bootstrap', 
-        'underscore', 
-        'Backbone',
-        'prettify'
+        'scripts/app'
     ], 
-    function(
-        $, 
-        bootstrap,
-        _, 
-        Backbone,
-        prettify) {
-        'use strict';
-        prettyPrint();
+    function(App) {
+        App.initialize();
     }
 ); 
