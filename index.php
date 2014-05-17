@@ -67,6 +67,9 @@
             </div>
         </div>
 
-        <script src="scripts/require.js" data-main="scripts/main"></script>
+        <?php
+            include($templatePath . '_requirejspath.php');
+        ?>
+        <script src="<?php echo $pathToRequirejs; ?>require.js" data-main="scripts/main"></script>
     </body>
 </html>
