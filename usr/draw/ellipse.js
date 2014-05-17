@@ -5,17 +5,15 @@
  * Dependencies:
  * extend.js
  * shape.js
- * point.js
  */
 
-/** @namespace */
-var _c = _c || {};
-
-(function(_c) {
+define([
+    'usr/extend',
+    'usr/draw/shape'
+], function(
+    Extend,
+    Shape) {
     "use strict";
-
-    /** @namespace */
-    _c.draw = _c.draw || {};
 
     /**
      * Creates a new _c.draw.Ellipse
@@ -50,7 +48,7 @@ var _c = _c || {};
      * @member {function} draw
      * @member {function} contains
      */
-    _c.draw.Ellipse = _c.draw.Shape.extend({
+    var Ellipse = Shape.extend({
 
         /**
          * @constructs _c.draw.Ellipse
@@ -123,4 +121,6 @@ var _c = _c || {};
             return ret;
         }
     });
-})(_c);
+
+    return Ellipse;
+});

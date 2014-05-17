@@ -11,14 +11,13 @@
  * point.js
  */
 
-/** @namespace */
-var _c = _c || {};
-
-(function(_c) {
+define([
+    'usr/extend',
+    'usr/draw/shape'
+], function(
+    Extend,
+    Shape) {
     "use strict";
-
-    /** @namespace */
-    _c.draw = _c.draw || {};
 
     /**
      * Creates a new _c.draw.Polygon
@@ -48,7 +47,7 @@ var _c = _c || {};
      * @member {function} contains - not yet implemented
      * @abstract
      */
-    _c.draw.Polygon = _c.draw.Shape.extend({
+    var Polygon = Shape.extend({
 
         /**
          * @constructs _c.draw.Polygon
@@ -78,4 +77,6 @@ var _c = _c || {};
             context.closePath();
         }
     });
-})(_c);
+
+    return Polygon;
+});

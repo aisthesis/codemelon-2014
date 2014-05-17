@@ -8,12 +8,18 @@
  * point.js
  */
 
-var _c = _c || {};
-
-(function(_c) {
+define([
+    'usr/extend',
+    'usr/draw/point',
+    'usr/draw/vector'
+], function(
+    Extend,
+    Point,
+    Vector) {
     "use strict";
 
-    _c.draw = _c.draw || {};
+    var CanvasUtils = {};
+
     /**
      * Convert window coordinates to canvas coordinates. Providing
      * the optional point parameter improves performance if the
@@ -25,7 +31,7 @@ var _c = _c || {};
      * @param {Point} [point] - point in which to store result
      * @returns {Point}
      */
-    _c.draw.windowToCanvas = function(canvas, x, y, point) {
+    CanvasUtils.windowToCanvas = function(canvas, x, y, point) {
         var bbox = canvas.getBoundingClientRect();
 
         if (point) {
@@ -33,8 +39,8 @@ var _c = _c || {};
             point.y = y - bbox.top;
             return point;
         }
-        return new _c.draw.Point(x - bbox.left, y - bbox.top);
-    },
+        return new Point(x - bbox.left, y - bbox.top);
+    };
 
     /**
      * Returns a vector specifying the offset of the given
@@ -51,22 +57,22 @@ var _c = _c || {};
      * @param {Vector} [offset] - optional vector in which to store the result
      * @returns {Vector}
      */
-    _c.draw.getOffset = function(canvas, orig, event, loc, offset) {
+    CanvasUtils.getOffset = function(canvas, orig, event, loc, offset) {
         var loc; 
 
         if (loc) {
-            _c.draw.windowToCanvas(canvas, event.clientX, event.clientY, loc);
+            CanvasUtils.windowToCanvas(canvas, event.clientX, event.clientY, loc);
         }
         else {
-            loc = _c.draw.windowToCanvas(canvas, event.clientX, event.clientY);
+            loc = CanvasUtils.windowToCanvas(canvas, event.clientX, event.clientY);
         }
         if (offset) {
             offset.x = loc.x - orig.x;
             offset.y = loc.y - orig.y;
             return offset;
         }
-        return new _c.draw.Vector(loc.x - orig.x, loc.y - orig.y);
-    },
+        return new Vector(loc.x - orig.x, loc.y - orig.y);
+    };
 
     /**
      * Paints the context using the given callback
@@ -84,11 +90,13 @@ var _c = _c || {};
      * @param {object} context
      * @param {function} callback
      */
-    _c.draw.paint = function(shape, callback, context) {
+    CanvasUtils.paint = function(shape, callback, context) {
         callback.call(shape, context, function() {
             shape.prep(context);
             context.fill();
             context.stroke();
         });
-    }
-})(_c);
+    };
+
+    return CanvasUtils;
+});

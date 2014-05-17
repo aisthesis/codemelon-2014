@@ -7,13 +7,11 @@
  * extend.js
  */
 /** @namespace */
-var _c = _c || {};
 
-(function(_c) {
+define(['usr/extend'],
+function(Extend) {
     "use strict";
 
-    /** @namespace */
-    _c.draw = _c.draw || {};
     /**
      * Creates a new _c.draw.Sprite
      * A sprite is a thin wrapper around a drawable to facilitate control of the
@@ -39,7 +37,7 @@ var _c = _c || {};
      * @example
      * sprite.paint(context);
      */
-    _c.draw.Sprite = _c.Base.extend({
+    var Sprite = Extend.Base.extend({
 
         /**
          * @constructs _c.draw.Sprite
@@ -83,4 +81,6 @@ var _c = _c || {};
             return this;
         }
     });
-})(_c);
+
+    return Sprite;
+});

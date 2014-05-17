@@ -12,14 +12,9 @@
  * extend.js
  */
 
-/** @namespace */
-var _c = _c || {};
-
-(function(_c) {
+define(['usr/extend'],
+function(Extend) {
     'use strict';
-
-    /** @namespace */
-    _c.draw = _c.draw || {};
 
     /**
      * Creates a new _c.draw.TimeWarp
@@ -31,7 +26,7 @@ var _c = _c || {};
      * @param {number} progress - number between 0 and 1 specifying progress toward the timer's completion
      * @returns number - distorted measure of progress
      */
-    _c.draw.TimeWarp = _c.Base.extend({
+    var TimeWarp = Extend.Base.extend({
 
         /**
          * @constructs _c.draw.TimeWarp
@@ -89,4 +84,6 @@ var _c = _c || {};
             }
         }
     });
-})(_c);
+
+    return TimeWarp;
+});

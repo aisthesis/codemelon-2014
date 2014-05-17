@@ -3,20 +3,15 @@
  * http://www.opensource.org/licenses/mit-license.php
  *
  * Handles image drawing for use in sprites
- *
- * Dependencies:
- * extend.js
- * point.js
  */
 
-/** @namespace */
-var _c = _c || {};
-
-(function(_c) {
+define([
+    'usr/extend',
+    'usr/draw/drawable'
+], function(
+    Extend,
+    Drawable) {
     'use strict';
-
-    /** @namespace */
-    _c.draw = _c.draw || {};
 
     /**
      * Creates a new _c.draw.Image
@@ -38,7 +33,7 @@ var _c = _c || {};
      * @member {function} contains - specifies whether a given point
      * is contained in the rectangle where the image is placed.
      */
-    _c.draw.Image = _c.draw.Drawable.extend({
+    var Image = Drawable.extend({
 
         /**
          * @constructs _c.draw.Image
@@ -89,4 +84,6 @@ var _c = _c || {};
             return true;
         }
     });
-})(_c);
+
+    return Image;
+});

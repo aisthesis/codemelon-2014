@@ -11,14 +11,15 @@
  * point.js
  */
 
-/** @namespace */
-var _c = _c || {};
-
-(function(_c) {
+define([
+    'usr/extend',
+    'usr/draw/polygon',
+    'usr/draw/point'
+], function(
+    Extend,
+    Polygon,
+    Point) {
     "use strict";
-
-    /** @namespace */
-    _c.draw = _c.draw || {};
 
     /**
      * Creates a new _c.draw.RegularPolygon
@@ -60,7 +61,7 @@ var _c = _c || {};
      * @member {function} draw
      * @member {function} contains
      */
-    _c.draw.RegularPolygon = _c.draw.Polygon.extend({
+    var RegularPolygon = Polygon.extend({
 
         /**
          * @constructs _c.draw.RegularPolygon
@@ -97,7 +98,7 @@ var _c = _c || {};
 
             this.vertices = [];
             for (i = 0; i < this.sides; i++) {
-                this.vertices.push(new _c.draw.Point(this.center.x + this.radius * Math.cos(angle),
+                this.vertices.push(new Point(this.center.x + this.radius * Math.cos(angle),
                         this.center.y - this.radius * Math.sin(angle)));
                 angle += increment;
             }
@@ -130,4 +131,6 @@ var _c = _c || {};
             return distance <= innerRadius / Math.cos(angle);
         }
     });
-})(_c);
+
+    return RegularPolygon;
+});

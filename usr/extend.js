@@ -18,16 +18,15 @@
  *    deprecated) is eliminated.
  */
 
-var _c = _c || {};
-
-(function () {
+define(function() {
     "use strict";
-    var initializing = false;
+    var Extend = {},
+        initializing = false;
 
     // generic base class
-    _c.Base = function() {};
+    Extend.Base = function() {};
 
-    _c.Base.extend = function extend(properties) {
+    Extend.Base.extend = function extend(properties) {
         var _super = this.prototype,
             proto,
             name;
@@ -64,4 +63,6 @@ var _c = _c || {};
         Class.extend = extend;
         return Class;
     };
-})();
+
+    return Extend;
+});

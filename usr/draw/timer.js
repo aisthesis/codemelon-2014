@@ -14,14 +14,9 @@
  * time-warp.js
  */
 
-/** @namespace */
-var _c = _c || {};
-
-(function(_c) {
+define(['usr/extend'],
+function(Extend) {
     'use strict';
-
-    /** @namespace */
-    _c.draw = _c.draw || {};
 
     /**
      * Creates a new _c.draw.Timer
@@ -35,7 +30,7 @@ var _c = _c || {};
      * returns the elapsed time when it was stopped.
      * @member {number} elapsed - shouldn't be accessed directly. Use Timer#getTime() instead.
      */
-    _c.draw.Timer = _c.Base.extend({
+    var Timer = Extend.Base.extend({
 
         /**
          * @constructs _c.draw.Timer
@@ -88,4 +83,6 @@ var _c = _c || {};
         if (running) return new Date() - startTime;
         return elapsed;
     };
-})(_c);
+
+    return Timer;
+});

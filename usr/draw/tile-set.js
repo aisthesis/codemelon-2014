@@ -9,12 +9,13 @@
  * point.js
  */
 
-var _c = _c || {};
-
-(function(_c) {
+define([
+    'usr/extend',
+    'usr/draw/drawable'
+], function(
+    Extend,
+    Drawable) {
     'use strict';
-
-    _c.draw = _c.draw || {};
 
     /**
      * Cell definition object
@@ -46,7 +47,7 @@ var _c = _c || {};
      * @member {function} contains - specifies whether the rectangle into which
      * the current image is drawn contains a particular point.
      */
-    _c.draw.TileSet = _c.draw.Drawable.extend({
+    var TileSet = Drawable.extend({
 
         /**
          * @constructs _c.draw.TileSet
@@ -104,4 +105,6 @@ var _c = _c || {};
             return true;
         }
     });
-})(_c);
+
+    return TileSet;
+});

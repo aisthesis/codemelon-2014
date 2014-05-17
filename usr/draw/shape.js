@@ -11,14 +11,11 @@
  * extend.js
  */
 
-/** @namespace */
-var _c = _c || {};
-
-(function(_c) {
+define([
+        'usr/extend',
+        'usr/draw/drawable'
+],function(Extend, Drawable) {
     "use strict";
-
-    /** @namespace */
-    _c.draw = _c.draw || {};
 
     /**
      * Creates a new _c.draw.Shape
@@ -44,7 +41,7 @@ var _c = _c || {};
      * @member {function} draw
      * @member {function} contains
      */
-    _c.draw.Shape = _c.draw.Drawable.extend({
+    var Shape = Drawable.extend({
 
         /**
          * @constructs _c.draw.Shape
@@ -121,4 +118,6 @@ var _c = _c || {};
             throw new Error('must be implemented by subclass!'); 
         }
     });
-})(_c);
+
+    return Shape;
+});

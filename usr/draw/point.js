@@ -5,14 +5,11 @@
  * Dependencies:
  * extend.js
  */
-/** @namespace */
-var _c = _c || {};
 
-(function(_c) {
+define([
+    'usr/extend'
+], function(Extend) {
     "use strict";
-
-    /** @namespace */
-    _c.draw = _c.draw || {};
 
     /**
      * Creates a new _c.draw.Point
@@ -20,7 +17,7 @@ var _c = _c || {};
      * @member {number} x - x coordinate
      * @member {number} y - y coordinate
      */
-    _c.draw.Point = _c.Base.extend({
+    var Point = Extend.Base.extend({
 
         /**
          * @constructs _c.draw.Point
@@ -69,31 +66,5 @@ var _c = _c || {};
         }
     });
 
-    /**
-     * Creates a new _c.draw.Vector
-     * @constructor 
-     * @member {number} x - x coordinate
-     * @member {number} y - y coordinate
-     */
-    _c.draw.Vector = _c.Base.extend({
-        /**
-         * @constructs _c.draw.Vector
-         * @param {number} x - x coordinate 
-         * @param {number} y - y coordinate
-         */
-        init: function(x, y) {
-            this.x = x;
-            this.y = y;
-        },
-
-        /** @param {Vector} */
-        plus: function(vector) {
-            return new _c.draw.Vector(this.x + vector.x, this.y + vector.y);
-        },
-
-        /** @param {Vector} */
-        minus: function(vector) {
-            return new _c.draw.Vector(this.x - vector.x, this.y - vector.y);
-        }
-    });
-})(_c);
+    return Point;
+});

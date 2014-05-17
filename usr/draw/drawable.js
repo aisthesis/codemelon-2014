@@ -8,14 +8,10 @@
  * extend.js
  */
 
-/** @namespace */
-var _c = _c || {};
-
-(function(_c) {
+define([
+    'usr/extend'
+], function(Extend) {
     "use strict";
-
-    /** @namespace */
-    _c.draw = _c.draw || {};
 
     /**
      * Generic drawable object
@@ -23,7 +19,7 @@ var _c = _c || {};
      * @member {function} draw
      * @member {function} contains
      */
-    _c.draw.Drawable = _c.Base.extend({
+    var Drawable = Extend.Base.extend({
 
         /**
          * @constructs _c.draw.Drawable
@@ -52,4 +48,6 @@ var _c = _c || {};
             throw new Error('Drawable#contains(point) must be implemented by subclass!'); 
         }
     });
-})(_c);
+
+    return Drawable;
+});

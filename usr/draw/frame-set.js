@@ -4,21 +4,19 @@
  *
  * Handles frame sets for use in sprites. Similar to
  * SpriteAnimator from Core HTML5 Canvas, p. 420
- *
- * Dependencies:
- * extend.js
- * point.js
- * utils/arrays.js
  */
 
-/** @namespace */
-var _c = _c || {};
-
-(function(_c) {
+define([
+    "usr/extend",
+    "usr/draw/drawable",
+    "usr/draw/point",
+    "usr/utils/arrays"
+], function(
+    Extend,
+    Drawable,
+    Point,
+    Arrays) {
     'use strict';
-
-    /** @namespace */
-    _c.draw = _c.draw || {};
 
     /**
      * Creates a new _c.draw.FrameSet
@@ -38,7 +36,7 @@ var _c = _c || {};
      * @member {function} contains - specifies whether the current image,
      * including the currently specified offset, contains a particular point.
      */
-    _c.draw.FrameSet = _c.draw.Drawable.extend({
+    var FrameSet = Drawable.extend({
 
         /**
          * @constructs _c.draw.FrameSet
@@ -92,4 +90,6 @@ var _c = _c || {};
                 this.corner));
         }
     });
-})(_c);
+
+    return FrameSet;
+});

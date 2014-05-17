@@ -5,12 +5,10 @@
  * Utility functions for working with arrays.
  */
  
-var _c = _c || {};
-
-(function(_c) {
+define(function() {
     'use strict';
-    _c.utils = _c.utils || {};
 
+    var Arrays = {};
     /**
      * Returns an array of the given size filled with
      * the given value.
@@ -19,7 +17,7 @@ var _c = _c || {};
      * array is to be set
      * @returns {array}
      */
-    _c.utils.fill = function(length, value) {
+    Arrays.fill = function(length, value) {
         var array = [],
             i = 0;
 
@@ -28,4 +26,6 @@ var _c = _c || {};
         }
         return array;
     };
-})(_c);
+
+    return Arrays;
+});

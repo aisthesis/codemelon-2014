@@ -7,12 +7,14 @@
  * value is highlight color
  */
 
-var _c = _c || {};
+define(function() {
+    "use strict";
 
-(function(_c) {
-    _c.draw.highlights = {
+    var Highlights = {
         // named colors
         'cornflowerblue': 'deepskyblue',
         'goldenrod': 'gold'
     };
-})(_c);
+
+    return Highlights;
+});

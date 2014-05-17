@@ -10,14 +10,15 @@
  * point.js
  */
 
-/** @namespace */
-var _c = _c || {};
-
-(function(_c) {
+define([
+    'usr/extend',
+    'usr/draw/shape',
+    'usr/draw/point'
+], function(
+    Extend,
+    Shape,
+    Point) {
     "use strict";
-
-    /** @namespace */
-    _c.draw = _c.draw || {};
 
     /**
      * Creates a new _c.draw.Rectangle
@@ -60,7 +61,7 @@ var _c = _c || {};
      * @member {function} draw
      * @member {function} contains
      */
-    _c.draw.Rectangle = _c.draw.Shape.extend({
+    var Rectangle = Shape.extend({
 
         /**
          * @constructs _c.draw.Rectangle
@@ -116,4 +117,6 @@ var _c = _c || {};
             return Math.abs(this.height);
         }
     });
-})(_c);
+
+    return Rectangle;
+});

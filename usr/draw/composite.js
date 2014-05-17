@@ -6,21 +6,15 @@
  *
  * Copyright (c) 2013 Marshall Farrier
  * http://www.opensource.org/licenses/mit-license.php
- *
- * Dependencies:
- * extend.js
- * drawable.js
- * point.js
  */
 
-/** @namespace */
-var _c = _c || {};
-
-(function(_c) {
+define([
+    'usr/extend',
+    'usr/draw/drawable',
+], function(
+    Extend,
+    Drawable) {
     "use strict";
-
-    /** @namespace */
-    _c.draw = _c.draw || {};
 
     /**
      * Creates a new _c.draw.Composite
@@ -39,7 +33,7 @@ var _c = _c || {};
      * @member {function} draw
      * @member {function} [contains]
      */
-    _c.draw.Composite = _c.draw.Drawable.extend({
+    var Composite = Drawable.extend({
 
         /**
          * @constructs _c.draw.Composite
@@ -115,4 +109,6 @@ var _c = _c || {};
             }
         }
     });
-})(_c);
+
+    return Composite;
+});
