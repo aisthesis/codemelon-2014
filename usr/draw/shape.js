@@ -13,8 +13,12 @@
 
 define([
         'usr/extend',
-        'usr/draw/drawable'
-],function(Extend, Drawable) {
+        'usr/draw/drawable',
+        'usr/draw/canvas-utils'
+],function(
+    Extend, 
+    Drawable,
+    CanvasUtils) {
     "use strict";
 
     /**
@@ -87,7 +91,7 @@ define([
         },
 
         draw: function(context) {
-            _c.draw.paint(this, this.render, context);
+            CanvasUtils.paint(this, this.render, context);
         },
 
         /**
@@ -95,7 +99,7 @@ define([
          */
         drawClipped: function(context) {
             context.save();
-            _c.draw.paint(this, this.clip, context);
+            CanvasUtils.paint(this, this.clip, context);
             context.restore();
         },
 
