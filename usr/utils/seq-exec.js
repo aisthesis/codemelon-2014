@@ -1,8 +1,7 @@
-var _c = _c || {};
-
-(function(_c) {
+define(['jquery'],
+function($) {
     'use strict';
-    _c.utils = _c.utils || {};
+
     /**
      * Execute a list of actions in series. For each i,
      * actions[i + 1]() will only execute after actions[i]() has completed.
@@ -24,7 +23,7 @@ var _c = _c || {};
      * make execution to continue on failure of an action rather 
      * than to terminate.
      */
-    _c.utils.seqExec = function(actions, failureCallback) {
+    var SeqExec = function(actions, failureCallback) {
         var deferred = $.Deferred(),
             continueOnError = true;
 
@@ -59,4 +58,6 @@ var _c = _c || {};
             });
         }
     }
-})(_c);
+
+    return SeqExec;
+});

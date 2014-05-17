@@ -3,19 +3,17 @@
  * http://www.opensource.org/licenses/mit-license.php
  */
  
-var _c = _c || {};
-
-(function(_c) {
+define(function() {
     "use strict";
-    _c.utils = _c.utils || {};
+
+    var Shuffle = {};
 
     /**
      * Randomly shuffle an array of items.
      * If the optional depth parameter is provided, only the first
      * `depth` items are shuffled.
      */
-    _c.utils.shuffle = function(items, depth) {
-        "use strict";
+    Shuffle.shuffle = function(items, depth) {
         var depth = depth ? depth : items.length,
             i, j, tmp;
         
@@ -42,8 +40,9 @@ var _c = _c || {};
      * WARNING: This method will shuffle the values in the input
      * array, so use a copy if this array needs to be preserved.
      */
-    _c.utils.randomlyChoose = function(items, howMany) {
-        "use strict";
-        return _c.utils.shuffle(items, howMany).slice(0, howMany || items.length);
+    Shuffle.choose = function(items, howMany) {
+        return Shuffle.shuffle(items, howMany).slice(0, howMany || items.length);
     };
-})(_c);
+
+    return Shuffle;
+});

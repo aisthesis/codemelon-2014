@@ -3,11 +3,8 @@
  * http://www.opensource.org/licenses/mit-license.php
  */
  
-var _c = _c || {};
-
-(function(_c) {
+define(function() {
     "use strict";
-    _c.utils = _c.utils || {};
 
     /**
      * This version attaches the memo to the iterator so that you
@@ -33,7 +30,7 @@ var _c = _c || {};
      * @param [result] - the result of the recursion
      * @param [memo] - the set of memorized values after the iteration has completed.
      */
-    _c.utils.memoize = function memoize(n, iterator, oncomplete, baseCases) {
+    var Memoize = function memoize(n, iterator, oncomplete, baseCases) {
         if (!iterator.memo) {
             iterator.memo = [];
             // the base cases can also be defined in the iterator rather than passed
@@ -51,4 +48,6 @@ var _c = _c || {};
             return iterator.memo[_n] = iterator(_n, _inner);
         };
     };
-})(_c);
+
+    return Memoize;
+});

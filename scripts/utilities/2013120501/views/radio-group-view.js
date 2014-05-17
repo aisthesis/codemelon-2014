@@ -1,8 +1,13 @@
-var _c = _c || {};
-
-(function(_c) {
+define([
+    'jquery',
+    'backbone',
+    'underscore'
+], function(
+    $,
+    BbRet,
+    UsRet) {
     "use strict";
-    _c.RadioGroupView = Backbone.View.extend({
+    var RadioGroupView = Backbone.View.extend({
         initialize: function(options) {
             _.bindAll(this,
                 'setConstants',
@@ -20,4 +25,6 @@ var _c = _c || {};
             return this.$el.find('input[name=' + this.GROUP_NAME + ']:checked').val();
         }
     });
-})(_c);
+
+    return RadioGroupView;
+});

@@ -5,9 +5,12 @@
  * Dependencies:
  * extend.js
  */
-var _c = _c || {};
-
-(function(_c) {
+define([
+    'usr/extend',
+    'usr/utils/exceptions'
+], function(
+    Extend,
+    Exceptions) {
     'use strict';
 
     /**
@@ -19,7 +22,7 @@ var _c = _c || {};
 
         this.next = function() {
             if (_pointer === null) {
-                throw new _c.error.NoSuchElementException('No more elements to traverse');
+                throw new Exceptions.NoSuchElement('No more elements to traverse');
             }
             var item = _pointer.item;
 
@@ -32,17 +35,7 @@ var _c = _c || {};
         }
     };
 
-    _c.error = _c.error || {};
-    if (!_c.error.NoSuchElementException) {
-        _c.error.NoSuchElementException = function(message) {
-            this.message = message;
-        };
-        _c.error.NoSuchElementException.prototype = new Error();
-    }
-
-    _c.utils = _c.utils || {};
-
-    _c.utils.LinkedList = _c.Base.extend({
+    var LinkedList = Extend.Base.extend({
         init: function() {
             this.head = this.tail = null;
             this.length = 0;
@@ -151,9 +144,11 @@ var _c = _c || {};
     function extract(context, callback) {
         var result;
 
-        if (context.head === null) throw new _c.error.NoSuchElementException('List is empty');
+        if (context.head === null) throw new Exceptions.NoSuchElement('List is empty');
         result = callback(context);
         context.length--;
         return result;
     };
-})(_c);
+
+    return LinkedList;
+});

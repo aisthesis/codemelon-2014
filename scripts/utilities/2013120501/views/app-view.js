@@ -1,8 +1,18 @@
-var _c = _c || {};
-
-(function(_c) {
+define([
+    'jquery',
+    'backbone',
+    'underscore',
+    'usr/utils',
+    'scripts/utilities/2013120501/views/radio-group-view'
+], function(
+    $,
+    BbRet,
+    UsRet,
+    Utils,
+    RadioGroupView) {
     "use strict";
-    _c.AppView = Backbone.View.extend({
+
+    var AppView = Backbone.View.extend({
         events: {
             'click #create-btn': 'generatePassword',
             'keyup #length': 'handleLengthChange'
@@ -43,7 +53,7 @@ var _c = _c || {};
 
             this.radioGroupViews = {};
             for(key in this.RADIO_GROUPS) {
-                this.radioGroupViews[key] = new _c.RadioGroupView({
+                this.radioGroupViews[key] = new RadioGroupView({
                     el: '#' + key,
                     groupName: key
                 });
@@ -85,7 +95,7 @@ var _c = _c || {};
             for (i = 0; i < pwdArr.length; i++) {
                 indices.push(i);
             }
-            indicesForRequired = _c.utils.randomlyChoose(indices, required.length);
+            indicesForRequired = Utils.Shuffle.choose(indices, required.length);
             for (i = 0; i < required.length; i++) {
                 pwdArr[indicesForRequired[i]] = this.getRandomCharacter(required[i]);
             }
@@ -159,4 +169,6 @@ var _c = _c || {};
             }, 800);
         }
     });
-})(_c);
+
+    return AppView;
+});
