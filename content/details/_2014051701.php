@@ -1,5 +1,5 @@
 <div class="page-header">
-    <h2>Reorganizing JavaScript to use RequireJS <small><?php echo handle_to_date($_GET['id']); ?></small></h2>
+    <h2>Modifying existing JavaScript for RequireJS <small><?php echo handle_to_date($_GET['id']); ?></small></h2>
 </div>
 
 <p>Starting with a fair number of interdependent JavaScript files that I had been loading in
@@ -96,10 +96,11 @@ require([
 </pre>
 
 <p>Note that I still do have a <code>shim</code> field for Backbone. That's because this code is using backbone-1.1.0,
-which requires this bridge to work properly. This has been updated in the most recent release of backbone, and I'll
-discuss below more about what the problem is as well as some additional consequences.</p>
+which needs this bridge to work properly. This problem has been addressed in the most recent release of backbone. I'll
+discuss below more about what it is and how to deal with it if you're using a library that isn't 
+AMD-aware.</p>
 
-<p>The <code>require()</code> call here says to load the file <code>scripts/app.js</code>, then call the function passed
+<p>The <code>require()</code> call in the above code says to load the file <code>scripts/app.js</code>, then call the function passed
 to <code>require()</code> using as argument whatever it is that the function passed to <code>define()</code> in <code>app.js</code>
 returns. That sounds more complicated than it is. An extremely simple <code>app.js</code> file might look like this:</p>
 
@@ -116,7 +117,7 @@ define(function() {
 </pre>
 
 <p>In that case the value of the <code>App</code> argument in line 20 of <code>main.js</code> is
-an object with a member <code>initialize</code>, as returned by the function passed to <code>define()</code>
+an object with a member <code>initialize</code>, returned as anonymous object by the function passed to <code>define()</code>
 in <code>app.js</code>. Its initialize field has been set there to be the function defined in lines 2-4.</p>
 
 <p>Let's look at a more realistic version of <code>app.js</code>. Here's one I'm actually using:</p>
@@ -139,16 +140,24 @@ define([
 </pre>
 
 <p>Here there is actually only one dependency required to interpret the code in the function passed to
-<code>define()</code>. So, that's the only dependency I need to declare. When this code executes, interpreter has
+<code>define()</code>. So, that's the only dependency I need to declare. When this code executes, the interpreter has
 to know what the object is that the wrapped function in <code>scripts/utilities/views/app-view.js</code>
 returns. That object is what will be called <code>AppView</code> in the scope of this function, and it better
 be a constructor given the code here.</p>
 
-<p>The beauty of this setup (in construct to the whole <code>shim</code> construct is that we only need to
+<p>While <code>define()</code> for module definition and <code>require()</code> for starting
+the execution of your JavaScript look very similar, a very important difference is that the function 
+passed to <code>require()</code> doesn't return a value but simply executes. With <code>define()</code>, however,
+the function passed must actually return the module you have created, which will normally be
+either an object or a function. Both <code>require()</code> and <code>define()</code> specify dependencies
+which will be executed prior to the execution of the function passed as argument, but <code>require()</code>
+can't pass an object to dependent code.</p>
+
+<p>The beauty of this setup, in contrast to the whole <code>shim</code> construct, is that we only need to
 declare immediate dependencies here. In fact, the code in <code>app-view.js</code> is dependent on a number of
 other libraries, some my own, others imported. But those dependencies only need to be declared in <code>app-view.js</code>
-itself. So, one huge advantage of this setup is that you can declare dependencies exactly once, in the file
-where they're used, and then you don't have to compose a comprehensive set of dependencies when you
+itself. So, one huge advantage is that you can declare dependencies exactly once, in the file
+where they're used, and then you don't have to compose a comprehensive set of transitive dependencies when you
 use that file. Each file takes care of its own dependencies.</p>
 
 <p>Here is the relevant portion of <code>app-view.js</code>:</p>
@@ -183,8 +192,9 @@ and another view. And the dependent code will only executed once these dependenc
 This is because my code wasn't working when I used the expected names <code>Backbone</code> and </code>_</code>, and
 the error message I was getting was that the variables were undefined. The reason is that the versions
 I was using didn't provide a return value but instead just created the global variables <code>Backbone</code> and
-</code>_</code>. I was thus shadowing the global variable (the file was executing) with a local variable that
+</code>_</code>. I was thus shadowing the global variable (the file was executing, so the global variable <em>was</em> being created) with a local variable that
 had the value <code>undefined</code>. jQuery, by contrast, is set up to return <code>$</code> if used in conjunction
-with <code>require.js</code> and to define it globally so that it can also be run without <code>require.js</code>. The latest
+with <code>require.js</code> and to define it globally so that it can also be run without <code>require.js</code>. 
+So the jQuery dependency can (and should) be passed to the function with its expected name of <code>$</code>.The latest
 version of Backbone seems to do the same thing, but I haven't tried it out and thought that, before doing so,
-I would share this information for the benefit of others wondering about the same issue.</p>
+I would share this information for the benefit of others who might run into the same issue.</p>
