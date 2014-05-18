@@ -9,16 +9,8 @@
  */
 
 define([
-    'jquery',
-    'underscore',
-    'backbone',
-    'bootstrap',
     'scripts/utilities/2013120501/views/app-view'
 ], function(
-    $,
-    UsRet,
-    BbRet,
-    Bootstrap,
     AppView) {
     var init = function() {
         var appView = new AppView({
