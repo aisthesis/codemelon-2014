@@ -18,7 +18,17 @@
  *    deprecated) is eliminated.
  */
 
-define(function() {
+(function() {
+    "use strict";
+
+    if (typeof define === 'function' && define.amd) {
+        define(factory);
+    } else {
+        window.Extend = factory();
+    }
+})();
+
+function factory() {
     "use strict";
     var Extend = {},
         initializing = false;
@@ -65,4 +75,4 @@ define(function() {
     };
 
     return Extend;
-});
+};

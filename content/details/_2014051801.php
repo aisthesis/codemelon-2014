@@ -86,8 +86,7 @@ function Dolphin() {
 
 Dolphin.prototype = new Mammal();
 </pre>
-<p>Comments</p>
-<h4>Limitations</h4>
-<p><strong>Doesn't allow reference to superclass method.</strong></p>
-<p><strong>Can lead to errors</strong></p>
+
 <h3>Customized inheritance</h3>
+<p>We can resolve all of these difficulties with a custom implementation
+of inheritance.</p>
