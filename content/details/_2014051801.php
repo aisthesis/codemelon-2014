@@ -65,7 +65,7 @@ used functionally and a function intended to be used as a constructor.</p>
 <p>Secondly, there's no syntax for specifying the inheritance hierarchy when you
 declare the constructor for a derived class. You have to make that declaration in
 a separate place (lines 13 and 24 above), and the declaration is itself prone to the
-error of not using the <code>new</code> operator. It's actually kind of counter-intuitive
+error of forgetting the <code>new</code> operator <em>when you create a subclass</em>. It's actually kind of counter-intuitive
 that it is not the class "Mammal" but rather <em>one specific instance</em> of that
 class that is going to be the prototype for the derived class. But if you leave the <code>new</code>
 out, your derived classes won't behave as expected.</p>
@@ -88,5 +88,108 @@ Dolphin.prototype = new Mammal();
 </pre>
 
 <h3>Customized inheritance</h3>
-<p>We can resolve all of these difficulties with a custom implementation
-of inheritance.</p>
+<p>We can resolve these difficulties with a custom implementation
+of inheritance:</p>
+
+<pre class="prettyprint linenums lang-js">
+var Extend = {},
+    initializing = false;
+
+// generic base class
+Extend.Base = function() {};
+
+Extend.Base.extend = function extend(properties) {
+    var _super = this.prototype,
+        proto,
+        name;
+
+    initializing = true;
+    proto = new this();
+    initializing = false;
+
+    // leaving out check for presence of "_super" string
+    for (name in properties) {
+        proto[name] = typeof properties[name] === "function" &&
+            typeof _super[name] === "function" ? (function (name, fn) {
+                var retFn = function () {
+                    var tmp = this._super,
+                        ret;
+
+                    this._super = _super[name];
+                    ret = fn.apply(this, arguments);
+                    this._super = tmp;
+                    return ret;
+                };
+                return retFn;
+            })(name, properties[name]) : properties[name];
+    }
+
+    function Class() {
+        if (!initializing && this.init) {
+            this.init.apply(this, arguments);
+        }
+    }
+
+    Class.prototype = proto;
+    Class.constructor = Class;
+    Class.extend = extend;
+    return Class;
+};
+</pre>
+
+<p>The code is very similar to what John Resig proposes in <a href="http://www.manning.com/resig/"
+target="blank">Secrets of the JavaScript Ninja</a>, pp. 145f., but with 3 improvements:</p>
+<ul>
+    <li>Rather than modifying JavaScript's native <code>Object</code>, 
+    this technique creates a separate <code>Extend</code> object with the desired functionality.</li>
+    <li>Resig's use of <code>arguments.callee</code> is eliminated as this feature is 
+    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions_and_function_scope/arguments/callee"
+    target="blank">deprecated
+    in strict mode</a> in the 5th edition of ECMAScript (ES5).</li>
+    <li>The check for function serialization, which is supported in all modern browsers, is
+    removed. The check is expensive, and, although Resig says function serialization isn't supported universally, I have been
+    unable to find any browser where it <em>isn't</em> supported (IE6 and mobile appear to support this feature). More details 
+    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/toString#Browser_compatibility"
+    target="blank">here</a>.</li>
+</ul>
+
+<p>The above code, wrapped in such a way that it can be run with or without <code>require.js</code>, then allows the following
+inheritance hierarchy:</p>
+
+<pre class="prettyprint linenums lang-js">
+var Animal = Extend.Base.extend({
+    breathe: function() {
+        console.log('Breathing');
+    }
+});
+
+var Mammal = Animal.extend({
+    run: function() {
+        console.log('Running');
+    }
+});
+
+var Dolphin = Mammal.extend({
+    breathe: function() {
+        console.log('Surfacing');
+        this._super();
+    },
+
+    run: function() {
+        console.log("Can't run");
+    }
+});
+
+var flipper = new Dolphin();
+
+flipper.breathe(); // output: Surfacing\ Breathing
+flipper.run();  // output: Can't run
+if (flipper instanceof Dolphin) { console.log('Dolphin'); } // ouput: Dolphin
+if (flipper instanceof Mammal) { console.log('Mammal'); } // ouput: Mammal
+if (flipper instanceof Animal) { console.log('Animal'); } // ouput: Animal
+</pre>
+
+<p>And that's the behavior we're looking for!</p>
+
+<p>The complete <a href="usr/extend.js" target="blank">extend.js</a> code can be used without modification
+and with no dependencies either as a <code>require.js</code> module or as a standalone.</p>

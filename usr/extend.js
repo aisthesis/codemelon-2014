@@ -1,6 +1,6 @@
 /**
  * extend.js
- * Copyright (c) 2013 Marshall Farrier
+ * Copyright (c) 2013-2014 Marshall Farrier
  * http://www.opensource.org/licenses/mit-license.php
  *
  * For background to this script
