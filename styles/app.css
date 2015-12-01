@@ -1,67 +1,7 @@
-body {
-    padding-top: 50px;
+nav + div {
+    padding-top: 64px;
 }
-
-.cm-spacer-large {
-    height: 128px;
-}
-
-.cm-nav {
-    text-shadow: 0 -1px 0 rgba(0,0,0,.15);
-    background-color: dimgray;
-    border-color: #555;
-    box-shadow: 0 1px 0 rgba(255,255,255,.1);
-}
-
-.cm-nav .navbar-brand {
-    color: #fff;
-}
-
-.cm-nav .navbar-nav > li > a {
-    color: darkgray;
-}
-
-.cm-nav .navbar-nav > .active > a,
-.cm-nav .navbar-nav > .active > a:hover {
-    color: #fff;
-    background-color: #555;
-}
-
-.cm-header {
-    padding: 30px 15px 40px;
-    text-shadow: 0 1px 0 rgba(0,0,0,.15);
-    background-color: whitesmoke;
-    color: gray;
-}
-
-.cm-header h1 {
-    color: black;
-}
-
-.cm-sidebar {
-    margin-top: 30px;
-    margin-bottom: 30px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    text-shadow: 0 1px 0 #fff;
-    border-radius: 5px;
-    background-color: gainsboro;
-}
-
-.cm-sidebar-container {
-    padding: 5px 20px;
-}
-
-#cm-article-not-found, 
-#cm-utility-not-found {
-    margin: 40px 0 20px;
-}
-
 code {
     background-color: honeydew;
     color: tomato;
-}
-
-.cm-margin-top-md {
-    margin-top: 16px;
 }

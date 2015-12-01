@@ -7,63 +7,59 @@
     $sectionTitle = 'Blurbs';
     include($templatePath . '_head.php');
     ?>
-    <body>
+    <body role="document">
         <?php
         $navActive = 'Blurbs';
         $navLeftActive = '';
         include($templatePath . '_header.php');
         ?>
 
-        <div class="cm-header">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-1">
-                        <img src="images/melon.png" alt="Melon" width="64" height="64">
-                    </div>
-                    <div class="col-md-11">
-                        <h1>Marshall Farrier's tech blog</h1>
-                    </div>
-                </div>
+        <div class="container theme-showcase" role="main">
+            <div class="jumbotron">
+                <h1>
+                    <img src="images/melon.png" alt="Melon" width="64" height="64">
+                    Marshall Farrier's tech blog
+                </h1>
                 <p class="lead">Commentary, coding tips, libraries and utilities</p>
             </div>
-        </div>
 
-        <div class="container">
-            <div class="page-content">
-                <div class="row">
-                    <div class="col-md-9" role="main">
-                        <div class="cm-feed">
-                            <div class="page-header">
-                                <h1>Blurbs</h1>
-                            </div>
-                           
-                            <?php
-                            $d = dir('content/blurbs');
-                            $path = $d->path;
-                            $articleMain = $root . 'article.php?id=';
-                            $suffix = '.php';
-                            $prefix = '_';
-                            $handles = array();
-                            while($entry = $d->read()) {
-                                if (strpos($entry, $prefix) === 0 && substr($entry, -strlen($suffix)) === $suffix) {
-                                    $handles[] = substr($entry, strlen($prefix), -strlen($suffix));
+            <div class="container">
+                <div class="page-content">
+                    <div class="row">
+                        <div class="col-md-9" role="main">
+                            <div class="cm-feed">
+                                <div class="page-header">
+                                    <h1>Blurbs</h1>
+                                </div>
+                               
+                                <?php
+                                $d = dir('content/blurbs');
+                                $path = $d->path;
+                                $articleMain = $root . 'article.php?id=';
+                                $suffix = '.php';
+                                $prefix = '_';
+                                $handles = array();
+                                while($entry = $d->read()) {
+                                    if (strpos($entry, $prefix) === 0 && substr($entry, -strlen($suffix)) === $suffix) {
+                                        $handles[] = substr($entry, strlen($prefix), -strlen($suffix));
+                                    }
                                 }
-                            }
-                            $d->close();
-                            rsort($handles);
-                            foreach($handles as $handle) {
-                                include('templates/_blurb.php');
-                            }
-                            ?>
+                                $d->close();
+                                rsort($handles);
+                                foreach($handles as $handle) {
+                                    include('templates/_blurb.php');
+                                }
+                                ?>
 
+                            </div>
                         </div>
-                    </div>
 
-                    <?php
-                    include('templates/_sidebar.php');
-                    ?>
+                        <?php
+                        include('templates/_sidebar.php');
+                        ?>
+                    </div>
+                    <div class="row cm-spacer-large">&nbsp;</div>
                 </div>
-                <div class="row cm-spacer-large">&nbsp;</div>
             </div>
         </div>
 

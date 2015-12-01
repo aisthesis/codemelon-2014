@@ -16,28 +16,24 @@
         include($templatePath . '_header.php');
         ?>
 
-        <div class="cm-header">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-1">
-                        <img src="images/melon.png" alt="Melon" width="64" height="64">
-                    </div>
-                    <div class="col-md-11">
-                        <h1><?php echo $mappings[$_GET['id']]['heading']; ?></h1>
-                    </div>
-                </div>
+        <div class="container" role="main">
+            <div class="jumbotron">
+                <h1>
+                    <img src="images/melon.png" alt="Melon" width="64" height="64">
+                    <?php echo $mappings[$_GET['id']]['heading']; ?>
+                </h1>
             </div>
-        </div>
 
-        <div class="container">
-            <div class="page-content">
-                <div class="row">
-                    <div class="col-md-12" role="main">
-                    <?php
-                    echo "<iframe src='{$root}content/documentation/{$_GET['id']}' ";
-                    echo "width='{$mappings[$_GET['id']]['width']}' ";
-                    echo "height='{$mappings[$_GET['id']]['height']}'></iframe>";
-                    ?>
+            <div class="container">
+                <div class="page-content">
+                    <div class="row">
+                        <div class="col-md-12" role="main">
+                        <?php
+                        echo "<iframe src='{$root}content/documentation/{$_GET['id']}' ";
+                        echo "width='{$mappings[$_GET['id']]['width']}' ";
+                        echo "height='{$mappings[$_GET['id']]['height']}'></iframe>";
+                        ?>
+                        </div>
                     </div>
                 </div>
             </div>

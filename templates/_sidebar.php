@@ -1,6 +1,6 @@
 <div class="col-md-3">
     <div class="cm-sidebar">
-        <div class="cm-sidebar-container">
+        <div class="cm-sidebar-container" id="about">
             <img src="images/Marshall2012.jpg" alt="Marshall" class="img-rounded" width="128"
                 height="128">
             <p class="cm-margin-top-md">Contact:<br/>
