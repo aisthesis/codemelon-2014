@@ -50,14 +50,18 @@
     you'll find that most of them don't hold up. They'll probably make
     some money because the market as a whole has advanced,
     so even randomly selecting when to buy and sell  would more often than not turn a profit.
-    But in most cases, your algorithm will translate into a strategy
-    that is inferior to buy and holding the index, because
-    when you sell at some suboptimal exit points, you miss out on market upturns
-    where the buy-and-hold strategist made profits that you missed.</p>
+    But your algorithm will sometimes miss and will
+    in most cases translate into a strategy
+    inferior to buying and holding the index. 
+    When you sell at suboptimal exit points, as you sometimes will, you miss out on market upturns
+    where the buy-and-hold strategist still made a profit.</p>
 
     <p>Survivor bias. Baseline measure. Standard error. Training and test data.</p>
 
     <h3>Visualizations</h3>
+    
+    <img src="images/ge_growth.png" class="img-responsive">
+    <img src="images/tsla_growth.png" class="img-responsive">
 
     <h3>Technology choices</h3>
 </div>
