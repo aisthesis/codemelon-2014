@@ -11,10 +11,11 @@
     growth. After experimenting with a wide variety of metrics commonly used
     in quantitative finance, we have now developed an algorithm that yields
     statistically sound predictions. While I can't share the details
-    of our algorithms, I can describe in general terms what we're doing, share some visualizations 
-    of our results and discuss some of our technology choices.</p>
+    of our algorithms, I can describe what we're doing in general terms, discuss
+    some of our technology choices and share some visualizations 
+    of the results.</p>
 
-    <p>The following chart shows actual adjusted price (blue) compared to predicted 
+    <p>The following chart, for example, shows actual adjusted price (blue) compared to predicted 
     growth (red) for <em>GE</em> over the last 20 years. 
     <img src="images/ge_growth.png" class="img-responsive">
     <em>Adjusted</em> price is provided by <a href="http://finance.yahoo.com" 
@@ -23,27 +24,29 @@
     learning model and is of
     course derived only from data available at the time of the prediction.
     The grey line right around 1.2 in the lower chart represents average growth.
-    So, the algorithm is predicting above average growth whenever the red line
+    So, the model is predicting above average growth whenever the red line
     is above the grey line and below average growth when the red line drops
     below the grey.</p>
 
-    <p>Note that while the algorithm accurately identifies the crash
+    <p>Note that while the model accurately identifies the crash
     of 2009 as a great time to buy, it would have been difficult
-    in real time to recognize the exact best spot. For example, toward the
-    end of 2008, predicted growth spikes briefly to 1.6, which translates
+    in real time to recognize the exact best spot even with knowledge 
+    of these predictions. For example, toward the
+    end of 2008, predicted growth spikes first to around 1.6, which translates
     to a predicted 60% return on investment over the prediction period.
     <em>In real time</em>, with knowledge only of events and metrics
     up to that point, that would seem like a great spot to buy, and
-    it would indeed have been a good one. If you waited
+    it would indeed have been a fairly good one. If you waited
     a little longer, however, until the stock went down another 50% to around $5 in early 2009,
-    you would have done even better. So, while our crystal ball does 
+    you would have done significantly better. So, while our crystal ball does 
     provide some very useful information in this case, it is not obvious how best to make
-    use of these predictions <em>in real time</em> in an optimized investment strategy.<p>
+    use of the predictions <em>in real time</em> in an optimized investment strategy.<p>
 
     <p>Since this is the first publication of results on a project we've
-    been working on for a fair while now, let me back up and provide some context,
-    then, on our project and what some of the considerations are that go into
-    just the prediction component of our project.</p>
+    been working on for a while now, let me back up and provide some context
+    on our project and what some of the considerations are that go into
+    the prediction component before discussing our technology choices
+    and initial results.</p>
 
     <h3>Background</h3>
 
