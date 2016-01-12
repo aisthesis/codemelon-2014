@@ -1,5 +1,5 @@
 <div class="page-header">
-    <h2>Machine learning for predicting stock growth
+    <h2>Predicting stock growth
     <small><?php echo handle_to_date($_GET['id']); ?></small></h2>
 </div>
 <div class="media">
@@ -38,18 +38,18 @@
     we have, however, developed a technique for predicting growth with "a reasonably
     high degree of accuracy." I'll discuss later in statistical terms
     what <em>accuracy</em> in this context means exactly. And, while the details of our algorithm are proprietary,
-    I can also share a few of our results and discuss their significance as well as their limitations.</p>
+    I can also share a few of our results and discuss their significance and their limitations.</p>
     
     <p>To illustrate our results more concretely, let me begin with a chart. I'll try
     over the course of this article to explain more clearly what the chart
-    means and how the data underlying such charts might properly be used.
+    means and how the data underlying such charts can be used.
     <img src="images/ge_growth.png" class="img-responsive">
     We see here <span style="color:blue">actual adjusted price (blue)</span> compared to <span style="color:red">predicted 
     growth (red)</span> for <em>GE</em> over the last 20 years.
     The upper portion of the chart simply plots values
     pulled from <a href="http://finance.yahoo.com" target="_blank">Yahoo! Finance</a>,
     which provides not only historical actual prices but also <em>adjusted closes</em> for equities 
-    traded on the major exchanges. The <em>adjusted closes</em> are re-calibrated to account
+    traded on the major exchanges. The <em>adjusted closes</em> are closing prices that have been re-calibrated to account
     for splits and dividends. Such adjustments are necessary to get an accurate
     picture of true return on investment, whether or not the stock has split and whether or not
     it pays a dividend.</p>
@@ -72,7 +72,8 @@
     is above the grey line and below average growth when the red line drops
     below the grey.</p>
 
-    <p>Note that while the model accurately identifies the crash
+    <p>What immediately jumps out at us on this chart is the spike in predicted growth
+    in early 2009. While the model accurately identifies the crash
     of 2009 as a great time to buy, it would have been difficult
     <em>in real time</em> to recognize the exact best spot even with the help of the
     predictions. At any given point in time, we know only the predictions
@@ -93,12 +94,12 @@
     provides useful information, a lot of work remains for determining how best to make
     use of the predictions <em>in real time</em> in an optimized investment strategy.</p>
 
-    <p>Let's leave it at that for now as an introduction to the problems we've
-    been addressing and the results we've gotten so far. Before going into greater
+    <p>I'll leave it at that for now as an introduction to our work on this problem.
+    Before going into greater
     detail about the sense in which our predictions are accurate and the questions
-    growing out of our current analyses, I'd like to
+    growing out of our analyses up to this point, I'd like to
     back up a bit and discuss some common pitfalls that we are studiously
-    trying to <em>avoid</em>.</p>
+    trying to avoid.</p>
 
     <h3>Optical illusions and the smugness of hindsight</h3>
 
@@ -108,11 +109,11 @@
     accuracy</em> entry points for buying stocks low and exit points for 
     selling high. While I knew right away that the "100%" claim
     was at best an exaggeration, the author's idea sounded plausible,
-    so I wrote some code to calculate and chart the 
+    so I wrote some code to calculate and chart 
     entry and exit points according to this algorithm.
     The charts really did
     seem more often than not to mark sell points that were higher than
-    the buy points. So, I backtested it on a 
+    the buy points. So, I backtested the algorithm on a 
     random selection of stocks from the S&P over a 20 year period.
     While the algorithm generated a profit on a statistically relevant set of data, one would
     have in fact made <em>more</em> money by just investing an equal share in each
@@ -120,23 +121,23 @@
     In other words, buy and hold was superior to the algorithm.</p>
 
     <p>I tell this story mainly to emphasize how hard it is to beat
-    investing in an index. Sure, you can look at some charts, find <em>in hindsight</em>
+    buying and holding an index. Sure, you can look at some charts, find <em>in hindsight</em>
     the best buy and sell points, and then talk yourself into thinking
-    there is a pattern that could have been spotted in advance. This impression
-    is almost invariably an <em>optical illusion</em> leading to the <em>smugness of hindsight</em>.
+    there is a pattern that could have been spotted in advance. But this impression
+    is almost invariably an <em>optical illusion</em> leading to what one might call the <em>smugness of hindsight</em>.
     Once we know what actually happened, our brains can't ignore that knowledge.
     So, when we look at past market data, we can't help but project patterns <em>in hindsight</em>
     onto the charts. That's just how our brains work. We are hardwired to see patterns
     in the world around us, but the patterns we see in stock charts generally prove to be optical
-    illusions because we can't help but project current knowledge onto the past.
+    illusions because we project current knowledge onto the past.
     Machines, on the other hand, don't suffer from the same smugness of hindsight:
     They can be programmed so that they really do (for purposes of backtesting)
     make use only of facts known at the time.
     But if you try to quantify and backtest <em>out of sample</em> (on data you haven't looked at yet)
-    patterns created by humans with the benefit of hindsight,
+    patterns created by <em>humans</em> with the benefit of hindsight,
     you'll find that they almost never hold up. They'll probably still make
     some money because the market as a whole has advanced. So even completely random entry
-    and exit points can be expected to make money more often than not.
+    and exit points can be expected to make money.
     But few algorithms can consistently beat buy and hold.
     When you sell at suboptimal exit points, as you sometimes will, you miss out on market upturns
     where the buy-and-hold strategist still makes a profit.</p>
@@ -154,24 +155,22 @@
     how well a stock is likely to perform in the coming weeks and months. Let's look now
     at how to get a statistically valid measure for the accuracy of such predictions.</p>
 
-    <?php
-    // marker
-    ?>
-
     <h3>Making accurate predictions</h3>
     <p>Stock prices are influenced by many unpredictable factors and
-    are thus subject to significant fluctuations due to noise. 
-    Because we can never predict future prices
-    exactly, we need a measure by which to judge which of several inexact
-    predictions is the most accurate. <a href="https://en.wikipedia.org/wiki/Standard_error"
+    are thus subject to significant unforeseable fluctuations. From a predictive standpoint,
+    such fluctuations are just <em>noise</em>. Because of it, we can never
+    predict future prices exactly. 
+    So, we need a measure by which to judge which of several inexact
+    predictions is the best. <a href="https://en.wikipedia.org/wiki/Standard_error"
     target="_blank">Standard error</a> is the measure we are looking for to
-    quantify predictive accuracy.</p>
-    <p>The <em>standard error</em> of an estimate or prediction is the statistical
-    counterpart to <em>standard deviation</em>. Information on how to calculate it
+    quantify predictive accuracy.
+    The <em>standard error</em> of an estimate or prediction is the statistical
+    counterpart to <em>standard deviation</em>. Information on <a href="https://en.wikipedia.org/wiki/Standard_error"
+    target="_blank">how to calculate it</a>
     is readily available, so I won't go into that here. What standard error means, though,
     can be explained by a simple example: If we say that our predictions have a standard
-    error of <code>0.5</code> relative to known actual values, that means that about 
-    <code>2/3</code> of our estimates will be within <code>0.5</code> of the actual value.</p>
+    error of <code>0.2</code> relative to known actual values, that means that about 
+    <code>2/3</code> of our estimates will be within <code>0.2</code> of the correct value.</p>
     
     <p>The success of a machine learning algorithm is measured, then, by low standard error <em>out
     of sample</em>--i.e., on test data not visited by the algorithm while it was
@@ -182,14 +181,14 @@
     develop a model from past data on some random selection
     of stocks that makes very accurate predictions on <em>those</em> stocks for <em>that</em> time period.
     But its predictions may not be accurate out of sample,
-    on stocks that were not used when developing the model.</p>
+    i.e., for different time periods or on stocks that were not used when developing the model.</p>
 
     <p>Our baseline for predicting growth was the mean, which can
     be shown to be the constant model with the greatest accuracy. In other words,
     our baseline was to take a random selection of equities and simply calculate 
     their average growth over a given forecast interval. The standard error
     of this constant prediction is then the value that needs to be beaten <em>out of sample</em>.
-    Given the noisy fluctuations, this isn't easy to do. As the basis for an investment strategy, 
+    Given the noisy fluctuations, this wasn't easy to do. As the basis for an investment strategy, 
     this baseline prediction will invariably lead to  
     <em>buy and hold</em>. The baseline prediction is in fact impossible to beat if
     it is true that current price alone is the best predictor of future price.
@@ -203,14 +202,24 @@
     indicators to determine which, if any, could lead to models consistently showing lower out-of-sample
     error than the baseline prediction, and we have arrived at features that
     have shown modest but consistent improvements relative to 
-    the baseline. While I can't share what these features are, I can present
-    some charts illustrating what the algorithm predicts in a few sample cases.</p>
+    the baseline. While the features and algorithms used in deriving predictions are proprietary information,
+    I <em>can</em> share the growth predictions that have been made for past data.
+    These predictions are illustrated in charts like the one shown above for GE prices
+    and predicted growth over the last 20 years. Let's take a second look, then, at
+    some charts in light of what we now know about the sense in which the
+    predictions are "accurate" given the data available in real time.</p>
     
-    <h3>Initial results</h3>
-    <p>Let's first look at a detail of the most interesting time frame from the GE chart
-    shown above:</p>
+    <h3>Use and limitations of growth predictions</h3>
+    <p>Let's first zoom in on the most interesting time frame from the 20-year GE chart
+    we have already seen:</p>
     <img src="images/ge_growth_detail.png" class="img-responsive">
-    <p>While it may be difficult or impossible in real time to deduce from the predictions an optimal buy point,
+    <p>Here we are zooming in on the two years before and after the stock price bottomed
+    out in early 2009.
+    <?php
+    // marker
+    ?>
+
+     While it may be difficult or impossible in real time to deduce from the predictions an optimal buy point,
     there is a clear spike in predicted growth which peaks at what is clearly
     the best time to <em>buy</em>. The predictions do not, however, provide comparable clarity
     on when to <em>sell</em>. When the stock is in reality about to drop from a peak of over 30
@@ -239,6 +248,8 @@
     growth might go higher still</em>, if we had invested in May 2013 when the stock was below
     100 and then sold in October when predicted growth falls back to the baseline, we would
     have had a return on investment of around 100% over a period of only 5 months!</p>
+
+    <p>Idea of combing the market for stock with highest growth potential</p>
     <p>An interesting feature of this chart is that predicted growth actually <em>does</em>
     show a well-defined valley from December 2013 until roughly March 2014. The negative
     growth prediction does not, however, reflect what actually happens. In reality, TSLA
