@@ -272,9 +272,9 @@
     strategies we are currently considering simply hold onto
     purchased equities for some fixed period of time (the length of this period being another parameter to
     optimize). In other words, we would buy equity XYZ based on its superior predicted growth
-    at time <code>t</code>. After the fixed holding period, equity XYZ will be sold,
-    and another equity, which at time <code>t + &Delta;</code> shows unusually high predicted
-    growth, will be purchased and held for the prescribed period.</p>
+    at time <code>date</code>. After the fixed holding period <code>days_to_hold</code>, equity XYZ will be sold,
+    and another equity, which at time <code>date + days_to_hold</code> shows unusually high predicted
+    growth, will be purchased and held for the same prescribed period.</p>
 
     <p>No model can
     predict bull and bear cycles with anything approaching 100% accuracy.
