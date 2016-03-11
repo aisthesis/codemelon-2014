@@ -3,40 +3,31 @@
     <small><?php echo handle_to_date($_GET['id']); ?></small></h2>
 </div>
 <div class="media">
-    <?php
-    /*Easy availability of financial data, advances in computational
-    techniques for pattern recognition and optimization, insightful
-    formulas for asset pricing, and the capacity
-    to analyse increasingly large quantities of data have led to a
-    boom in recent decades in the field of computational finance.*/
-    ?>
     <p>Some co-conspirators and I have been applying computational
     techniques such as machine learning and genetic programming to quantitative
-    finance. We're trying to use these techniques to develop "optimal"
-    investment strategies. Investment portfolios are optimized with
-    regard to two metrics: growth and risk. An optimal investment strategy maximizes growth
-    while minimizing risk, but the goals of maximizing growth and minimizing risk often compete.
+    finance. We're trying to use these techniques to develop
+    investment strategies optimized with
+    respect to two metrics: growth and risk. An optimal investment strategy maximizes growth
+    while minimizing risk. But maximizing growth and minimizing risk often conflict.
     A portfolio which maximizes expected growth is often riskier than
-    one with less aggressive growth expectations. Here, however,
-    I <em>won't</em> be concerned with the often conflicting relationship between
-    these two optimization goals but only with one of the two goals. I'll be discussing only the work
-    we've done toward <em>predicting growth</em>. 
+    one with less aggressive growth expectations. Here, I'll be talking
+    only about our work toward accurately predicting <em>growth</em>. 
     While there are well-known techniques for
-    assessing and minimizing risk (volatility of a risky asset), predicting
+    assessing and minimizing risk, predicting
     growth is very much an open problem. It is the main problem we've been
-    working on and the one I'll be discussing here.</p>
+    working on.</p>
 
     <p>Machine learning has been used for pattern recognition 
     with an astonishing degree of success in a wide range of contexts. Fairly simple algorithms
-    yield over 90% accuracy in recognizing hand-written digits, and other algorithms
-    make it possible to classify objects appearing digital images
-    and to identify individuals through facial recognition. 
+    yield over 90% accuracy in reading hand-written digits, and other algorithms
+    make it possible to classify objects appearing in digital images
+    and to identify individuals through facial recognition techniques. 
     But predicting market prices of publicly traded
     equities proves to be somewhat more difficult because price behavior is subject to
     significant unforeseeable fluctuations, or <em>noise</em>. After many failed and some
     partially successful experiments, 
-    we have, however, developed a technique for predicting growth with "a reasonably
-    high degree of accuracy." I'll discuss later in statistical terms
+    we have, however, developed a technique for predicting growth with a reasonably
+    high degree of accuracy. I'll discuss later in statistical terms
     what <em>accuracy</em> in this context means exactly. And, while the details of our algorithm are proprietary,
     I can also share a few of our results and discuss their significance and their limitations.</p>
     
@@ -94,14 +85,16 @@
     <em>In real time</em>, with knowledge only of events and metrics
     up to that point, that would already seem like a great spot to buy, and
     it would in fact have been a pretty good one, as long as you could
-    hold onto your seat through the bottom of the crash. If you waited
+    hold onto your hat through the bottom of the crash. If you waited
     a little longer, however, until the stock went down another 50% to $5 in early 2009,
     you would have done significantly better, as is in fact captured by subsequent predictions
     using data unavailable at the time of the first spike. While our crystal ball
     provides useful information, a lot of work remains for determining how best to make
-    use of the predictions <em>in real time</em> in an optimized investment strategy.</p>
+    use of the predictions <em>in real time</em> in an optimized investment strategy.
+    Yet the model clearly <em>is</em> detecting superior entry points. How
+    can we best use it to make our investments as profitable as possible?</p>
 
-    <p>I'll leave it at that for now as an introduction to our work on this problem.
+    <p>I'll leave this question open for now.
     Before going into greater
     detail about the sense in which our predictions are accurate and the questions
     growing out of our analyses up to this point, I'd like to
@@ -110,14 +103,14 @@
 
     <h3>Optical illusions and the smugness of hindsight</h3>
 
-    <p>I recently watched an online video that claimed to solve the same problem
-    we are addressing: predicting growth. Its author 
+    <p>I recently watched a rather lengthy video promising to solve exactly the problem
+    we are addressing: predicting growth. The speaker
     claimed to have found a hidden technique for predicting <em>with 100%
     accuracy</em> entry points for buying stocks low and exit points for 
     selling high. While I knew right away that the "100%" claim
-    was at best an exaggeration, the author's idea sounded plausible,
+    was at best an exaggeration, the idea sounded plausible,
     so I wrote some code to calculate and chart 
-    entry and exit points according to this algorithm.
+    entry and exit points according to the algorithm that was finally laid out.
     The charts really did
     seem more often than not to mark sell points that were higher than
     the buy points. So, I backtested the algorithm on a 
@@ -254,7 +247,7 @@
     stock price up until early 2013 stays fairly flat. It is re-assuring to see that
     the model, despite the differences between the two companies and between
     the patterns observed in the price charts, is able to identify
-    advantageous entry points in both cases.</p>
+    advantageous entry points for both stocks.</p>
 
     <p>For TSLA, however, the model also (and incorrectly) predicts negative growth in late 2013
     and early 2014. This is while the stock is selling between roughly $130 and $200.
@@ -269,11 +262,11 @@
     When the model has shown high predicted growth in the charts we have examined,
     the stock has consistently outperformed the market. The model doesn't seem
     to help a lot in terms of finding good times to sell, however. So, the
-    strategies we are currently considering simply hold onto
+    strategies we are currently considering simply hold on to
     purchased equities for some fixed period of time (the length of this period being another parameter to
     optimize). In other words, we would buy equity XYZ based on its superior predicted growth
-    at time <code>date</code>. After the fixed holding period <code>days_to_hold</code>, equity XYZ will be sold,
-    and another equity, which at time <code>date + days_to_hold</code> shows unusually high predicted
+    at time <code>t</code>. After the fixed holding period <code>days_to_hold</code>, equity XYZ will be sold,
+    and another equity, which at time <code>t + days_to_hold</code> shows unusually high predicted
     growth, will be purchased and held for the same prescribed period.</p>
 
     <p>No model can
@@ -299,93 +292,6 @@
     to stay ahead of the averages. But no one can know when and to what extent
     subprime mortgages are going to unravel, how Greek debt will be handled or
     how a market crash in China will effect other economies.
-    We should thus avoid putting our money on predictions that claim to be
-    certain and instead work on making predictions <em>more accurate</em>
-    and on developing investment strategies based on sound but fallible
-    predictions.</p>
-
-    <?php
-    // marker
-    /*
-     * Main points:
-     * 1. Difficulty of determining optimal buy point in real time.
-     * 2. Possibility of investing in stock with highest growth.
-     * [3. Additional work to be done to create portfolios with optimal Sharpe ratios]
-     * 4. Problem is how to make an optimal investor using fallible (imperfect) predictions.
-     * 5. Sell point seems unclear
-     *
-     * TSLA:
-     * 1. Sell point indicated but not particularly optimal
-     * 2. Entry point indicated when GE is showing mediocre predicted growth (confirms
-     *    suggested investment strategy)
-     */
-    ?>
-
-    <h3>Old</h3>
-
-    <p>While it may be difficult or impossible in real time to deduce from the predictions an exact optimal buy point,
-    the observed hyperbolic increase in predicted growth leading up to
-    the optimum will surely be of notable utility toward <em>improving</em>
-    buying decisions. 
-    The predictions do not, however, provide a comparable indicator
-    on when to <em>sell</em>. When the stock is in reality about to drop from a peak of over 30
-    the growth prediction is weak but still positive, somewhere around <code>1.1</code>.
-    The algorithm expects the stock to do worse than the baseline at this point in time, but it
-    is wrongly still predicting positive growth. According to the predictions,
-    the stock's value would increase by 10% from, let's say, 30 to 33. Instead
-    it drops from 30 to a low around 5. The predictions still beat the baseline,
-    which constantly predicts a 20% increase in price, but the model
-    doesn't seem willing to go out on a limb in predicting a catastrophic decline.</p>
-    <p>When using these predictions in an investment strategy, one important
-    question will be whether those stocks showing the highest predicted growth in
-    bear markets are in fact fairly resistent to decline or are even among the few stocks that
-    actually show a gain during a financial crisis. In that case, even fairly
-    simple strategies built on the predictions should do quite well.
-    This is the kind of question we're still researching, so for now, I don't
-    yet have an answer.</p>
-
-    <p>The chart of TSLA shows that the model doesn't predict explosive growth only
-    after a sharp decline but also after a flat period. The model isn't catching <em>only</em>
-    the patterns typical of stocks bottoming out as they did in early 2009:</p>
-    <p>Here, too, we see a spike in predicted growth at what would have been
-    an excellent time to buy Tesla Motors, namely in May of 2013. Aside from the
-    difficulty of taking action in real time, <em>without the knowledge of whether predicted
-    growth might go higher still</em>, if we had invested in May 2013 when the stock was below
-    100 and then sold in October when predicted growth falls back to the baseline, we would
-    have had a return on investment of around 100% over a period of only 5 months!</p>
-
-    <p>Idea of combing the market for stock with highest growth potential</p>
-    <p>An interesting feature of this chart is that predicted growth actually <em>does</em>
-    show a well-defined valley from December 2013 until roughly March 2014. The negative
-    growth prediction does not, however, reflect what actually happens. In reality, TSLA
-    still has a good deal of growth left and, while its price fluctuates quite a bit
-    in the ensuing time period, it almost always stays above 200. So, the sell point
-    indicated by the model is certainly sub-optimal.</p>
-
-    <h3>Summary</h3>
-    <p>Let me start with what our model <em>does not</em> do: It doesn't
-    predict bull and bear cycles with anything approaching 100% accuracy. It is
-    a model based on statistics and designed to yield the lowest possible standard
-    error based on metrics known in real time. It can't predict fluctuations due
-    to noise, which is just the aggregate of causally relevant events that could not be foreseen
-    at the time. We required
-    numerous attempts, trying many different metrics, to arrive at a model
-    yielding predictions more accurate out of sample than the baseline of average
-    growth. The charts shown here reflect the output of that model and suggest
-    that these growth predictions can provide very useful input for investment strategies capable of
-    outperforming buy and hold.</p>
-
-    <p>The strength of these investment strategies is that they are
-    based on the knowledge that <em>all financial predictions are fallible</em>.
-    And specific predictions are particularly fallible. The trick is finding
-    investment strategies that limit risk while still providing superior growth
-    expectations. Predictions are fallible because fundamentally <em>unforeseeable</em>
-    factors influence prices. Detailed knowledge of an individual company can allow
-    an investor to stay ahead of the market with regard to that company's stock,
-    just as deep knowledge of global economic developments can make it possible
-    to stay ahead of the averages. But no one can know when and to what extent
-    subprime mortgages are going to unravel, how Greek debt will be handled or
-    how a Chinese stock market crash will effect other economies.
     We should thus avoid putting our money on predictions that claim to be
     certain and instead work on making predictions <em>more accurate</em>
     and on developing investment strategies based on sound but fallible
